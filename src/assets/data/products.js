@@ -1,19 +1,25 @@
 import { Bias, Products } from "../data/globalConstants";
+import RoomStandee1 from "../images/roomStandee/roomStandee1.JPG";
+import RoomStandee2 from "../images/roomStandee/roomStandee2.JPG";
+import RoomStandee3 from "../images/roomStandee/roomStandee3.JPG";
+
+
 
 export const products = [
     {
         "id": 1,
-        "name": "TaeKook Couple Keychain",
-        "category": Products.KEYCHAIN,
-        "price": 299,
+        "name": "Room Standee",
+        "category": Products.STANDEE,
+        "price": 550,
         "currency": "INR",
         "inStock": true,
         "images": [
-            "https://example.com/images/bts-keychain-front.jpg",
-            "https://example.com/images/bts-keychain-back.jpg"
+            RoomStandee1,
+            RoomStandee2,
+            RoomStandee3
         ],
-        "members": [Bias.JUNGKOOK, Bias.V],
-        "description": "High-quality BTS keychain made with durable metal. Perfect for ARMYs!"
+        "members": [Bias.RM, Bias.JIN, Bias.SUGA, Bias.JHOPE, Bias.JIMIN, Bias.V, Bias.JUNGKOOK, Bias.OT7],
+        "description": "Brighten up your space with this beautiful BTS Life Goes On Room Standee 🌸 A perfect keepsake to feel their warmth and love every day 💜"
     },
     {
         "id": 2,

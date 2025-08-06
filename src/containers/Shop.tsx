@@ -374,7 +374,7 @@ const Shop = () => {
                             <div className="product-image"
                                 onClick={() => handleImageClick(item)}
                                 style={{ cursor: "pointer" }}>
-                                PROD IMAGE
+                                <img src={item.images[0]} alt={item.name} />
                             </div>
                             <div className="product-info">
                                 <p className="prod-details title"><b>{item.name}</b></p>
@@ -462,22 +462,29 @@ const Shop = () => {
 
             <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
                 <Modal.Header closeButton>
-                    <Modal.Title>{selectedProduct?.name}</Modal.Title>
+                    <p>
+                        <Modal.Title>{selectedProduct?.name}</Modal.Title>
+                    </p>
+
                 </Modal.Header>
                 <Modal.Body>
                     {selectedProduct && (
-                        <Carousel>
-                            {selectedProduct.images.map((img: string, idx: number) => (
-                                <Carousel.Item key={idx}>
-                                    <img
-                                        className="d-block w-100"
-                                        src={img}
-                                        alt={`${selectedProduct.name} ${idx + 1}`}
-                                        style={{ maxHeight: "500px", objectFit: "contain" }}
-                                    />
-                                </Carousel.Item>
-                            ))}
-                        </Carousel>
+                        <>
+                            <Carousel>
+                                {selectedProduct.images.map((img: string, idx: number) => (
+                                    <Carousel.Item key={idx}>
+                                        <img
+                                            className="d-block w-100"
+                                            src={img}
+                                            alt={`${selectedProduct.name} ${idx + 1}`}
+                                            style={{ maxHeight: "500px", objectFit: "contain" }}
+                                        />
+                                    </Carousel.Item>
+                                ))}
+                            </Carousel>
+                            <p className="fontSize-13px">{selectedProduct?.description}</p>
+                        </>
+
                     )}
                 </Modal.Body>
             </Modal>
