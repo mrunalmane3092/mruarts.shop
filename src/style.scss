@@ -55,6 +55,8 @@ $font-sizes: (
 
     .checkbox-input {
         appearance: none;
+        -webkit-appearance: none;
+        -moz-appearance: none;
         width: 24px;
         height: 24px;
         border: 2px solid #8a4dfc;
@@ -69,13 +71,16 @@ $font-sizes: (
         }
 
         &:checked::after {
-            content: "✔" !important;
-            position: absolute !important;
-            top: -1px !important;
-            left: 4px !important;
-            color: white !important;
-            font-size: 16px !important;
-            font-weight: bold !important;
+            content: "✔";
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            /* keeps it centered */
+            color: white;
+            font-size: 16px;
+            font-weight: bold;
+            line-height: 1;
         }
     }
 
@@ -86,6 +91,7 @@ $font-sizes: (
         cursor: pointer;
     }
 }
+
 
 .modal-footer {
     justify-content: center; // center the button if needed
