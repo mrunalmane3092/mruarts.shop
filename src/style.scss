@@ -76,11 +76,11 @@ $font-sizes: (
             top: 50%;
             left: 50%;
             transform: translate(-50%, -50%);
-            /* keeps it centered */
-            color: white;
+            color: #fff !important;
             font-size: 16px;
             font-weight: bold;
-            line-height: 1;
+            font-family: Arial, sans-serif;
+            /* ensures ✔ is not emoji */
         }
     }
 
