@@ -31,7 +31,7 @@ const Home = () => {
                             <ul className="nav-links list-unstyled">
                                 <li className="navigation-links"><Link to="/shop">Shop <ShoppingBag size={24} color="#4b0082" /></Link></li>
                                 {/* <li className="navigation-links"><Link to="/about">About Us <Info size={24} color="#4b0082" /></Link></li> */}
-                                <li className="navigation-links"><Link to="/shop-guidelines">Shop Guidelines <HeartHandshake size={24} color="#4b0082" /></Link></li>
+                                <li className="navigation-links"><Link to="/shop-guidelines">Guidelines <HeartHandshake size={24} color="#4b0082" /></Link></li>
 
                             </ul>
 

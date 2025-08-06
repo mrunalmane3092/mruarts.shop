@@ -71,16 +71,15 @@ $font-sizes: (
         }
 
         &:checked::after {
-            content: "✔";
+            content: "";
             position: absolute;
             top: 50%;
             left: 50%;
-            transform: translate(-50%, -50%);
-            color: #fff !important;
-            font-size: 16px;
-            font-weight: bold;
-            font-family: Arial, sans-serif;
-            /* ensures ✔ is not emoji */
+            width: 6px;
+            height: 12px;
+            border: solid white;
+            border-width: 0 2px 2px 0;
+            transform: translate(-50%, -60%) rotate(45deg);
         }
     }
 
