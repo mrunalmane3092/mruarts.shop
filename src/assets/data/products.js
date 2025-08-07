@@ -231,7 +231,7 @@ export const products = [
         "id": 3,
         "name": "Taehyung Paris Photocards",
         "category": Products.PHOTOCARD,
-        "price": 199,
+        "price": 120,
         "currency": "INR",
         "inStock": true,
         "images": [
