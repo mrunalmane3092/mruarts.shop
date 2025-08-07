@@ -6,6 +6,7 @@ import { products as shopProducts } from '../assets/data/products';
 import { Modal, Button, Carousel } from 'react-bootstrap';
 import { Bias, Products } from "../assets/data/globalConstants";
 import { X } from 'lucide-react';
+import Footer from "./Footer";
 
 const Shop = () => {
     const [show, setShow] = useState(false);
@@ -313,181 +314,185 @@ const Shop = () => {
 
 
     return (
-        <section className="main-section">
-            <Header />
+        <>
+            <section className="main-section">
+                <Header />
 
-            <div className="filter-section">
-                <div className="button-group">
-                    <select
-                        value={stockFilter}
-                        onChange={(e) => {
-                            setStockFilter(e.target.value as 'all' | 'inStock' | 'outStock');
-                            applyFilters(e.target.value); // re-run filtering when dropdown changes
-                        }}
-                        className="stock-dropdown btn btn-primary"
-                    >
-                        <option value="all">All Products</option>
-                        <option value="inStock">In Stock</option>
-                        <option value="outStock">Out of Stock</option>
-                    </select>
-                    <button onClick={() => handleShow('bias')}>Bias</button>
-                    <button onClick={() => handleShow('products')}>Products</button>
+                <div className="filter-section">
+                    <div className="button-group">
+                        <select
+                            value={stockFilter}
+                            onChange={(e) => {
+                                setStockFilter(e.target.value as 'all' | 'inStock' | 'outStock');
+                                applyFilters(e.target.value); // re-run filtering when dropdown changes
+                            }}
+                            className="stock-dropdown btn btn-primary"
+                        >
+                            <option value="all">All Products</option>
+                            <option value="inStock">In Stock</option>
+                            <option value="outStock">Out of Stock</option>
+                        </select>
+                        <button onClick={() => handleShow('bias')}>Bias</button>
+                        <button onClick={() => handleShow('products')}>Products</button>
+                    </div>
+
+
+                    {(members.data.length > 0 || prodTypes.data.length > 0) && (
+                        <div className="selected-options">
+                            {members.data.length > 0 && (
+                                <div>
+                                    <p className="selectedOption-label">Selected Bias:</p>
+                                    {members.data.map((member: any, index: number) => (
+                                        <span key={index} className="selectedChips">
+                                            {member}
+                                            <X size={18} color="#4b0082" className="selectedChips-close" onClick={() => handleMemberRemove(member)} />
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+
+                            {prodTypes.data.length > 0 && (
+                                <div>
+                                    <p className="selectedOption-label">Selected Type:</p>
+                                    {prodTypes.data.map((prod: any, index: number) => (
+                                        <span key={index} className="selectedChips">
+                                            {prod.replace(/_/g, ' ')}
+                                            <X size={18} color="#4b0082" className="selectedChips-close" onClick={() => handleProdRemove(prod)} />
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
+
+
                 </div>
 
 
-                {(members.data.length > 0 || prodTypes.data.length > 0) && (
-                    <div className="selected-options">
-                        {members.data.length > 0 && (
-                            <div>
-                                <p className="selectedOption-label">Selected Bias:</p>
-                                {members.data.map((member: any, index: number) => (
-                                    <span key={index} className="selectedChips">
-                                        {member}
-                                        <X size={18} color="#4b0082" className="selectedChips-close" onClick={() => handleMemberRemove(member)} />
-                                    </span>
-                                ))}
+                {loader ? <div className="loader">Loading...</div> : <div className="product-grid">
+                    {productData.data.map((item: any, index: number) => {
+                        return (
+                            <div className="product-card" key={item.id || index} onClick={() => handleImageClick(item)}>
+                                <div className="product-image"
+                                    style={{ cursor: "pointer" }}>
+                                    <img src={item.images[0]} alt={item.name} />
+                                </div>
+                                <div className="product-info">
+                                    <p className="prod-details title"><b>{item.name}</b></p>
+                                    <p className="prod-details">
+                                        <span>
+                                            Price: <b>₹{item.price}</b>
+                                            <small style={{ marginLeft: "8px" }}>
+                                                (${(item.price * usdRate).toFixed(2)})
+                                            </small>
+                                        </span>
+                                    </p>
+                                    <p className="prod-details stock-info">({item.inStock ? 'In Stock' : 'Out Of Stock'})</p>
+                                </div>
                             </div>
-                        )}
+                        );
+                    })}
+                </div>}
 
-                        {prodTypes.data.length > 0 && (
-                            <div>
-                                <p className="selectedOption-label">Selected Type:</p>
-                                {prodTypes.data.map((prod: any, index: number) => (
-                                    <span key={index} className="selectedChips">
-                                        {prod.replace(/_/g, ' ')}
-                                        <X size={18} color="#4b0082" className="selectedChips-close" onClick={() => handleProdRemove(prod)} />
-                                    </span>
-                                ))}
-                            </div>
-                        )}
-                    </div>
-                )}
-
-
-            </div>
-
-
-            {loader ? <div className="loader">Loading...</div> : <div className="product-grid">
-                {productData.data.map((item: any, index: number) => {
-                    return (
-                        <div className="product-card" key={item.id || index} onClick={() => handleImageClick(item)}>
-                            <div className="product-image"
-                                style={{ cursor: "pointer" }}>
-                                <img src={item.images[0]} alt={item.name} />
-                            </div>
-                            <div className="product-info">
-                                <p className="prod-details title"><b>{item.name}</b></p>
-                                <p className="prod-details">
-                                    <span>
-                                        Price: <b>₹{item.price}</b>
-                                        <small style={{ marginLeft: "8px" }}>
-                                            (${(item.price * usdRate).toFixed(2)})
-                                        </small>
-                                    </span>
-                                </p>
-                                <p className="prod-details stock-info">({item.inStock ? 'In Stock' : 'Out Of Stock'})</p>
-                            </div>
+                <Modal
+                    show={show}
+                    onHide={handleClose}
+                    dialogClassName="custom-top-modal"
+                    backdrop="static"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title>
+                            {filterState.option === 'bias' ? 'Select Your Bias' : 'Select Product Type'}
+                        </Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <div className="row">
+                            {filterState.option === 'bias' ? (
+                                <>
+                                    {bias.map((item: any, index: number) => {
+                                        const checkboxId = `customCheckbox-${index}`;
+                                        return (
+                                            <div className="col-6 custom-checkbox" key={index}>
+                                                <input
+                                                    type="checkbox"
+                                                    id={checkboxId}
+                                                    className="checkbox-input"
+                                                    onChange={(event) => handleBiasCheckboxChange(event, item.key, item.value)}
+                                                    checked={members.data.includes(item.key)}
+                                                />
+                                                <label htmlFor={checkboxId} className="checkbox-label">
+                                                    {item.value}
+                                                </label>
+                                            </div>
+                                        );
+                                    })}
+                                </>
+                            ) : (
+                                <>
+                                    {productFilters.map((item: any, index: number) => {
+                                        const checkboxId = `customCheckbox-${index}`;
+                                        return (
+                                            <div className="col-6 custom-checkbox" key={index}>
+                                                <input
+                                                    type="checkbox"
+                                                    id={checkboxId}
+                                                    className="checkbox-input"
+                                                    onChange={(event) => handleProdTypesCheckboxChange(event, item.key, item.value)}
+                                                    checked={prodTypes.data.includes(item.key)}
+                                                />
+                                                <label htmlFor={checkboxId} className="checkbox-label">
+                                                    {item.value}
+                                                </label>
+                                            </div>
+                                        );
+                                    })}
+                                </>
+                            )}
                         </div>
-                    );
-                })}
-            </div>}
+                    </Modal.Body>
+                    <Modal.Footer>
+                        <button className="btn btn-primary" onClick={handleClear} disabled={filterState.option === 'bias' ? !members.data.length : !prodTypes.data.length}>
+                            Clear
+                        </button>
+                        <button className="btn btn-primary" onClick={handleApply(filterState.option)}>
+                            Apply
+                        </button>
+                    </Modal.Footer>
+                </Modal>
 
-            <Modal
-                show={show}
-                onHide={handleClose}
-                dialogClassName="custom-top-modal"
-                backdrop="static"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title>
-                        {filterState.option === 'bias' ? 'Select Your Bias' : 'Select Product Type'}
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <div className="row">
-                        {filterState.option === 'bias' ? (
+
+                <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
+                    <Modal.Header closeButton>
+                        <p>
+                            <Modal.Title>{selectedProduct?.name}</Modal.Title>
+                        </p>
+
+                    </Modal.Header>
+                    <Modal.Body>
+                        {selectedProduct && (
                             <>
-                                {bias.map((item: any, index: number) => {
-                                    const checkboxId = `customCheckbox-${index}`;
-                                    return (
-                                        <div className="col-6 custom-checkbox" key={index}>
-                                            <input
-                                                type="checkbox"
-                                                id={checkboxId}
-                                                className="checkbox-input"
-                                                onChange={(event) => handleBiasCheckboxChange(event, item.key, item.value)}
-                                                checked={members.data.includes(item.key)}
+                                <Carousel>
+                                    {selectedProduct.images.map((img: string, idx: number) => (
+                                        <Carousel.Item key={idx}>
+                                            <img
+                                                className="d-block w-100"
+                                                src={img}
+                                                alt={`${selectedProduct.name} ${idx + 1}`}
+                                                style={{ maxHeight: "500px", objectFit: "contain" }}
                                             />
-                                            <label htmlFor={checkboxId} className="checkbox-label">
-                                                {item.value}
-                                            </label>
-                                        </div>
-                                    );
-                                })}
+                                        </Carousel.Item>
+                                    ))}
+                                </Carousel>
+                                <p className="fontSize-13px">{selectedProduct?.description}</p>
                             </>
-                        ) : (
-                            <>
-                                {productFilters.map((item: any, index: number) => {
-                                    const checkboxId = `customCheckbox-${index}`;
-                                    return (
-                                        <div className="col-6 custom-checkbox" key={index}>
-                                            <input
-                                                type="checkbox"
-                                                id={checkboxId}
-                                                className="checkbox-input"
-                                                onChange={(event) => handleProdTypesCheckboxChange(event, item.key, item.value)}
-                                                checked={prodTypes.data.includes(item.key)}
-                                            />
-                                            <label htmlFor={checkboxId} className="checkbox-label">
-                                                {item.value}
-                                            </label>
-                                        </div>
-                                    );
-                                })}
-                            </>
+
                         )}
-                    </div>
-                </Modal.Body>
-                <Modal.Footer>
-                    <button className="btn btn-primary" onClick={handleClear} disabled={filterState.option === 'bias' ? !members.data.length : !prodTypes.data.length}>
-                        Clear
-                    </button>
-                    <button className="btn btn-primary" onClick={handleApply(filterState.option)}>
-                        Apply
-                    </button>
-                </Modal.Footer>
-            </Modal>
+                    </Modal.Body>
+                </Modal>
+            </section>
+            <Footer />
+        </>
 
-
-            <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
-                <Modal.Header closeButton>
-                    <p>
-                        <Modal.Title>{selectedProduct?.name}</Modal.Title>
-                    </p>
-
-                </Modal.Header>
-                <Modal.Body>
-                    {selectedProduct && (
-                        <>
-                            <Carousel>
-                                {selectedProduct.images.map((img: string, idx: number) => (
-                                    <Carousel.Item key={idx}>
-                                        <img
-                                            className="d-block w-100"
-                                            src={img}
-                                            alt={`${selectedProduct.name} ${idx + 1}`}
-                                            style={{ maxHeight: "500px", objectFit: "contain" }}
-                                        />
-                                    </Carousel.Item>
-                                ))}
-                            </Carousel>
-                            <p className="fontSize-13px">{selectedProduct?.description}</p>
-                        </>
-
-                    )}
-                </Modal.Body>
-            </Modal>
-        </section>
     );
 };
 

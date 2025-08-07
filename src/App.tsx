@@ -4,14 +4,14 @@ import Home from './containers/Home';
 import "../src/style.scss";
 import About from './containers/About';
 import RoutePaths from './routes/Routes';
+import ScrollToTop from './containers/ScrollToTop';
 
 function App() {
-  return (
-    <>
-      <RoutePaths />
-    </>
-
-  );
+    return (
+        <ScrollToTop>
+            <RoutePaths />
+        </ScrollToTop>
+    );
 }
 
 export default App;
