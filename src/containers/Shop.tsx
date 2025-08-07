@@ -370,9 +370,8 @@ const Shop = () => {
             {loader ? <div className="loader">Loading...</div> : <div className="product-grid">
                 {productData.data.map((item: any, index: number) => {
                     return (
-                        <div className="product-card" key={item.id || index}>
+                        <div className="product-card" key={item.id || index} onClick={() => handleImageClick(item)}>
                             <div className="product-image"
-                                onClick={() => handleImageClick(item)}
                                 style={{ cursor: "pointer" }}>
                                 <img src={item.images[0]} alt={item.name} />
                             </div>

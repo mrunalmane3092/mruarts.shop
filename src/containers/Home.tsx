@@ -19,7 +19,7 @@ const Home = () => {
                                 src={logo}
                                 alt="Shop Logo"
                                 className="img-fluid"
-                                style={{ width: '15rem' }}
+                                style={{ width: '10rem' }}
                             />
                         </div>
                         <div className="shop-title">mruarts.shop</div>
@@ -27,6 +27,19 @@ const Home = () => {
                             <p className="shop-subTitle">Annyeong ARMY!!</p>
                             <p className="shop-subTitle">I make cute and affordable BTS merches :)</p>
                         </div>
+
+
+                        <div className="infoDiv">
+                            <div className="infoData">
+                                <p className=""><b>900+</b></p>
+                                <p className="">📦 Orders Shipped</p>
+                            </div>
+                            <div className="infoData">
+                                <p className=""><b>100+</b></p>
+                                <p className="">🛍️ Cute Products</p>
+                            </div>
+                        </div>
+
                         <div className="marginTop-50">
                             <ul className="nav-links list-unstyled">
                                 <li className="navigation-links"><Link to="/shop">Shop <ShoppingBag size={24} color="#4b0082" /></Link></li>
