@@ -220,7 +220,7 @@ export const products = [
         "id": 3,
         "name": "Taehyung Paris Photocards",
         "category": "Products.PHOTOCARD",
-        "price": 199,
+        "price": 200,
         "currency": "INR",
         "inStock": true,
         "images": [taeParisPhotos1, taeParisPhotos2, taeParisPhotos3, taeParisPhotos4, taeParisPhotos5, taeParisPhotos6],
@@ -796,7 +796,7 @@ export const products = [
         "currency": "INR",
         "inStock": false,
         "images": [taeKookHawaiiKeychain],
-        "members": [Bias.JIN],
+        "members": [Bias.V, Bias.JUNGKOOK],
         "description": "Take a piece of paradise with you with this TaeKook Hawaii Keychain. A beautiful memento of their memorable trip, perfect for your keys or bag."
     },
     {
