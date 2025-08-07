@@ -948,7 +948,7 @@ export const products = [
         "images": [
             taeKookHawaiiKeychain
         ],
-        "members": [Bias.JIN],
+        "members": [Bias.V, Bias.JUNGKOOK],
         "description": "A must-have collectible for BTS fans – TaeKook Hawaii Keychain is perfect for showing off your bias love in style 💜"
     },
     {
