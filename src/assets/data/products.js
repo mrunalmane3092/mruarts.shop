@@ -197,7 +197,7 @@ export const products = [
     {
         "id": 1,
         "name": "Room Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 550,
         "currency": "INR",
         "inStock": false,
@@ -208,7 +208,7 @@ export const products = [
     {
         "id": 2,
         "name": "Album Frame",
-        "category": "Products.OTHER",
+        "category": Products.OTHER,
         "price": 500,
         "currency": "INR",
         "inStock": false,
@@ -219,7 +219,7 @@ export const products = [
     {
         "id": 3,
         "name": "Taehyung Paris Photocards",
-        "category": "Products.PHOTOCARD",
+        "category": Products.PHOTOCARD,
         "price": 200,
         "currency": "INR",
         "inStock": true,
@@ -230,7 +230,7 @@ export const products = [
     {
         "id": 4,
         "name": "TaeKook Couple Heart Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 320,
         "currency": "INR",
         "inStock": true,
@@ -241,7 +241,7 @@ export const products = [
     {
         "id": 5,
         "name": "Hobi Acorn Charm",
-        "category": "Products.OTHER",
+        "category": Products.OTHER,
         "price": 90,
         "currency": "INR",
         "inStock": true,
@@ -252,7 +252,7 @@ export const products = [
     {
         "id": 6,
         "name": "Mic Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 320,
         "currency": "INR",
         "inStock": false,
@@ -263,7 +263,7 @@ export const products = [
     {
         "id": 7,
         "name": "JK Dance",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -274,7 +274,7 @@ export const products = [
     {
         "id": 8,
         "name": "Tae Dance",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -285,7 +285,7 @@ export const products = [
     {
         "id": 9,
         "name": "Tae Squid Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -296,7 +296,7 @@ export const products = [
     {
         "id": 10,
         "name": "Indigo Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": true,
@@ -307,7 +307,7 @@ export const products = [
     {
         "id": 11,
         "name": "Tae Gentleman",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -318,7 +318,7 @@ export const products = [
     {
         "id": 12,
         "name": "TaeKook Keychain Holder",
-        "category": "Products.OTHER",
+        "category": Products.OTHER,
         "price": 450,
         "currency": "INR",
         "inStock": true,
@@ -329,7 +329,7 @@ export const products = [
     {
         "id": 12,
         "name": "Suga Butt",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -340,7 +340,7 @@ export const products = [
     {
         "id": 13,
         "name": "Hobi Mic Drop",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -351,7 +351,7 @@ export const products = [
     {
         "id": 14,
         "name": "VMinKook AYS Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 350,
         "currency": "INR",
         "inStock": true,
@@ -362,7 +362,7 @@ export const products = [
     {
         "id": 15,
         "name": "Wind Chime Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": true,
@@ -373,7 +373,7 @@ export const products = [
     {
         "id": 16,
         "name": "Monalisa Frame Keychain",
-        "category": "Products.PC_HOLDER",
+        "category": Products.PC_HOLDER,
         "price": 280,
         "currency": "INR",
         "inStock": true,
@@ -384,7 +384,7 @@ export const products = [
     {
         "id": 17,
         "name": "TaeKook Phone Holder",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 460,
         "currency": "INR",
         "inStock": true,
@@ -395,7 +395,7 @@ export const products = [
     {
         "id": 18,
         "name": "7 Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": false,
@@ -406,7 +406,7 @@ export const products = [
     {
         "id": 19,
         "name": "KillintGirl Photocards",
-        "category": "Products.PHOTOCARD",
+        "category": Products.PHOTOCARD,
         "price": 6,
         "currency": "INR",
         "inStock": true,
@@ -417,7 +417,7 @@ export const products = [
     {
         "id": 20,
         "name": "JK Military",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -428,7 +428,7 @@ export const products = [
     {
         "id": 21,
         "name": "JIN Military",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -439,7 +439,7 @@ export const products = [
     {
         "id": 22,
         "name": "V Military",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -450,7 +450,7 @@ export const products = [
     {
         "id": 23,
         "name": "JIMIN Military",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -461,7 +461,7 @@ export const products = [
     {
         "id": 24,
         "name": "JHOPE Military",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -472,7 +472,7 @@ export const products = [
     {
         "id": 25,
         "name": "RM Military",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -483,7 +483,7 @@ export const products = [
     {
         "id": 26,
         "name": "SUGA Military",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -494,7 +494,7 @@ export const products = [
     {
         "id": 27,
         "name": "Tae Winter Bear",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 450,
         "currency": "INR",
         "inStock": false,
@@ -505,7 +505,7 @@ export const products = [
     {
         "id": 28,
         "name": "Mic Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": false,
@@ -516,7 +516,7 @@ export const products = [
     {
         "id": 29,
         "name": "HOTStage Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 420,
         "currency": "INR",
         "inStock": false,
@@ -527,7 +527,7 @@ export const products = [
     {
         "id": 30,
         "name": "Suga 3in1 Stand",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": true,
@@ -538,7 +538,7 @@ export const products = [
     {
         "id": 31,
         "name": "Military Set Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 1200,
         "currency": "INR",
         "inStock": true,
@@ -549,7 +549,7 @@ export const products = [
     {
         "id": 32,
         "name": "Heart Shakers",
-        "category": "Products.OTHER",
+        "category": Products.OTHER,
         "price": 150,
         "currency": "INR",
         "inStock": false,
@@ -560,7 +560,7 @@ export const products = [
     {
         "id": 33,
         "name": "RPWP Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 260,
         "currency": "INR",
         "inStock": true,
@@ -571,7 +571,7 @@ export const products = [
     {
         "id": 34,
         "name": "Tae Type1 Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -582,7 +582,7 @@ export const products = [
     {
         "id": 35,
         "name": "Phone Charm Holder",
-        "category": "Products.OTHER",
+        "category": Products.OTHER,
         "price": 90,
         "currency": "INR",
         "inStock": true,
@@ -593,7 +593,7 @@ export const products = [
     {
         "id": 36,
         "name": "Jimin 3in1 Stand",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": true,
@@ -604,7 +604,7 @@ export const products = [
     {
         "id": 37,
         "name": "Tae 3in1 Stand",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": false,
@@ -615,7 +615,7 @@ export const products = [
     {
         "id": 38,
         "name": "JK 3in1 Stand",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": false,
@@ -626,7 +626,7 @@ export const products = [
     {
         "id": 39,
         "name": "Tae Daddy Pin",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 280,
         "currency": "INR",
         "inStock": true,
@@ -637,7 +637,7 @@ export const products = [
     {
         "id": 40,
         "name": "RUN BTS Boat",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 450,
         "currency": "INR",
         "inStock": false,
@@ -648,7 +648,7 @@ export const products = [
     {
         "id": 41,
         "name": "TaeKook Memories Frame",
-        "category": "Products.OTHER",
+        "category": Products.OTHER,
         "price": 600,
         "currency": "INR",
         "inStock": true,
@@ -659,7 +659,7 @@ export const products = [
     {
         "id": 42,
         "name": "JiKook AYS Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -670,7 +670,7 @@ export const products = [
     {
         "id": 43,
         "name": "Calendar 2025",
-        "category": "Products.OTHER",
+        "category": Products.OTHER,
         "price": 320,
         "currency": "INR",
         "inStock": true,
@@ -681,7 +681,7 @@ export const products = [
     {
         "id": 44,
         "name": "Magic Potion Holder",
-        "category": "Products.PC_HOLDER",
+        "category": Products.PC_HOLDER,
         "price": 420,
         "currency": "INR",
         "inStock": false,
@@ -692,7 +692,7 @@ export const products = [
     {
         "id": 45,
         "name": "Magic Shop Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -703,7 +703,7 @@ export const products = [
     {
         "id": 46,
         "name": "Chibi Heads Accessory",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 320,
         "currency": "INR",
         "inStock": false,
@@ -714,7 +714,7 @@ export const products = [
     {
         "id": 47,
         "name": "Suga Guitar Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": true,
@@ -725,7 +725,7 @@ export const products = [
     {
         "id": 48,
         "name": "Suga Guitar Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": true,
@@ -736,7 +736,7 @@ export const products = [
     {
         "id": 49,
         "name": "Hobi Dior Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -747,7 +747,7 @@ export const products = [
     {
         "id": 50,
         "name": "JiKook AYS Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 350,
         "currency": "INR",
         "inStock": true,
@@ -758,7 +758,7 @@ export const products = [
     {
         "id": 51,
         "name": "TaeKook Hawaii Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 450,
         "currency": "INR",
         "inStock": false,
@@ -769,7 +769,7 @@ export const products = [
     {
         "id": 52,
         "name": "Envy Koo Pin",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": false,
@@ -780,7 +780,7 @@ export const products = [
     {
         "id": 53,
         "name": "Lovely Jin Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 260,
         "currency": "INR",
         "inStock": true,
@@ -791,7 +791,7 @@ export const products = [
     {
         "id": 54,
         "name": "TaeKook Hawaii Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 260,
         "currency": "INR",
         "inStock": false,
@@ -802,7 +802,7 @@ export const products = [
     {
         "id": 55,
         "name": "JK Seven Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -813,7 +813,7 @@ export const products = [
     {
         "id": 56,
         "name": "JITB Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -824,7 +824,7 @@ export const products = [
     {
         "id": 57,
         "name": "Tae Layover Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -835,7 +835,7 @@ export const products = [
     {
         "id": 58,
         "name": "Namjoon Brain Charm",
-        "category": "Products.OTHER",
+        "category": Products.OTHER,
         "price": 80,
         "currency": "INR",
         "inStock": true,
@@ -846,7 +846,7 @@ export const products = [
     {
         "id": 59,
         "name": "Muse Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 350,
         "currency": "INR",
         "inStock": true,
@@ -857,7 +857,7 @@ export const products = [
     {
         "id": 60,
         "name": "Suga Valentino Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
@@ -868,7 +868,7 @@ export const products = [
     {
         "id": 61,
         "name": "JiKook AYS Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 300,
         "currency": "INR",
         "inStock": true,
@@ -879,7 +879,7 @@ export const products = [
     {
         "id": 62,
         "name": "Pin Holder Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -890,7 +890,7 @@ export const products = [
     {
         "id": 63,
         "name": "JiKook BlackSwan Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": true,
@@ -901,7 +901,7 @@ export const products = [
     {
         "id": 64,
         "name": "Namjoon Brain Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 420,
         "currency": "INR",
         "inStock": false,
@@ -912,7 +912,7 @@ export const products = [
     {
         "id": 65,
         "name": "RM Saxophone Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 220,
         "currency": "INR",
         "inStock": false,
@@ -923,7 +923,7 @@ export const products = [
     {
         "id": 66,
         "name": "Tae Broken Holo Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 300,
         "currency": "INR",
         "inStock": false,
@@ -934,7 +934,7 @@ export const products = [
     {
         "id": 67,
         "name": "TaeKook Rotating Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": false,
@@ -945,7 +945,7 @@ export const products = [
     {
         "id": 68,
         "name": "VMin Mini Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 120,
         "currency": "INR",
         "inStock": true,
@@ -956,7 +956,7 @@ export const products = [
     {
         "id": 69,
         "name": "RAP Line Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 300,
         "currency": "INR",
         "inStock": true,
@@ -967,7 +967,7 @@ export const products = [
     {
         "id": 70,
         "name": "JK-BAM Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": false,
@@ -978,7 +978,7 @@ export const products = [
     {
         "id": 71,
         "name": "HOTS Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": true,
@@ -989,7 +989,7 @@ export const products = [
     {
         "id": 72,
         "name": "Tae Friends Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": false,
@@ -1000,7 +1000,7 @@ export const products = [
     {
         "id": 73,
         "name": "Euphoria Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1011,7 +1011,7 @@ export const products = [
     {
         "id": 74,
         "name": "Tae Cartier Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1022,7 +1022,7 @@ export const products = [
     {
         "id": 75,
         "name": "Tae Bazaar Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1033,7 +1033,7 @@ export const products = [
     {
         "id": 76,
         "name": "D-DAY Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": true,
@@ -1044,7 +1044,7 @@ export const products = [
     {
         "id": 77,
         "name": "Face Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": false,
@@ -1055,7 +1055,7 @@ export const products = [
     {
         "id": 78,
         "name": "Indigo Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": false,
@@ -1066,7 +1066,7 @@ export const products = [
     {
         "id": 79,
         "name": "Mini Army Bomb",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": false,
@@ -1077,7 +1077,7 @@ export const products = [
     {
         "id": 80,
         "name": "TaeKook Date Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 450,
         "currency": "INR",
         "inStock": false,
@@ -1088,7 +1088,7 @@ export const products = [
     {
         "id": 81,
         "name": "Suga Tattoo Reveal Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 300,
         "currency": "INR",
         "inStock": true,
@@ -1099,7 +1099,7 @@ export const products = [
     {
         "id": 82,
         "name": "JITB Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": true,
@@ -1110,7 +1110,7 @@ export const products = [
     {
         "id": 83,
         "name": "Golden Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": false,
@@ -1121,7 +1121,7 @@ export const products = [
     {
         "id": 84,
         "name": "Koo In Towel",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 200,
         "currency": "INR",
         "inStock": true,
@@ -1132,7 +1132,7 @@ export const products = [
     {
         "id": 85,
         "name": "Tae WinterBear Pin",
-        "category": "Products.ACRYLIC_PIN",
+        "category": Products.ACRYLIC_PIN,
         "price": 200,
         "currency": "INR",
         "inStock": true,
@@ -1143,7 +1143,7 @@ export const products = [
     {
         "id": 86,
         "name": "TaeKook Holo Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 300,
         "currency": "INR",
         "inStock": false,
@@ -1154,7 +1154,7 @@ export const products = [
     {
         "id": 87,
         "name": "V Celine Pin",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 400,
         "currency": "INR",
         "inStock": true,
@@ -1165,7 +1165,7 @@ export const products = [
     {
         "id": 88,
         "name": "Astronaut Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
         "inStock": false,
@@ -1176,7 +1176,7 @@ export const products = [
     {
         "id": 89,
         "name": "Kookie Pin",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 500,
         "currency": "INR",
         "inStock": false,
@@ -1187,7 +1187,7 @@ export const products = [
     {
         "id": 90,
         "name": "Tae Pin",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 500,
         "currency": "INR",
         "inStock": false,
@@ -1198,7 +1198,7 @@ export const products = [
     {
         "id": 91,
         "name": "Jimine Pin",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 500,
         "currency": "INR",
         "inStock": false,
@@ -1209,7 +1209,7 @@ export const products = [
     {
         "id": 92,
         "name": "Hobi Pin",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 500,
         "currency": "INR",
         "inStock": true,
@@ -1220,7 +1220,7 @@ export const products = [
     {
         "id": 93,
         "name": "Yoongi Pin",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 500,
         "currency": "INR",
         "inStock": true,
@@ -1231,7 +1231,7 @@ export const products = [
     {
         "id": 94,
         "name": "Jinnie Pin",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 500,
         "currency": "INR",
         "inStock": false,
@@ -1242,7 +1242,7 @@ export const products = [
     {
         "id": 95,
         "name": "Joonie Pin",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 500,
         "currency": "INR",
         "inStock": false,
@@ -1253,7 +1253,7 @@ export const products = [
     {
         "id": 96,
         "name": "JK Fofo Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1264,7 +1264,7 @@ export const products = [
     {
         "id": 97,
         "name": "V Fofo Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1275,7 +1275,7 @@ export const products = [
     {
         "id": 98,
         "name": "Jimin Fofo Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -1286,7 +1286,7 @@ export const products = [
     {
         "id": 99,
         "name": "Jhope Fofo Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -1297,7 +1297,7 @@ export const products = [
     {
         "id": 100,
         "name": "Suga Fofo Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1308,7 +1308,7 @@ export const products = [
     {
         "id": 101,
         "name": "Jin Fofo Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
         "inStock": true,
@@ -1319,7 +1319,7 @@ export const products = [
     {
         "id": 102,
         "name": "RM Fofo Standee",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1330,7 +1330,7 @@ export const products = [
     {
         "id": 103,
         "name": "Fofo Standee Set",
-        "category": "Products.STANDEE",
+        "category": Products.STANDEE,
         "price": 1500,
         "currency": "INR",
         "inStock": false,
@@ -1341,7 +1341,7 @@ export const products = [
     {
         "id": 104,
         "name": "Jimin Moon Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1352,7 +1352,7 @@ export const products = [
     {
         "id": 105,
         "name": "Jimin SetMeFree Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1363,7 +1363,7 @@ export const products = [
     {
         "id": 106,
         "name": "Jimin Face Keychain",
-        "category": "Products.KEYCHAIN",
+        "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": false,
@@ -1374,7 +1374,7 @@ export const products = [
     {
         "id": 107,
         "name": "JK CK",
-        "category": "Products.ENAMEL_PIN",
+        "category": Products.ENAMEL_PIN,
         "price": 500,
         "currency": "INR",
         "inStock": true,
