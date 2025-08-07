@@ -483,7 +483,7 @@ const Shop = () => {
                                         </Carousel.Item>
                                     ))}
                                 </Carousel>
-                                <p className="fontSize-13px">{selectedProduct?.description}</p>
+                                <p className="fontSize-13px marginTop-30">{selectedProduct?.description}</p>
                             </>
 
                         )}
