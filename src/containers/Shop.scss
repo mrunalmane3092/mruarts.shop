@@ -167,3 +167,9 @@
 .marginTop-30 {
     margin-top: 30px;
 }
+
+@media (min-width: 768px) {
+    .main-section .product-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}

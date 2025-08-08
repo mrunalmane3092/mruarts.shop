@@ -16,7 +16,7 @@ const ShopGuidlines = () => {
                 <Header />
                 <div className="info-section guideline-info-section">
                     <div className="row">
-                        <div className="col-lg-6 text-center">
+                        <div className="col-lg-12 text-center">
 
                             <div>
                                 <p className="shop-subTitle">Kindly read this before placing your order!!</p>

@@ -14,7 +14,7 @@ const Home = () => {
         <>
             <section className="home-section">
                 <div className="info-section">
-                    <div className="row">
+                    <div className="row justifyCenter">
                         <div className="col-lg-6 text-center">
                             <div>
                                 <img
