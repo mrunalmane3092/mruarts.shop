@@ -29,7 +29,6 @@
 
         .navigation-links {
             margin: 10px 20px;
-            padding: 5px;
             background: linear-gradient(135deg, #ffffff 0%, #f3e8ff 100%);
             border: 2px solid #4b0082;
             border-radius: 10px;
@@ -38,6 +37,9 @@
             a {
                 color: #2e004f;
                 text-decoration: none;
+                width: 100%;
+                display: block;
+                padding: 5px;
             }
 
             &:hover {

@@ -40,26 +40,6 @@ import jinFofo from "../images/products/jinFofo.png";
 import rmFofo from "../images/products/rmFofo.png";
 import fofoStandeeSet from "../images/products/fofoStandeeSet.png";
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 // OTHER
 import albumFrame1 from "../images/products/albumFrame1.jpg";
 import hobiAcronCharmFront from "../images/products/hobiAcronCharmFront.jpg";
@@ -84,8 +64,6 @@ import magicPotion4 from "../images/products/magicPotion4.jpg";
 import magicPotion5 from "../images/products/magicPotion5.jpg";
 import namjoonBrainCharm from "../images/products/namjoonBrainCharm.jpg";
 
-
-
 // PCS
 import taeParisPhotos1 from "../images/products/taeParisPhotos1.jpg";
 import taeParisPhotos2 from "../images/products/taeParisPhotos2.jpg";
@@ -101,7 +79,6 @@ import killinItGirlHobiPic5 from "../images/products/killinItGirlHobiPic5.jpg";
 import killinItGirlHobiPic6 from "../images/products/killinItGirlHobiPic6.jpg";
 import killinItGirlHobiPic7 from "../images/products/killinItGirlHobiPic7.jpg";
 import killinItGirlHobiPic8 from "../images/products/killinItGirlHobiPic8.jpg";
-
 
 // KEYCHAIN
 import taeKookCoupleHeartKeychain from "../images/products/taeKookCoupleHeartKeychain.jpg";
@@ -150,14 +127,6 @@ import jiminMoonKeychain from "../images/products/jiminMoonKeychain.png";
 import jiminSetMeFreeKeychain from "../images/products/jiminSetMeFreeKeychain.png";
 import jiminFaceKeychain from "../images/products/jiminFaceKeychain.png";
 
-
-
-
-
-
-
-
-
 // ACRYLIC PIN
 import jKDanceAcrylicPin from "../images/products/jKDanceAcrylicPin.jpg";
 import taeDanceAcrylicPin from "../images/products/taeDanceAcrylicPin.jpg";
@@ -178,9 +147,6 @@ import taeCartierPin from "../images/products/taeCartierPin.png";
 import taeBazaarPin from "../images/products/taeBazaarPin.png";
 import kooInTowel from "../images/products/kooInTowel.png";
 import taeWinterBearPin from "../images/products/taeWinterBear.png";
-
-
-
 
 // ENAMEL PIN
 import vCelinePin from "../images/products/vCelinePin.png";
