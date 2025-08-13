@@ -1,16 +1,22 @@
-import { use, useEffect, useState } from "react";
+import { use, useEffect, useState, useRef } from "react";
 import "../../src/style.scss";
 import Header from "../components/Header";
 import './Shop.scss';
-import { products as shopProducts } from '../assets/data/products';
+// import { products as shopProducts } from '../assets/data/products';
 import { Modal, Button, Carousel } from 'react-bootstrap';
-import { Bias, Products } from "../assets/data/globalConstants";
+import { Bias, Products } from "../assets/data/globalConstants.js";
+
 import { X } from 'lucide-react';
 import Footer from "./Footer";
+import API from "../apis/api";
+
 
 const Shop = () => {
+    const fetchOnce = useRef(false);
+
+
     const [show, setShow] = useState(false);
-    const [loader, setLoader] = useState(false);
+    const [loader, setLoader] = useState(true);
 
     const [usdRate, setUsdRate] = useState<number>(0.012); // fallback rate
 
@@ -35,7 +41,7 @@ const Shop = () => {
     });
 
     const [productData, setProductData] = useState({
-        data: shopProducts,
+        data: [],
     });
 
     const bias = [
@@ -61,6 +67,32 @@ const Shop = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
+
+
+
+    useEffect(() => {
+        if (fetchOnce.current) return;
+        fetchOnce.current = true;
+
+        API.get('/products')
+            .then((res: any) => {
+                if (res.data.length > 0) {
+                    setProductData((prevState: any) => ({
+                        ...prevState,
+                        data: res.data
+                    }));
+
+                    console.log(res.data)
+                }
+                setLoader(false);
+            })
+            .catch((err: any) => console.error(err));
+    }, []);
+
+    useEffect(() => {
+        console.log(productData.data)
+    }, [productData])
 
 
     const handleBiasCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>, key: string, value: string) => {
@@ -124,7 +156,7 @@ const Shop = () => {
         setSelectedFilter(option === 'bias' ? 'Bias' : 'Products');
 
         setTimeout(() => {
-            let filteredProducts = shopProducts;
+            let filteredProducts = productData.data;
 
             // Apply Bias filter if members selected
             if (members.data.length > 0) {
@@ -164,7 +196,7 @@ const Shop = () => {
             setProductData((prevState: any) => {
                 return {
                     ...prevState,
-                    data: shopProducts
+                    data: productData.data
                 }
             })
             setSelectedFilter('All')
@@ -183,7 +215,7 @@ const Shop = () => {
         }));
 
         // Filter products based on updated members + existing product types
-        const filteredByMembers = shopProducts.filter((product: any) => {
+        const filteredByMembers = productData.data.filter((product: any) => {
             return (
                 updatedMembers.length === 0 ||
                 product.members?.some((m: string) => updatedMembers.includes(m))
@@ -214,7 +246,7 @@ const Shop = () => {
         }));
 
         // Step 1: filter by product types first
-        const filteredByProds = shopProducts.filter((product: any) => {
+        const filteredByProds = productData.data.filter((product: any) => {
             return (
                 updatedProds.length === 0 ||
                 updatedProds.includes(product.category)
@@ -244,7 +276,7 @@ const Shop = () => {
                 filteredProducts = productData.data.filter((product: any) => product.inStock === true);
             } else {
                 // If previously true, show all
-                filteredProducts = shopProducts;
+                filteredProducts = productData.data;
             }
 
             setProductData((prevState: any) => ({
@@ -258,7 +290,7 @@ const Shop = () => {
     }, [stock])
 
     const applyFilters = (option: string) => {
-        let filteredProducts = shopProducts;
+        let filteredProducts = productData.data;
 
         // Apply Bias filter
         if (members.data.length > 0) {

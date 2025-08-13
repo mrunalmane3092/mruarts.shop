@@ -11,7 +11,10 @@
     "@types/node": "^16.18.126",
     "@types/react": "^19.1.8",
     "@types/react-dom": "^19.1.6",
+    "axios": "^1.11.0",
     "bootstrap": "^5.3.6",
+    "cloudinary": "^2.7.0",
+    "dotenv": "^17.2.1",
     "lucide-react": "^0.516.0",
     "react": "^19.1.0",
     "react-bootstrap": "^2.10.10",
@@ -48,5 +51,10 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3"
-  }
+  },
+  "description": "",
+  "main": "cloudinary-images.js",
+  "keywords": [],
+  "author": "",
+  "license": "ISC"
 }

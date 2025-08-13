@@ -1,7 +1,7 @@
 
-import { Bias, Products } from "../data/globalConstants";
+import { Bias, Products } from '../../shared/constants.js';
 
-export const products = [
+const products = [
     {
         "id": 1,
         "name": "Room Standee",
@@ -171,7 +171,7 @@ export const products = [
         "description": "Keep your keys close with this adorable TaeKook Keychain Holder 💜🔐 A perfect duo to hold your heart — and your keys!"
     },
     {
-        "id": 12,
+        "id": 108,
         "name": "Suga Butt",
         "category": Products.ACRYLIC_PIN,
         "price": 250,
@@ -1386,3 +1386,5 @@ export const products = [
         "description": "Celebrate Jungkook's iconic Calvin Klein campaign with this stylish enamel pin. A must-have collectible for fans of his stunning visuals."
     }
 ];
+
+export default products;
