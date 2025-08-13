@@ -1,5 +1,6 @@
 
-import { Bias, Products } from '../../shared/constants.js';
+import constants from '../../shared/constants.js';
+const { Bias, Products } = constants;
 
 const products = [
     {

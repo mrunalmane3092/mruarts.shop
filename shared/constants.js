@@ -1,20 +1,21 @@
-export const Bias = {
-    OT7: "OT7",
-    JHOPE: "J-Hope",
-    RM: "RM",
-    V: "V",
-    JIMIN: "Jimin",
-    JUNGKOOK: "Jungkook",
-    SUGA: "Suga",
-    JIN: "Jin"
+module.exports = {
+    Bias: {
+        RM: 'rm',
+        JIN: 'jin',
+        SUGA: 'suga',
+        JHOPE: 'jhope',
+        JIMIN: 'jimin',
+        V: 'v',
+        JUNGKOOK: 'jungkook',
+        OT7: 'ot7'
+    },
+    Products: {
+        KEYCHAIN: 'keychain',
+        STANDEE: 'standee',
+        ACRYLIC_PIN: 'acrylic_pin',
+        ENAMEL_PIN: 'enamel_pin',
+        PHOTOCARD: 'photocard',
+        PC_HOLDER: 'pc_holder',
+        OTHER: 'other'
+    }
 };
-
-export class Products {
-    static KEYCHAIN = 'keychain';
-    static STANDEE = 'standee';
-    static ACRYLIC_PIN = 'acrylic_pin';
-    static ENAMEL_PIN = 'enamel_pin';
-    static PHOTOCARD = 'photocard';
-    static PC_HOLDER = 'pc_holder';
-    static OTHER = 'other';
-}

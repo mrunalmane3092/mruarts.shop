@@ -2,7 +2,7 @@ import { use, useEffect, useState, useRef } from "react";
 import "../../src/style.scss";
 import Header from "../components/Header";
 import './Shop.scss';
-// import { products as shopProducts } from '../assets/data/products';
+import { products as shopProducts } from '../assets/data/products';
 import { Modal, Button, Carousel } from 'react-bootstrap';
 import { Bias, Products } from "../assets/data/globalConstants.js";
 
@@ -13,6 +13,7 @@ import API from "../apis/api";
 
 const Shop = () => {
     const fetchOnce = useRef(false);
+
 
 
     const [show, setShow] = useState(false);
@@ -41,7 +42,7 @@ const Shop = () => {
     });
 
     const [productData, setProductData] = useState({
-        data: [],
+        data: shopProducts,
     });
 
     const bias = [
@@ -71,24 +72,25 @@ const Shop = () => {
 
 
 
-    useEffect(() => {
-        if (fetchOnce.current) return;
-        fetchOnce.current = true;
+    // useEffect(() => {
+    //     if (fetchOnce.current) return;
+    //     fetchOnce.current = true;
 
-        API.get('/products')
-            .then((res: any) => {
-                if (res.data.length > 0) {
-                    setProductData((prevState: any) => ({
-                        ...prevState,
-                        data: res.data
-                    }));
+    //     API.get('/products')
+    //         .then((res: any) => {
+    //             if (res.data.length > 0) {
+    //                 console.log(1);
+    //                 setProductData((prevState: any) => ({
+    //                     ...prevState,
+    //                     data: res.data
+    //                 }));
 
-                    console.log(res.data)
-                }
-                setLoader(false);
-            })
-            .catch((err: any) => console.error(err));
-    }, []);
+    //                 console.log(res.data)
+    //             }
+    //             setLoader(false);
+    //         })
+    //         .catch((err: any) => console.error(err));
+    // }, []);
 
     useEffect(() => {
         console.log(productData.data)
@@ -178,6 +180,8 @@ const Shop = () => {
             setStockFilter('all');
 
             // Update state
+            console.log(2);
+
             setProductData((prevState: any) => ({
                 ...prevState,
                 data: filteredProducts
@@ -193,6 +197,8 @@ const Shop = () => {
     const filterAllProducts = () => {
         setLoader(true);
         setTimeout(() => {
+            console.log(3);
+
             setProductData((prevState: any) => {
                 return {
                     ...prevState,
@@ -231,6 +237,8 @@ const Shop = () => {
         });
 
         // Update product data
+        console.log(4);
+
         setProductData((prevState: any) => ({
             ...prevState,
             data: filteredProducts
@@ -262,6 +270,8 @@ const Shop = () => {
         });
 
 
+        console.log(5);
+
         setProductData((prevState: any) => ({
             ...prevState,
             data: filteredProducts
@@ -269,25 +279,29 @@ const Shop = () => {
     }
 
     useEffect(() => {
-        setTimeout(() => {
-            let filteredProducts: any = [];
-            if (stock.inStock) {
-                // If previously false, now show only in-stock
-                filteredProducts = productData.data.filter((product: any) => product.inStock === true);
-            } else {
-                // If previously true, show all
-                filteredProducts = productData.data;
-            }
+        if (!fetchOnce.current) {
+            setTimeout(() => {
+                let filteredProducts: any = [];
+                if (stock.inStock) {
+                    // If previously false, now show only in-stock
+                    filteredProducts = productData.data.filter((product: any) => product.inStock === true);
+                } else {
+                    // If previously true, show all
+                    filteredProducts = productData.data;
+                }
 
-            setProductData((prevState: any) => ({
-                ...prevState,
-                data: filteredProducts
-            }));
+                console.log(6);
 
-            setSelectedFilter('In Stock');
-            setLoader(false);
-        }, 500);
-    }, [stock])
+                setProductData((prevState: any) => ({
+                    ...prevState,
+                    data: filteredProducts
+                }));
+
+                setSelectedFilter('In Stock');
+                setLoader(false);
+            }, 500);
+        }
+    }, [stock]);
 
     const applyFilters = (option: string) => {
         let filteredProducts = productData.data;
@@ -314,6 +328,9 @@ const Shop = () => {
         } else if (option === 'outStock') {
             filteredProducts = filteredProducts.filter((product: any) => product.inStock === false);
         }
+
+        console.log(7);
+
         setProductData({ data: filteredProducts });
     };
 
