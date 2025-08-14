@@ -1,8 +1,10 @@
 import { use, useEffect, useState, useRef } from "react";
 import "../../src/style.scss";
 import Header from "../components/Header";
+import Loader from "../containers/Loader";
+
 import './Shop.scss';
-import { products as shopProducts } from '../assets/data/products';
+// import { products as shopProducts } from '../assets/data/products';
 import { Modal, Button, Carousel } from 'react-bootstrap';
 import { Bias, Products } from "../assets/data/globalConstants.js";
 
@@ -14,9 +16,8 @@ import API from "../apis/api";
 const Shop = () => {
     const fetchOnce = useRef(false);
 
-
-
     const [show, setShow] = useState(false);
+
     const [loader, setLoader] = useState(true);
 
     const [usdRate, setUsdRate] = useState<number>(0.012); // fallback rate
@@ -27,12 +28,6 @@ const Shop = () => {
 
     const [stockFilter, setStockFilter] = useState<'all' | 'inStock' | 'outStock'>('all');
 
-    const [selectedFilter, setSelectedFilter] = useState('All');
-
-    const [stock, setStock] = useState({
-        inStock: false,
-    });
-
     const [members, setMembers] = useState<{ data: string[] }>({
         data: [],
     });
@@ -42,7 +37,7 @@ const Shop = () => {
     });
 
     const [productData, setProductData] = useState({
-        data: shopProducts,
+        data: [],
     });
 
     const bias = [
@@ -69,32 +64,22 @@ const Shop = () => {
     const [showModal, setShowModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState<any>(null);
 
-
-
-
-    // useEffect(() => {
-    //     if (fetchOnce.current) return;
-    //     fetchOnce.current = true;
-
-    //     API.get('/products')
-    //         .then((res: any) => {
-    //             if (res.data.length > 0) {
-    //                 console.log(1);
-    //                 setProductData((prevState: any) => ({
-    //                     ...prevState,
-    //                     data: res.data
-    //                 }));
-
-    //                 console.log(res.data)
-    //             }
-    //             setLoader(false);
-    //         })
-    //         .catch((err: any) => console.error(err));
-    // }, []);
-
     useEffect(() => {
-        console.log(productData.data)
-    }, [productData])
+        if (fetchOnce.current) return;
+        fetchOnce.current = true;
+
+        API.get('/products')
+            .then((res: any) => {
+                if (res.data.length > 0) {
+                    setProductData((prevState: any) => ({
+                        ...prevState,
+                        data: res.data
+                    }));
+                }
+                setLoader(false);
+            })
+            .catch((err: any) => console.error(err));
+    }, []);
 
 
     const handleBiasCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>, key: string, value: string) => {
@@ -136,13 +121,11 @@ const Shop = () => {
     const handleClose = () => setShow(false);
     const handleShow = (option: string) => {
         setShow(true);
-
         setFilterState((prevState: any) => ({
             ...prevState,
             data: option === 'bias' ? bias : productFilters,
             option: option
         }));
-
     };
 
     const handleClear = () => {
@@ -154,63 +137,9 @@ const Shop = () => {
     }
 
     const handleApply = (option: string) => () => {
-        setLoader(true);
-        setSelectedFilter(option === 'bias' ? 'Bias' : 'Products');
-
-        setTimeout(() => {
-            let filteredProducts = productData.data;
-
-            // Apply Bias filter if members selected
-            if (members.data.length > 0) {
-                filteredProducts = filteredProducts.filter((product: any) =>
-                    product.members?.some((member: string) =>
-                        members.data.includes(member)
-                    )
-                );
-            }
-
-            // Apply Product Type filter if product types selected
-            if (prodTypes.data.length > 0) {
-                filteredProducts = filteredProducts.filter((product: any) =>
-                    prodTypes.data.includes(product.category)
-                );
-            }
-
-            // Apply Stock filter if needed
-            setStockFilter('all');
-
-            // Update state
-            console.log(2);
-
-            setProductData((prevState: any) => ({
-                ...prevState,
-                data: filteredProducts
-            }));
-
-            setLoader(false);
-            handleClose();
-        }, 500);
-
+        fetchProduct();
+        handleClose();
     };
-
-
-    const filterAllProducts = () => {
-        setLoader(true);
-        setTimeout(() => {
-            console.log(3);
-
-            setProductData((prevState: any) => {
-                return {
-                    ...prevState,
-                    data: productData.data
-                }
-            })
-            setSelectedFilter('All')
-            setLoader(false);
-        }, 500);
-    }
-
-
 
     const handleMemberRemove = (member: string) => {
         // Update members state
@@ -220,29 +149,8 @@ const Shop = () => {
             data: updatedMembers
         }));
 
-        // Filter products based on updated members + existing product types
-        const filteredByMembers = productData.data.filter((product: any) => {
-            return (
-                updatedMembers.length === 0 ||
-                product.members?.some((m: string) => updatedMembers.includes(m))
-            );
-        });
-
-        // Step 2: filter the already filtered list by product types
-        const filteredProducts = filteredByMembers.filter((product: any) => {
-            return (
-                prodTypes.data.length === 0 ||
-                prodTypes.data.includes(product.category)
-            );
-        });
-
-        // Update product data
-        console.log(4);
-
-        setProductData((prevState: any) => ({
-            ...prevState,
-            data: filteredProducts
-        }));
+        fetchProduct(prodTypes.data, updatedMembers, stockFilter);
+        handleClose();
     };
 
     const handleProdRemove = (prod: string) => {
@@ -253,87 +161,14 @@ const Shop = () => {
             data: updatedProds
         }));
 
-        // Step 1: filter by product types first
-        const filteredByProds = productData.data.filter((product: any) => {
-            return (
-                updatedProds.length === 0 ||
-                updatedProds.includes(product.category)
-            );
-        });
-
-        // Step 2: filter the already filtered list by members
-        const filteredProducts = filteredByProds.filter((product: any) => {
-            return (
-                members.data.length === 0 ||
-                product.members?.some((m: string) => members.data.includes(m))
-            );
-        });
-
-
-        console.log(5);
-
-        setProductData((prevState: any) => ({
-            ...prevState,
-            data: filteredProducts
-        }));
+        fetchProduct(updatedProds, members.data, stockFilter);
+        handleClose();
     }
 
-    useEffect(() => {
-        if (!fetchOnce.current) {
-            setTimeout(() => {
-                let filteredProducts: any = [];
-                if (stock.inStock) {
-                    // If previously false, now show only in-stock
-                    filteredProducts = productData.data.filter((product: any) => product.inStock === true);
-                } else {
-                    // If previously true, show all
-                    filteredProducts = productData.data;
-                }
-
-                console.log(6);
-
-                setProductData((prevState: any) => ({
-                    ...prevState,
-                    data: filteredProducts
-                }));
-
-                setSelectedFilter('In Stock');
-                setLoader(false);
-            }, 500);
-        }
-    }, [stock]);
-
     const applyFilters = (option: string) => {
-        let filteredProducts = productData.data;
-
-        // Apply Bias filter
-        if (members.data.length > 0) {
-            filteredProducts = filteredProducts.filter((product: any) =>
-                product.members?.some((member: string) =>
-                    members.data.includes(member)
-                )
-            );
-        }
-
-        // Apply Product Type filter
-        if (prodTypes.data.length > 0) {
-            filteredProducts = filteredProducts.filter((product: any) =>
-                prodTypes.data.includes(product.category)
-            );
-        }
-
-        // Apply Stock filter from dropdown
-        if (option === 'inStock') {
-            filteredProducts = filteredProducts.filter((product: any) => product.inStock === true);
-        } else if (option === 'outStock') {
-            filteredProducts = filteredProducts.filter((product: any) => product.inStock === false);
-        }
-
-        console.log(7);
-
-        setProductData({ data: filteredProducts });
+        fetchProduct(prodTypes.data, members.data, option);
+        handleClose();
     };
-
 
     useEffect(() => {
         const fetchRate = async () => {
@@ -347,7 +182,6 @@ const Shop = () => {
                 console.error("Error fetching exchange rate:", error);
             }
         };
-
         fetchRate();
     }, []);
 
@@ -361,12 +195,34 @@ const Shop = () => {
         setSelectedProduct(null);
     };
 
+    // Centralized fetch function
+    const fetchProduct = (categories: string[] = prodTypes.data, biases: string[] = members.data, stock: string = stockFilter) => {
+        setLoader(true);
+        const selectedCategories = categories;
+        const selectedBiases = biases;
+        const selectedStock = stock;
+
+        const params: any = {
+            category: selectedCategories.join(','),
+            bias: selectedBiases.join(','),
+            stock: selectedStock
+        };
+
+        API.get('/product', { params })
+            .then((res) => {
+                setProductData({ data: res.data });
+                setLoader(false);
+            })
+            .catch((err) => {
+                console.error('Error fetching products', err);
+                setLoader(false);
+            });
+    };
 
     return (
         <>
             <section className="main-section">
                 <Header />
-
                 <div className="filter-section">
                     <div className="button-group">
                         <select
@@ -384,7 +240,6 @@ const Shop = () => {
                         <button onClick={() => handleShow('bias')}>Bias</button>
                         <button onClick={() => handleShow('products')}>Products</button>
                     </div>
-
 
                     {(members.data.length > 0 || prodTypes.data.length > 0) && (
                         <div className="selected-options">
@@ -413,35 +268,34 @@ const Shop = () => {
                             )}
                         </div>
                     )}
-
-
                 </div>
 
-
-                {loader ? <div className="loader">Loading...</div> : <div className="product-grid">
-                    {productData.data.map((item: any, index: number) => {
-                        return (
-                            <div className="product-card" key={item.id || index} onClick={() => handleImageClick(item)}>
-                                <div className="product-image"
-                                    style={{ cursor: "pointer" }}>
-                                    <img src={item.images[0]} alt={item.name} />
+                {loader ?
+                    <Loader></Loader>
+                    : <div className="product-grid">
+                        {productData.data.map((item: any, index: number) => {
+                            return (
+                                <div className="product-card" key={item.id || index} onClick={() => handleImageClick(item)}>
+                                    <div className="product-image"
+                                        style={{ cursor: "pointer" }}>
+                                        <img src={item.images[0]} alt={item.name} />
+                                    </div>
+                                    <div className="product-info">
+                                        <p className="prod-details title"><b>{item.name}</b></p>
+                                        <p className="prod-details">
+                                            <span>
+                                                Price: <b>₹{item.price}</b>
+                                                <small style={{ marginLeft: "8px" }}>
+                                                    (${(item.price * usdRate).toFixed(2)})
+                                                </small>
+                                            </span>
+                                        </p>
+                                        <p className="prod-details stock-info">({item.inStock ? 'In Stock' : 'Out Of Stock'})</p>
+                                    </div>
                                 </div>
-                                <div className="product-info">
-                                    <p className="prod-details title"><b>{item.name}</b></p>
-                                    <p className="prod-details">
-                                        <span>
-                                            Price: <b>₹{item.price}</b>
-                                            <small style={{ marginLeft: "8px" }}>
-                                                (${(item.price * usdRate).toFixed(2)})
-                                            </small>
-                                        </span>
-                                    </p>
-                                    <p className="prod-details stock-info">({item.inStock ? 'In Stock' : 'Out Of Stock'})</p>
-                                </div>
-                            </div>
-                        );
-                    })}
-                </div>}
+                            );
+                        })}
+                    </div>}
 
                 <Modal
                     show={show}
@@ -509,7 +363,6 @@ const Shop = () => {
                     </Modal.Footer>
                 </Modal>
 
-
                 <Modal show={showModal} onHide={handleCloseModal} size="lg" centered>
                     <Modal.Header closeButton>
                         <p>
@@ -534,14 +387,12 @@ const Shop = () => {
                                 </Carousel>
                                 <p className="fontSize-13px marginTop-30">{selectedProduct?.description}</p>
                             </>
-
                         )}
                     </Modal.Body>
                 </Modal>
             </section>
             <Footer />
         </>
-
     );
 };
 

@@ -2,7 +2,9 @@ import express from 'express';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
 import cors from 'cors';
-import productRoutes from './api/getProducts.js';
+import getProducts from './api/getProducts.js';
+import getProduct from './api/getProduct.js';
+
 
 
 dotenv.config();
@@ -19,7 +21,9 @@ app.use(cors({
 app.use(express.json()); // parse JSON bodies
 
 // Routes
-app.use('/api/products', productRoutes);
+app.use('/api/products', getProducts);
+app.use('/api/product', getProduct);
+
 
 // Connect to MongoDB and start server
 mongoose.connect(process.env.MONGODB_URI, {
