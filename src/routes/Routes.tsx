@@ -15,7 +15,6 @@ const RoutePaths = () => {
             <Route path="/about" element={<About />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/guidelines" element={<ShopGuidlines />} />
-            <Route path="/cart" element={<Cart />} />
             <Route
                 path="/checkout"
                 element={<Checkout />}

@@ -5,11 +5,14 @@ import "../src/style.scss";
 import About from './containers/About';
 import RoutePaths from './routes/Routes';
 import ScrollToTop from './containers/ScrollToTop';
+import { CartProvider } from './context/CartContext';
 
 function App() {
     return (
         <ScrollToTop>
-            <RoutePaths />
+            <CartProvider>
+                <RoutePaths />
+            </CartProvider>
         </ScrollToTop>
     );
 }

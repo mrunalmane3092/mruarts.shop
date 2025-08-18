@@ -39,20 +39,24 @@ const Cart = (props: any) => {
     );
 
     // callback for coupon
-    const handleCoupon = (discountValue: number, applied: boolean) => {
-        setDiscount(discountValue);
-    };
+
 
     const total = subtotal - discount;
 
+    // callback for coupon
+    const handleCoupon = (discountValue: number, applied: boolean) => {
+        setDiscount(discountValue);
+        setCouponApplied(applied); // ✅ keep track of coupon status
+    };
 
     const handleCheckout = () => {
         navigate("/checkout", {
             state: {
                 cartItems: cartData.data,
                 subtotal,
-                discount: discount,
-                total
+                discount,
+                total,
+                couponApplied // ✅ pass to checkout
             }
         });
     };
