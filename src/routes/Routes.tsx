@@ -5,6 +5,8 @@ import Home from '../containers/Home';
 import About from '../containers/About';
 import Shop from '../containers/Shop';
 import ShopGuidlines from '../containers/ShopGuidelines';
+import Checkout from '../containers/Checkout';
+import Cart from '../containers/Cart';
 
 const RoutePaths = () => {
     return (
@@ -12,7 +14,13 @@ const RoutePaths = () => {
             <Route path="/" element={<Home />} />
             <Route path="/about" element={<About />} />
             <Route path="/shop" element={<Shop />} />
-            <Route path="/shop-guidelines" element={<ShopGuidlines />} />
+            <Route path="/guidelines" element={<ShopGuidlines />} />
+            <Route path="/cart" element={<Cart />} />
+            <Route
+                path="/checkout"
+                element={<Checkout />}
+            />
+
             <Route path="*" element={<Navigate to="/" replace />} />
         </Routes>
     );

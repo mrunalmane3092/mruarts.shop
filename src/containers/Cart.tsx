@@ -6,14 +6,12 @@ import { useNavigate } from "react-router-dom";
 import Coupon from "./Coupon";
 
 const Cart = (props: any) => {
+
+    const navigate = useNavigate();
     const [cartData, setCartData] = useState({
         dataFetched: false,
         data: [] as any[],
     });
-
-
-
-
 
     const [couponApplied, setCouponApplied] = useState(false);
 
@@ -46,6 +44,20 @@ const Cart = (props: any) => {
     };
 
     const total = subtotal - discount;
+
+
+    const handleCheckout = () => {
+        navigate("/checkout", {
+            state: {
+                cartItems: cartData.data,
+                subtotal,
+                discount: discount,
+                total
+            }
+        });
+    };
+
+
 
     return (
         <div className="cart-drawer">
@@ -139,7 +151,7 @@ const Cart = (props: any) => {
                         <strong>₹{total.toFixed(0)}</strong>
                     </div>
 
-                    <button className="btn-checkout">Proceed to Checkout</button>
+                    <button className="btn-checkout" onClick={handleCheckout}>Proceed to Checkout</button>
                 </div>
             )}
         </div>

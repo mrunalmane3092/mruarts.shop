@@ -1,0 +1,84 @@
+.checkout-container {
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background: #fff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.order-summary {
+    padding: 15px;
+    border: 1px solid #eee;
+    border-radius: 10px;
+    margin-bottom: 20px;
+    background: #faf5ff;
+
+    h2 {
+        margin-bottom: 12px;
+        color: #4b0082;
+    }
+
+    .summary-item {
+        display: flex;
+        justify-content: space-between;
+        margin: 6px 0;
+        font-size: 15px;
+    }
+
+    .discount {
+        color: green;
+    }
+
+    .total {
+        border-top: 1px solid #ddd;
+        padding-top: 8px;
+        font-size: 17px;
+        font-weight: bold;
+    }
+}
+
+.checkout-form {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    h2 {
+        margin-bottom: 10px;
+        color: #4b0082;
+    }
+
+    input {
+        padding: 10px;
+        border: 1px solid #ddd;
+        border-radius: 6px;
+        font-size: 14px;
+
+        &:focus {
+            border-color: #4b0082;
+            outline: none;
+        }
+    }
+
+    .btn-pay {
+        margin-top: 10px;
+        padding: 12px;
+        background: #4b0082;
+        color: #fff;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        font-size: 16px;
+        cursor: pointer;
+        transition: 0.2s;
+
+        &:hover:enabled {
+            background: #360060;
+        }
+
+        &:disabled {
+            background: #aaa;
+            cursor: not-allowed;
+        }
+    }
+}
