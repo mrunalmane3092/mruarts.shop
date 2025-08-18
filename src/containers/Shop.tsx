@@ -96,6 +96,30 @@ const Shop = () => {
         handleClose();
     };
 
+    const handleMemberRemove = (member: string) => {
+        // Update members state
+        const updatedMembers = members.data.filter((item: string) => item !== member);
+        setMembers((prevState: any) => ({
+            ...prevState,
+            data: updatedMembers
+        }));
+
+        fetchProduct(prodTypes.data, updatedMembers, stockFilter);
+        handleClose();
+    };
+
+    const handleProdRemove = (prod: string) => {
+        // Update productTypes state
+        const updatedProds = prodTypes.data.filter((item: string) => item !== prod);
+        setProdTypes((prevState: any) => ({
+            ...prevState,
+            data: updatedProds
+        }));
+
+        fetchProduct(updatedProds, members.data, stockFilter);
+        handleClose();
+    }
+
     const applyFilters = (option: string) => {
         fetchProduct(prodTypes.data, members.data, option);
         handleClose();
@@ -192,6 +216,35 @@ const Shop = () => {
                         <button onClick={() => handleShow("bias")}>Bias</button>
                         <button onClick={() => handleShow("products")}>Products</button>
                     </div>
+
+                    {(members.data.length > 0 || prodTypes.data.length > 0) && (
+                        <div className="selected-options">
+                            {members.data.length > 0 && (
+                                <div>
+                                    <p className="selectedOption-label">Selected Bias:</p>
+                                    {members.data.map((member: any, index: number) => (
+                                        <span key={index} className="selectedChips">
+                                            {member}
+                                            <X size={18} color="#4b0082" className="selectedChips-close" onClick={() => handleMemberRemove(member)} />
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+
+                            {prodTypes.data.length > 0 && (
+                                <div>
+                                    <p className="selectedOption-label">Selected Type:</p>
+                                    {prodTypes.data.map((prod: any, index: number) => (
+                                        <span key={index} className="selectedChips">
+                                            {prod.replace(/_/g, ' ')}
+                                            <X size={18} color="#4b0082" className="selectedChips-close" onClick={() => handleProdRemove(prod)} />
+                                        </span>
+                                    ))}
+                                </div>
+                            )}
+                        </div>
+                    )}
+
                 </div>
 
                 {loader ? (
