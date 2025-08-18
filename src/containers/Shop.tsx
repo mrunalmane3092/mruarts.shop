@@ -8,10 +8,16 @@ import './Shop.scss';
 import { Modal, Button, Carousel } from 'react-bootstrap';
 import { Bias, Products } from "../assets/data/globalConstants.js";
 
-import { X } from 'lucide-react';
+import { X, ShoppingCart, Plus, Minus } from 'lucide-react';
 import Footer from "./Footer";
 import API from "../apis/api";
 
+type CartItem = {
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+};
 
 const Shop = () => {
     const fetchOnce = useRef(false);
@@ -63,6 +69,8 @@ const Shop = () => {
 
     const [showModal, setShowModal] = useState(false);
     const [selectedProduct, setSelectedProduct] = useState<any>(null);
+
+    const [cartProducts, setCartProducts] = useState<Record<string, CartItem>>({});
 
     useEffect(() => {
         if (fetchOnce.current) return;
@@ -219,10 +227,64 @@ const Shop = () => {
             });
     };
 
+    const addToCart = (e: any, item: any) => {
+        e.stopPropagation();
+
+        const cartItem = {
+            id: item.id,
+            name: item.name,
+            price: item.price, // unit price
+        };
+
+        setCartProducts((prevState: any) => {
+            const updatedCart = { ...prevState };
+
+            if (updatedCart[item.id]) {
+                const newQty = updatedCart[item.id].quantity + 1;
+                updatedCart[item.id].quantity = newQty;
+                updatedCart[item.id].totalPrice = newQty * updatedCart[item.id].price;
+            } else {
+                updatedCart[item.id] = {
+                    ...cartItem,
+                    quantity: 1,
+                    totalPrice: cartItem.price
+                };
+            }
+
+            return updatedCart;
+        });
+    };
+
+    const decrement = (e: any, id: string) => {
+        e.stopPropagation();
+
+        setCartProducts((prevState: any) => {
+            const updatedCart = { ...prevState };
+
+            if (updatedCart[id]) {
+                if (updatedCart[id].quantity > 1) {
+                    const newQty = updatedCart[id].quantity - 1;
+                    updatedCart[id].quantity = newQty;
+                    updatedCart[id].totalPrice = newQty * updatedCart[id].price;
+                } else {
+                    delete updatedCart[id];
+                }
+            }
+
+            return updatedCart;
+        });
+    };
+
+    useEffect(() => {
+        console.log(cartProducts)
+    }, [cartProducts])
+
+
+
     return (
         <>
             <section className="main-section">
-                <Header />
+                <Header cartProducts={cartProducts} />
                 <div className="filter-section">
                     <div className="button-group">
                         <select
@@ -276,9 +338,34 @@ const Shop = () => {
                         {productData.data.map((item: any, index: number) => {
                             return (
                                 <div className="product-card" key={item.id || index} onClick={() => handleImageClick(item)}>
+
+
                                     <div className="product-image"
                                         style={{ cursor: "pointer" }}>
                                         <img src={item.images[0]} alt={item.name} />
+
+                                        {item.inStock && (
+                                            <div className="quantity-selector">
+                                                <button
+                                                    onClick={(e) => addToCart(e, item)}
+                                                    className="quantity-btns"
+                                                    disabled={item.stock <= (cartProducts[item.id]?.quantity)}
+                                                >
+                                                    <Plus
+                                                        size={20}
+                                                        className="absolute bottom-0 right-0 bg-white rounded-full"
+                                                        strokeWidth={3} />
+                                                </button>
+                                                <span>{cartProducts[item.id]?.quantity || 0}</span>
+                                                <button
+                                                    onClick={(e) => decrement(e, item.id)}
+                                                    disabled={!cartProducts[item.id] || cartProducts[item.id].quantity < 1}
+                                                    className="quantity-btns"
+                                                >
+                                                    <Minus size={20} strokeWidth={3} className="absolute bottom-0 right-0 bg-white rounded-full" />
+                                                </button>
+                                            </div>
+                                        )}
                                     </div>
                                     <div className="product-info">
                                         <p className="prod-details title"><b>{item.name}</b></p>

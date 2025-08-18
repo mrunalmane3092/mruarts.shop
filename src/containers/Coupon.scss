@@ -1,0 +1,32 @@
+.coupon-section {
+    margin: 10px 0;
+    text-align: center;
+
+    .btn-coupon {
+        padding: 8px 16px;
+        border-radius: 6px;
+        border: none;
+        font-weight: 600;
+        cursor: pointer;
+        background: #4b0082;
+        color: #fff;
+        transition: 0.2s;
+
+
+
+        &.remove {
+            background: #e53935;
+
+            &:hover {
+                background: #b71c1c;
+            }
+        }
+    }
+
+    .coupon-applied {
+        margin-top: 6px;
+        font-size: 14px;
+        color: #2e7d32;
+        font-weight: 600;
+    }
+}

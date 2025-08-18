@@ -1,10 +1,32 @@
+import { useState } from "react";
 import "../../src/style.scss";
 import "./Header.scss";
-import { Home } from "lucide-react";
+import { Home, ShoppingCart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
+import Cart from "../containers/Cart";
 
-const Header = () => {
+
+type CartItem = {
+    id: string;
+    name: string;
+    price: number;
+    quantity: number;
+};
+
+type HeaderProps = {
+    cartProducts?: Record<string, CartItem>;
+};
+
+
+
+const Header = ({ cartProducts }: HeaderProps) => {
     const navigate = useNavigate();
+    const itemCount = cartProducts ? Object.keys(cartProducts).length : 0;
+    const [isCartOpen, setIsCartOpen] = useState(false);
+
+    const openCart = () => {
+        setIsCartOpen(!isCartOpen);
+    }
 
     return (
         <div className="height70 headerDiv">
@@ -12,7 +34,16 @@ const Header = () => {
                 <Home size={24} />
             </button>
             <div className="shop-title">mruarts.shop</div>
-            {/* <input type="text" id="search" placeholder="Search..." /> */}
+            <button className="icon-btn" onClick={openCart}>
+                <ShoppingCart size={24} />
+                {itemCount > 0 && <span className="cart-count">{itemCount}</span>}
+            </button>
+
+            {isCartOpen &&
+                <div className="cart-dropdown">
+                    <Cart cartProducts={cartProducts} dispatchCartClose={openCart} />
+                </div>
+            }
         </div>
     );
 };
