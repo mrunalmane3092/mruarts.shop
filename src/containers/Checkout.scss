@@ -55,7 +55,8 @@
         color: #4b0082;
     }
 
-    input {
+    input,
+    textarea {
         padding: 10px;
         border: 1px solid #ddd;
         border-radius: 6px;
@@ -65,6 +66,12 @@
             border-color: #4b0082;
             outline: none;
         }
+    }
+
+    .error-text {
+        color: red;
+        font-size: 12px;
+        margin-top: 4px;
     }
 
     .btn-pay {
@@ -88,4 +95,27 @@
             cursor: not-allowed;
         }
     }
+}
+
+.cart-table-checkout {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    font-size: 14px;
+}
+
+.cart-table-checkout th,
+.cart-table-checkout td {
+    border: none;
+    padding: 5px;
+    text-align: left;
+}
+
+.cart-table-checkout th {
+    background-color: #f8f8f8;
+    font-weight: bold;
+}
+
+.cart-table-checkout tr:nth-child(even) {
+    background-color: #fafafa;
 }
