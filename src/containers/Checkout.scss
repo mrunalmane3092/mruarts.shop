@@ -119,3 +119,151 @@
 .cart-table-checkout tr:nth-child(even) {
     background-color: #fafafa;
 }
+
+.upi-payment {
+    text-align: center;
+
+    .upi-text {
+        margin-top: 10px;
+        font-size: 14px;
+        color: #555;
+
+        a {
+            font-weight: 600;
+            color: #0077cc;
+            text-decoration: underline;
+        }
+    }
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 2rem 0;
+    padding: 0 1rem;
+    position: relative;
+
+    // Connector line
+    &::before {
+        content: "";
+        position: absolute;
+        top: 30%;
+        left: 1rem;
+        right: 1rem;
+        height: 1px;
+        background: #dddddd;
+        z-index: 0;
+        transform: translateY(-50%);
+    }
+
+    .step {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        position: relative;
+        z-index: 1;
+        flex: 1;
+        text-align: center;
+
+        .circle {
+            width: 35px;
+            height: 35px;
+            border-radius: 50%;
+            background: #e0e0e0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: 600;
+            color: #555;
+            transition: all 0.3s ease;
+            border: 2px solid transparent;
+        }
+
+        span {
+            margin-top: 0.5rem;
+            font-size: 0.85rem;
+            font-weight: 500;
+            color: #777;
+        }
+
+        // Active step
+        &.active {
+            .circle {
+                background: #4cafef;
+                color: #fff;
+                border-color: #4cafef;
+                box-shadow: 0 0 8px rgba(76, 175, 239, 0.6);
+            }
+
+            span {
+                color: #4cafef;
+                font-weight: 600;
+            }
+        }
+
+        // Completed step
+        &.done {
+            .circle {
+                background: #4caf50;
+                color: #fff;
+                border-color: #4caf50;
+            }
+
+            span {
+                color: #4caf50;
+            }
+        }
+    }
+}
+
+.whatsapp-step {
+    text-align: center;
+    margin: 20px 0;
+    padding: 20px;
+    border-radius: 12px;
+    background: #f9f9f9;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+
+    h3 {
+        font-size: 1.5rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+        color: #222;
+    }
+
+    .wa-instruction {
+        font-size: 1rem;
+        margin-bottom: 15px;
+        color: #555;
+    }
+
+    .btn-whatsapp {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 10px;
+        padding: 14px 24px;
+        border-radius: 8px;
+        background-color: #25d366; // WhatsApp green
+        color: white;
+        font-size: 1rem;
+        font-weight: 600;
+        text-decoration: none;
+        transition: background 0.2s ease, transform 0.1s ease;
+
+        &:hover {
+            background-color: #1ebd5a;
+            transform: translateY(-2px);
+        }
+
+        &:active {
+            transform: translateY(0);
+        }
+
+        .wa-icon {
+            width: 22px;
+            height: 22px;
+        }
+    }
+}

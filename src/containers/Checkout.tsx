@@ -2,18 +2,24 @@ import { useState, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import "./Checkout.scss";
 import { ArrowLeft } from "lucide-react";
+import { QRCodeSVG } from "qrcode.react";
+import API from "../apis/api";
 
 const Checkout = () => {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const { cartItems, subtotal, discount, total, couponApplied } = location.state || {
-        cartItems: [],
-        subtotal: 0,
-        discount: 0,
-        total: 0,
-        couponApplied: false,
-    };
+    const { cartItems, subtotal, discount, total, couponApplied } =
+        location.state || {
+            cartItems: [],
+            subtotal: 0,
+            discount: 0,
+            total: 0,
+            couponApplied: false,
+        };
+
+    // 👇 step state: form → whatsapp → payment
+    const [step, setStep] = useState<"form" | "whatsapp" | "payment">("form");
 
     const [formData, setFormData] = useState({
         name: "",
@@ -23,7 +29,7 @@ const Checkout = () => {
         phone: "",
         igHandle: "",
         state: "",
-        alternatePhone: ""
+        alternatePhone: "",
     });
 
     const [errors, setErrors] = useState({
@@ -33,16 +39,9 @@ const Checkout = () => {
     });
 
     const handleChange = (
-        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>
+        e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
     ) => {
         let { name, value } = e.target;
-
-        if (name === "igHandle") {
-            // Always keep "@" at the start
-            if (!value.startsWith("@")) {
-                value = "@" + value.replace(/^@+/, "");
-            }
-        }
 
         setFormData((prev) => ({
             ...prev,
@@ -52,7 +51,7 @@ const Checkout = () => {
         validateField(name, value);
     };
 
-    // ✅ Auto-fill city/state based on postal code
+    // Auto-fill city/state by postal code
     useEffect(() => {
         const fetchLocation = async () => {
             if (formData.postalCode.length === 6) {
@@ -78,22 +77,13 @@ const Checkout = () => {
         fetchLocation();
     }, [formData.postalCode]);
 
-    const isFormValid = Object.entries(formData)
-        .filter(([key]) => key !== "alternatePhone") // exclude optional field
-        .every(([_, value]) => value.trim() !== "");
-
-    const handlePlaceOrder = () => {
-        if (!isFormValid) return;
-        alert(
-            `🎉 Order placed!\nSubtotal: ₹${subtotal}\n` +
-            (couponApplied ? `Discount: -₹${discount}\n` : "") +
-            `Total Paid: ₹${total}`
-        );
-    };
-
-    const navigateToShop = () => {
-        navigate("/shop");
-    };
+    const isFormValid =
+        Object.entries(formData)
+            .filter(([key]) => key !== "alternatePhone")
+            .every(([_, value]) => value.trim() !== "") &&
+        errors.postalCode === "" &&
+        errors.phone === "" &&
+        errors.alternatePhone === "";
 
     const validateField = (name: string, value: string) => {
         let error = "";
@@ -119,11 +109,68 @@ const Checkout = () => {
         setErrors((prev) => ({ ...prev, [name]: error }));
     };
 
+    // ✅ UPI link
+    const upiLink = `upi://pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${total}&cu=INR`;
+
+    // ✅ WhatsApp order message
+    const whatsappMessage = encodeURIComponent(
+        `🛍️ New Order!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}\nIG: ${formData.igHandle}\n\nSubtotal: ₹${subtotal}\n${couponApplied ? `Discount: -₹${discount}\n` : ""}Total: ₹${total}\n\nItems:\n${cartItems
+            .map((i: any) => `${i.name} x${i.quantity} = ₹${i.totalPrice}`)
+            .join("\n")}`
+    );
+
+    const whatsappLink = `https://wa.me/919594176932?text=${whatsappMessage}`;
+
+    const updateStock = async () => {
+        try {
+            const items = cartItems.map((item: any) => ({
+                productId: item.id,
+                quantity: item.quantity,
+            }));
+
+            const res = await API.put("/orders", { items });
+            console.log("✅ Stock updated:", res.data);
+        } catch (error) {
+            console.error("❌ Error updating stock:", error);
+        }
+    };
+
     return (
         <div className="checkout-container">
-            <button className="btn btn-outline" onClick={navigateToShop}>
+            <button className="btn btn-outline" onClick={() => navigate("/shop")}>
                 <ArrowLeft size={18} /> Shop More
             </button>
+
+            {/* ✅ Step Progress */}
+            <div className="steps">
+                <div
+                    className={`step ${step === "form"
+                        ? "active"
+                        : step === "whatsapp" || step === "payment"
+                            ? "done"
+                            : ""
+                        }`}
+                >
+                    <div className="circle">1</div>
+                    <span>Details</span>
+                </div>
+                <div
+                    className={`step ${step === "whatsapp"
+                        ? "active"
+                        : step === "payment"
+                            ? "done"
+                            : ""
+                        }`}
+                >
+                    <div className="circle">2</div>
+                    <span>WhatsApp</span>
+                </div>
+
+                <div className={`step ${step === "payment" ? "active" : ""}`}>
+                    <div className="circle">3</div>
+                    <span>Payment</span>
+                </div>
+            </div>
 
             {/* ✅ Order Summary */}
             <div className="order-summary">
@@ -144,6 +191,7 @@ const Checkout = () => {
                 </div>
             </div>
 
+            {/* ✅ Cart Items */}
             <div className="cart-items-checkout">
                 <h2>Your Cart 🛍️</h2>
                 {cartItems.length === 0 ? (
@@ -162,36 +210,73 @@ const Checkout = () => {
                 )}
             </div>
 
-            {/* Address Form */}
-            <div className="checkout-form">
-                <h2>Shipping Details 📦</h2>
-                <input type="text" name="name" placeholder="Full Name"
-                    value={formData.name} onChange={handleChange} />
-                <textarea name="address" placeholder="Address"
-                    value={formData.address} onChange={handleChange} rows={3}
-                    className="address-textarea" />
-                <input type="text" name="postalCode" placeholder="Postal Code"
-                    value={formData.postalCode} onChange={handleChange} />
-                {errors.postalCode && <p className="error-text">{errors.postalCode}</p>}
-                <input type="text" name="city" placeholder="City"
-                    value={formData.city} onChange={handleChange} readOnly />
-                <input type="text" name="state" placeholder="State"
-                    value={formData.state} onChange={handleChange} readOnly />
-                <input type="text" name="phone" placeholder="Phone Number"
-                    value={formData.phone} onChange={handleChange} />
-                {errors.phone && <p className="error-text">{errors.phone}</p>}
-                <input type="text" name="alternatePhone" placeholder="Alternate Phone Number"
-                    value={formData.alternatePhone} onChange={handleChange} />
-                {errors.alternatePhone && <p className="error-text">{errors.alternatePhone}</p>}
-                <input type="text" name="igHandle" placeholder="IG Handle"
-                    value={formData.igHandle} onChange={handleChange} />
+            {/* Step 1: Form */}
+            {step === "form" && (
+                <div className="checkout-form">
+                    <h2>Shipping Details 📦</h2>
+                    <input type="text" name="name" placeholder="Full Name"
+                        value={formData.name} onChange={handleChange} />
+                    <textarea name="address" placeholder="Address"
+                        value={formData.address} onChange={handleChange} rows={3} />
+                    <input type="text" name="postalCode" placeholder="Postal Code"
+                        value={formData.postalCode} onChange={handleChange} />
+                    {errors.postalCode && <p className="error-text">{errors.postalCode}</p>}
+                    <input type="text" name="city" placeholder="City"
+                        value={formData.city} readOnly />
+                    <input type="text" name="state" placeholder="State"
+                        value={formData.state} readOnly />
+                    <input type="text" name="phone" placeholder="Phone Number"
+                        value={formData.phone} onChange={handleChange} />
+                    {errors.phone && <p className="error-text">{errors.phone}</p>}
+                    <input type="text" name="alternatePhone" placeholder="Alternate Phone Number (Optional)"
+                        value={formData.alternatePhone} onChange={handleChange} />
+                    {errors.alternatePhone && <p className="error-text">{errors.alternatePhone}</p>}
+                    <input type="text" name="igHandle" placeholder="IG Handle (e.g. @yourhandle)"
+                        value={formData.igHandle} onChange={handleChange} />
 
-                <button className="btn-pay"
-                    onClick={handlePlaceOrder}
-                    disabled={!isFormValid}>
-                    Proceed to Pay ₹{total}
-                </button>
-            </div>
+                    <button className="btn-pay"
+                        onClick={() => setStep("whatsapp")}
+                        disabled={!isFormValid}>
+                        Continue
+                    </button>
+                </div>
+            )}
+
+            {/* Step 2: WhatsApp */}
+            {/* Step 2: WhatsApp */}
+            {step === "whatsapp" && (
+                <div className="whatsapp-step">
+                    <h3>Confirm Your Order 💬</h3>
+                    <p className="wa-instruction">To confirm your order, send order details to Mru:</p>
+                    <a
+                        href={whatsappLink}
+                        className="btn-whatsapp"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={() => {
+                            updateStock();
+                            setStep("payment");
+                        }}
+                    >
+                        <img
+                            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                            alt="WhatsApp"
+                            className="wa-icon"
+                        />
+                        Send Order Details
+                    </a>
+                </div>
+            )}
+
+
+            {/* Step 3: Payment */}
+            {step === "payment" && (
+                <div className="upi-payment">
+                    <h3>Scan & Pay with UPI 📲</h3>
+                    <QRCodeSVG value={upiLink} size={200} />
+                    <p>or <a href={upiLink}>Click here</a> to pay in your UPI app</p>
+                </div>
+            )}
         </div>
     );
 };

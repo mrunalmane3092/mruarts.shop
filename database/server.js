@@ -4,28 +4,26 @@ import dotenv from 'dotenv';
 import cors from 'cors';
 import getProducts from './api/getProducts.js';
 import getProduct from './api/getProduct.js';
-
-
+import updateProducts from './api/updateProducts.js';
 
 dotenv.config();
 
 const app = express();
 
-
+// ✅ Middlewares
 app.use(cors({
     origin: 'http://localhost:3001', // your frontend URL
     methods: ['GET', 'POST', 'PUT', 'DELETE'],
     allowedHeaders: ['Content-Type']
 }));
-
 app.use(express.json()); // parse JSON bodies
 
-// Routes
+// ✅ Routes
 app.use('/api/products', getProducts);
 app.use('/api/product', getProduct);
+app.use('/api/orders', updateProducts);
 
-
-// Connect to MongoDB and start server
+// ✅ Connect MongoDB
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
