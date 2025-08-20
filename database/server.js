@@ -10,20 +10,25 @@ dotenv.config();
 
 const app = express();
 
-// ✅ Middlewares
+// ✅ Allow Vercel frontend
 app.use(cors({
-    origin: process.env.FRONTEND_URL, // your frontend URL
-    methods: ['GET', 'POST', 'PUT', 'DELETE'],
-    allowedHeaders: ['Content-Type']
+    origin: ["http://localhost:3001", "https://mruarts-shop.vercel.app"],
+    methods: ["GET", "POST", "PUT", "DELETE"],
+    allowedHeaders: ["Content-Type"]
 }));
-app.use(express.json()); // parse JSON bodies
 
-// ✅ Routes
+app.use(express.json());
+
+// Routes
 app.use('/api/products', getProducts);
 app.use('/api/product', getProduct);
 app.use('/api/orders', updateProducts);
 
-// ✅ Connect MongoDB
+app.get("/", (req, res) => {
+    res.send("🚀 Backend is running!");
+});
+
+// MongoDB connect
 mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true,
     useUnifiedTopology: true
