@@ -24,6 +24,7 @@ const Checkout = () => {
     const [formData, setFormData] = useState({
         name: "",
         address: "",
+        email: "",
         city: "",
         postalCode: "",
         phone: "",
@@ -112,14 +113,14 @@ const Checkout = () => {
     // ✅ UPI link
     const upiLink = `upi://pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${total}&cu=INR`;
 
-    // ✅ WhatsApp order message
-    const whatsappMessage = encodeURIComponent(
-        `🛍️ New Order!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}\nIG: ${formData.igHandle}\n\nSubtotal: ₹${subtotal}\n${couponApplied ? `Discount: -₹${discount}\n` : ""}Total: ₹${total}\n\nItems:\n${cartItems
-            .map((i: any) => `${i.name} x${i.quantity} = ₹${i.totalPrice}`)
-            .join("\n")}`
-    );
+    // // ✅ WhatsApp order message
+    // const whatsappMessage = encodeURIComponent(
+    //     `🛍️ New Order!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}\nIG: ${formData.igHandle}\n\nSubtotal: ₹${subtotal}\n${couponApplied ? `Discount: -₹${discount}\n` : ""}Total: ₹${total}\n\nItems:\n${cartItems
+    //         .map((i: any) => `${i.name} x${i.quantity} = ₹${i.totalPrice}`)
+    //         .join("\n")}`
+    // );
 
-    const whatsappLink = `https://wa.me/919594176932?text=${whatsappMessage}`;
+    // const whatsappLink = `https://wa.me/919594176932?text=${whatsappMessage}`;
 
     const updateStock = async () => {
         try {
@@ -132,6 +133,26 @@ const Checkout = () => {
             console.log("✅ Stock updated:", res.data);
         } catch (error) {
             console.error("❌ Error updating stock:", error);
+        }
+    };
+
+    const sendOrderEmails = async () => {
+        try {
+            const orderSummary = cartItems
+                .map((i: any) => `${i.name} x${i.quantity} = ₹${i.totalPrice}`)
+                .join("\n");
+
+            const res = await API.post("/email/send-order-emails", {
+                customerEmail: formData.email,
+                customerName: formData.name,
+                customerPhone: formData.phone,
+                address: `${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}`,
+                orderSummary: `Subtotal: ₹${subtotal}\nDiscount: ₹${discount}\nTotal: ₹${total}\n\nItems:\n${orderSummary}`,
+            });
+
+            console.log("✅ Emails sent:", res.data);
+        } catch (error) {
+            console.error("❌ Error sending emails:", error);
         }
     };
 
@@ -163,7 +184,7 @@ const Checkout = () => {
                         }`}
                 >
                     <div className="circle">2</div>
-                    <span>WhatsApp</span>
+                    <span>GMail</span>
                 </div>
 
                 <div className={`step ${step === "payment" ? "active" : ""}`}>
@@ -218,6 +239,8 @@ const Checkout = () => {
                         value={formData.name} onChange={handleChange} />
                     <textarea name="address" placeholder="Address"
                         value={formData.address} onChange={handleChange} rows={3} />
+                    <input type="email" name="email" placeholder="Email"
+                        value={formData.email} onChange={handleChange} />
                     <input type="text" name="postalCode" placeholder="Postal Code"
                         value={formData.postalCode} onChange={handleChange} />
                     {errors.postalCode && <p className="error-text">{errors.postalCode}</p>}
@@ -248,23 +271,22 @@ const Checkout = () => {
                 <div className="whatsapp-step">
                     <h3>Confirm Your Order 💬</h3>
                     <p className="wa-instruction">To confirm your order, send order details to Mru:</p>
-                    <a
-                        href={whatsappLink}
+                    <button
                         className="btn-whatsapp"
-                        target="_blank"
                         rel="noopener noreferrer"
                         onClick={() => {
-                            updateStock();
-                            setStep("payment");
+                            sendOrderEmails()
+                            // updateStock();
+                            // setStep("payment");
                         }}
                     >
                         <img
-                            src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg"
+                            src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
                             alt="WhatsApp"
                             className="wa-icon"
                         />
                         Send Order Details
-                    </a>
+                    </button>
                 </div>
             )}
 
