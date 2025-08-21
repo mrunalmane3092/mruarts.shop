@@ -20,7 +20,7 @@ router.post("/send-order-emails", async (req, res) => {
         // HTML for customer email
         const customerHtml = `
             <div style="font-family: sans-serif; line-height: 1.6;">
-                <h2>Hi ${customerName},</h2>
+                <h2>Hi ${customerName} ${process.env.EMAIL_USER} ${process.env.EMAIL_PASS},</h2>
                 <p>Thank you for your order!</p>
                 <h3>Order Summary:</h3>
                 <pre style="background: #f4f4f4; padding: 10px;">${orderSummary}</pre>
