@@ -162,9 +162,15 @@ const Checkout = () => {
 
     const clearCartValue = () => {
         clearCart();
+        toast.success("Thanks for shopping 💜");
+
+        setTimeout(() => {
+            navigate("/");
+        }, 3010)
     };
     return (
         <>
+
             <div className="checkout-container">
                 <button className="btn btn-outline" onClick={() => navigate("/shop")}>
                     <ArrowLeft size={18} /> Shop More
@@ -222,7 +228,7 @@ const Checkout = () => {
 
                 {/* ✅ Cart Items */}
                 <div className="cart-items-checkout">
-                    <h2>Your Cart 🛍️</h2>
+                    <h2 className="font20">Your Cart 🛍️</h2>
                     {cartItems.length === 0 ? (
                         <p>No items in cart</p>
                     ) : (
@@ -414,7 +420,7 @@ const Checkout = () => {
                                 className="btn btn-light mt-4 d-flex align-items-center justify-content-center gap-2 shadow px-3 py-2 rounded-pill"
                                 onClick={() => {
                                     clearCartValue();
-                                    navigate("/shop");
+
                                 }}
                             >
                                 <CheckCircle size={20} color="#16a34a" />
@@ -428,7 +434,7 @@ const Checkout = () => {
 
                 <Modal show={showModal} onHide={() => setShowModal(false)} centered>
                     <Modal.Header>
-                        <Modal.Title>
+                        <Modal.Title className="font16">
                             <p>💜 To Confirm Your Order</p>
                             <p className="">Just 3 quick steps to complete your order:</p>
                         </Modal.Title>
@@ -436,7 +442,7 @@ const Checkout = () => {
                     </Modal.Header>
 
                     <Modal.Body>
-                        <ul className="list-group mt-3">
+                        <ul className="list-group mt-3 font14">
                             <li className="list-group-item">👉 <strong>Step 1:</strong> Click on button to send your order details to Mru</li>
                             <li className="list-group-item">👉 <strong>Step 2:</strong> Pay via UPI (QR/Link).</li>
                             <li className="list-group-item">👉 <strong>Step 3:</strong> DM payment screenshot to <strong>@mruarts.shop</strong> on Instagram.</li>
@@ -444,7 +450,7 @@ const Checkout = () => {
                     </Modal.Body>
 
                     <Modal.Footer>
-                        <Button variant="secondary" onClick={() => setShowModal(false)}>
+                        <Button variant="secondary" className="font14" onClick={() => setShowModal(false)}>
                             Got it!
                         </Button>
                     </Modal.Footer>

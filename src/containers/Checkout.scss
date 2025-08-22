@@ -1,10 +1,11 @@
 .checkout-container {
     max-width: 600px;
-    margin: 20px auto;
+    margin: 0px auto;
     padding: 20px;
     background: #fff;
     border-radius: 12px;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    font-size: 14px;
 }
 
 .btn-outline {
@@ -24,13 +25,15 @@
     h2 {
         margin-bottom: 12px;
         color: #4b0082;
+        font-size: 18px;
     }
 
     .summary-item {
         display: flex;
         justify-content: space-between;
         margin: 6px 0;
-        font-size: 15px;
+        font-size: 14px;
+
     }
 
     .discount {
@@ -40,7 +43,7 @@
     .total {
         border-top: 1px solid #ddd;
         padding-top: 8px;
-        font-size: 17px;
+        font-size: 14px;
         font-weight: bold;
     }
 }
@@ -82,7 +85,7 @@
         border: none;
         border-radius: 8px;
         font-weight: bold;
-        font-size: 16px;
+        font-size: 14px;
         cursor: pointer;
         transition: 0.2s;
 
@@ -182,7 +185,7 @@
 
         span {
             margin-top: 0.5rem;
-            font-size: 0.85rem;
+            font-size: 12px;
             font-weight: 500;
             color: #777;
         }
@@ -224,6 +227,7 @@
     border-radius: 12px;
     background: #f9f9f9;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+    height: 363px;
 
     h3 {
         font-size: 1.5rem;
@@ -270,7 +274,7 @@
 
 .checkout-form input,
 .checkout-form textarea {
-    font-size: 16px;
+    font-size: 13px;
     padding: 10px;
     border-radius: 8px;
 }
@@ -345,4 +349,16 @@
 
 .btn-order:hover {
     background: #6d28d9;
+}
+
+.font14 {
+    font-size: 14px;
+}
+
+.font16 {
+    font-size: 16px;
+}
+
+.font20 {
+    font-size: 20px;
 }
