@@ -267,3 +267,10 @@
     display: flex;
     justify-content: center;
 }
+
+.checkout-form input,
+.checkout-form textarea {
+    font-size: 16px;
+    padding: 10px;
+    border-radius: 8px;
+}
