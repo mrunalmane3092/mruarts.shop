@@ -276,6 +276,14 @@ const Checkout = () => {
                 <div className="whatsapp-step">
                     <h3>Confirm Your Order 💬</h3>
                     <p className="wa-instruction">To confirm your order, send order details to Mru:</p>
+
+                    <p style={{
+                        color: "red",
+                        fontWeight: "bold",
+                        marginBottom: "10px"
+                    }}>
+                        ⚠️ Click "Send Order Details" only if you are ready to buy now!
+                    </p>
                     <button
                         className="btn-whatsapp"
                         rel="noopener noreferrer"
