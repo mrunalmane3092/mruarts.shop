@@ -26,7 +26,6 @@ const ShopGuidlines = () => {
                                     <li>❌ No refunds once the product is shipped.</li>
                                     <li>⏱ Processing time: 5–7 business days.</li>
                                     <li>🧵 Custom orders may take longer.</li>
-                                    <li>📦 Please check stock availability before placing an order.</li>
                                     <li>💌 Shipping Charges:
                                         <ul>
                                             <li>₹50 shipping applies to photocard-only orders.</li>

@@ -1,6 +1,8 @@
+import dotenv from 'dotenv';
+dotenv.config();
 import express from 'express';
 import mongoose from 'mongoose';
-import dotenv from 'dotenv';
+
 import cors from 'cors';
 
 
@@ -9,7 +11,7 @@ import getProduct from './api/getProduct.js';
 import updateProducts from './api/updateProducts.js';
 import emailRoute from "./api/email.js";
 
-dotenv.config();
+
 
 const app = express();
 

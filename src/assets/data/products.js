@@ -9,7 +9,7 @@ export const products = [
         "price": 550,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905261/roomStandee1_ye28yd.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905261/roomStandee2_awuuur.jpg",
@@ -25,7 +25,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ['https://res.cloudinary.com/dxerpx7nt/image/upload/v1754908878/albumFrame1_fdkvdd.jpg'],
         "members": [Bias.OT7],
         "description": "Display your BTS journey with this custom album frame! Comes with 35 beautifully designed album tiles, and you can showcase 25 at a time — mix and match your favorite eras anytime. Frame of your choice included! 💜"
@@ -34,10 +34,10 @@ export const products = [
         "id": 3,
         "name": "Taehyung Paris Photocards",
         "category": Products.PHOTOCARD,
-        "price": 200,
+        "price": 170,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 100,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905268/taeParisPhotos1_eage0b.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905268/taeParisPhotos2_mbvzdw.jpg",
@@ -56,7 +56,7 @@ export const products = [
         "price": 320,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905265/taeKookCoupleHeartKeychain_rpmjym.jpg"],
         "members": [Bias.JUNGKOOK, Bias.V],
         "description": "Celebrate the bond of TaeKook with this adorable heart keychain 💕 Crafted with love — perfect for every true ARMY!"
@@ -68,7 +68,7 @@ export const products = [
         "price": 90,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 2,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905249/hobiAcronCharmBack_cqyypi.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905248/hobiAcronCharmFront_vo80ab.jpg"
@@ -83,7 +83,7 @@ export const products = [
         "price": 320,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905250/micKeychain1_pixzob.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905252/micKeychain2_uviahr.jpg"
@@ -98,7 +98,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 2,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905261/jKDanceAcrylicPin_jkm5wp.jpg"],
         "members": [Bias.JUNGKOOK],
         "description": "Feel the energy of Jungkook’s moves with this holographic dance pin 💃✨ A sparkling tribute to the Golden Maknae’s iconic stage presence!"
@@ -110,7 +110,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 2,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905265/taeDanceAcrylicPin_jigo2f.jpg"],
         "members": [Bias.V],
         "description": "Grace meets charm in this Tae Dance Acrylic Pin 💜🕺 A dreamy collectible capturing V’s iconic moves and charisma!"
@@ -122,7 +122,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 5,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905269/taeSquidPin_basrvk.jpg"],
         "members": [Bias.V],
         "description": "V meets Squid Game in this playful costume pin 🎭 A quirky crossover collectible for fans of drama and charm!"
@@ -134,7 +134,7 @@ export const products = [
         "price": 270,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 13,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905251/indigoKeychain1_qwbigj.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905252/indigoKeychain2_z0kibs.jpg"
@@ -149,7 +149,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905265/taeGentleman_p9q7du.jpg"],
         "members": [Bias.V],
         "description": "Elegance meets charm with this Tae Gentleman Acrylic Pin 🤵💜 A dashing collectible for those who adore V’s timeless style."
@@ -161,7 +161,7 @@ export const products = [
         "price": 450,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 10,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905267/taeKookKeychainHolder1_bvyime.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905267/taeKookKeychainHolder2_m9zyfk.jpg",
@@ -171,37 +171,37 @@ export const products = [
         "description": "Keep your keys close with this adorable TaeKook Keychain Holder 💜🔐 A perfect duo to hold your heart — and your keys!"
     },
     {
-        "id": 12,
+        "id": 13,
         "name": "Suga Butt",
         "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905263/sugaButt_r4h3xs.jpg"],
         "members": [Bias.SUGA],
         "description": "A fun little tribute to Yoongi’s iconic charm 🍑💜 Because even SUGA’s sass has a fanbase of its own!"
     },
     {
-        "id": 13,
+        "id": 14,
         "name": "Hobi Mic Drop",
         "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 5,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905250/hobiMicDrop_e4u89w.jpg"],
         "members": [Bias.JHOPE],
         "description": "Bring the fire with this Hobi Mic Drop piece 🎤🔥 Full of energy, swag, and sunshine — just like J-Hope!"
     },
     {
-        "id": 14,
+        "id": 15,
         "name": "VMinKook AYS Standee",
         "category": Products.STANDEE,
         "price": 350,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 13,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905271/vMinKookAYSStandee1_tgi7ub.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905271/vMinKookAYSStandee2_n7rfcl.jpg"
@@ -210,25 +210,25 @@ export const products = [
         "description": "Relive the legendary ‘Are you sure?’ moment with this VMinKook standee 💜🎬 A must-have for every ARMY who lives for their chaotic love!"
     },
     {
-        "id": 15,
+        "id": 16,
         "name": "Wind Chime Keychain",
         "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 6,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905272/windChime_gv65uw.jpg"],
         "members": [Bias.RM],
         "description": "Inspired by Namjoon’s calm and nature-loving soul 🌿🔔 This wind chime keychain brings peace wherever you go."
     },
     {
-        "id": 16,
+        "id": 17,
         "name": "Monalisa Frame Keychain",
         "category": Products.PC_HOLDER,
         "price": 280,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 2,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905255/monalisaFrame1_jtnn33.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905256/monalisaFrame2_pt9hhe.jpg",
@@ -238,13 +238,13 @@ export const products = [
         "description": "A masterpiece in your pocket! 🎨 Featuring Hobi in a vintage Monalisa-style frame, this keychain is cute, classy, and full of charm. A must-have for every sunshine fan 💛"
     },
     {
-        "id": 17,
+        "id": 18,
         "name": "TaeKook Phone Holder",
         "category": Products.KEYCHAIN,
         "price": 460,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 2,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905267/taeKookPhoneHolder1_hxfynn.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905267/taeKookPhoneHolder2_cxfoze.jpg",
@@ -255,13 +255,13 @@ export const products = [
         "description": "Keep your bias duo close while you scroll 💜📱 This TaeKook phone holder blends love with everyday ease!"
     },
     {
-        "id": 18,
+        "id": 19,
         "name": "7 Keychain",
         "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905262/sevenKeychain1_qh3plw.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905262/sevenKeychain2_n3fp4q.jpg"
@@ -270,13 +270,13 @@ export const products = [
         "description": "Celebrating OT7 love 💜 A sleek and stylish keychain with the number 7 — symbolizing unity, forever bond, and BTS as one. A perfect charm for every ARMY!"
     },
     {
-        "id": 19,
+        "id": 20,
         "name": "KillintGirl Photocards",
         "category": Products.PHOTOCARD,
-        "price": 6,
+        "price": 194,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 100,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905243/killinItGirlHobiPic1_awnrtl.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905243/killinItGirlHobiPic2_xs4bf5.jpg",
@@ -291,289 +291,289 @@ export const products = [
         "description": "Fierce, flawless, and full of attitude 🔥📸 These Killin’t Girl photocards are made to slay your collection!"
     },
     {
-        "id": 20,
+        "id": 21,
         "name": "JK Military",
         "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 7,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905251/militaryKeychain1_zkkq42.jpg"],
         "members": [Bias.JUNGKOOK],
         "description": "Show your unwavering support for Jungkook with this military-themed keychain. A strong and stylish accessory for every ARMY."
     },
     {
-        "id": 21,
+        "id": 22,
         "name": "JIN Military",
         "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 10,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905252/militaryKeychain2_uax2gu.jpg"],
         "members": [Bias.JIN],
         "description": "Keep Jin close to your heart with this special military-themed keychain. A timeless piece to show your love and support."
     },
     {
-        "id": 22,
+        "id": 23,
         "name": "V Military",
         "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 9,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905253/militaryKeychain3_prqmwm.jpg"],
         "members": [Bias.V],
         "description": "A stylish nod to V's dedication and service. This military-themed keychain is the perfect way to show your support."
     },
     {
-        "id": 23,
+        "id": 24,
         "name": "JIMIN Military",
         "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 10,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905253/militaryKeychain4_tzazzg.jpg"],
         "members": [Bias.JIMIN],
         "description": "A beautiful keychain to honor Jimin's service. Carry a symbol of your pride and support wherever you go."
     },
     {
-        "id": 24,
+        "id": 25,
         "name": "JHOPE Military",
         "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 10,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905254/militaryKeychain5_eboa5i.jpg"],
         "members": [Bias.JHOPE],
         "description": "Show your love for our sunshine, J-Hope, with this military-themed keychain. A symbol of hope and strength."
     },
     {
-        "id": 25,
+        "id": 26,
         "name": "RM Military",
         "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 10,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905254/militaryKeychain6_vjvoyw.jpg"],
         "members": [Bias.RM],
         "description": "A sophisticated keychain for our esteemed leader, RM. Show your support and admiration with this military-themed accessory."
     },
     {
-        "id": 26,
+        "id": 27,
         "name": "SUGA Military",
         "category": Products.KEYCHAIN,
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 10,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905254/militaryKeychain7_xaxa13.jpg"],
         "members": [Bias.SUGA],
         "description": "A cool and understated keychain to show your support for Suga. A perfect, meaningful accessory for any fan."
     },
     {
-        "id": 27,
+        "id": 28,
         "name": "Tae Winter Bear",
         "category": Products.KEYCHAIN,
         "price": 450,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905270/taeWinterBear_yjlzo2.png"],
         "members": [Bias.V],
         "description": "Inspired by V's soulful 'Winter Bear,' this keychain is a gentle and heartwarming accessory. A perfect piece to carry a little bit of his warmth with you."
     },
     {
-        "id": 28,
+        "id": 29,
         "name": "Mic Standee",
         "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 2,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905251/micStandee_klmn3g.png"],
         "members": [Bias.OT7],
         "description": "Bring the concert vibes home with this stunning Mic Standee. A tribute to BTS's powerful performances and the iconic symbol of their connection with ARMY."
     },
     {
-        "id": 29,
+        "id": 30,
         "name": "HOTStage Keychain",
         "category": Products.KEYCHAIN,
         "price": 420,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905251/HOTStageKeychain_ak7zfm.jpg"],
         "members": [Bias.JHOPE],
         "description": "Capture the fire of J-Hope's on-stage presence with this 'Hope on the Street' keychain. A vibrant and energetic accessory for fans of his incredible dance moves."
     },
     {
-        "id": 30,
+        "id": 31,
         "name": "Suga 3in1 Stand",
         "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 2,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905264/suga3in1Standee_eoutj5.jpg"],
         "members": [Bias.SUGA],
         "description": "Three times the charm, three times the style. This Suga 3-in-1 standee is a versatile and dynamic piece to celebrate the many facets of our genius producer."
     },
     {
-        "id": 31,
+        "id": 32,
         "name": "Military Set Keychain",
         "category": Products.KEYCHAIN,
         "price": 1200,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 7,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905257/militarySetKeychain_e5ch6n.jpg"],
         "members": [Bias.OT7],
         "description": "The ultimate tribute to their service. This complete Military Set Keychain honors all seven members, a must-have for ARMYs who support them as one."
     },
     {
-        "id": 32,
+        "id": 33,
         "name": "Heart Shakers",
         "category": Products.OTHER,
         "price": 150,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905248/heartShakers_pcf5rc.jpg"],
         "members": [Bias.OT7],
         "description": "Shake up your world with a little love from BTS! These Heart Shakers are a fun and charming way to show your affection for all seven members."
     },
     {
-        "id": 33,
+        "id": 34,
         "name": "RPWP Keychain",
         "category": Products.KEYCHAIN,
         "price": 260,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905262/rpwpKeychain_sfsdge.jpg"],
         "members": [Bias.RM],
         "description": "Inspired by RM's 'Right Place, Wrong Person,' this keychain is a tribute to his artistic and introspective journey. A thoughtful piece for any true fan."
     },
     {
-        "id": 34,
+        "id": 35,
         "name": "Tae Type1 Keychain",
         "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905270/taeType1Keychain_i9mmiz.jpg"],
         "members": [Bias.V],
         "description": "A classic and stylish keychain that captures V's unique and sophisticated charm. The 'Type 1' design is a must-have for any collection."
     },
     {
-        "id": 35,
+        "id": 36,
         "name": "Phone Charm Holder",
         "category": Products.OTHER,
         "price": 90,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905241/charmHolder_ma6zwl.png"],
         "members": [Bias.OT7],
         "description": "Personalize your phone and keep your favorite charms close with this versatile Phone Charm Holder. A practical and cute way to carry a piece of BTS with you."
     },
     {
-        "id": 36,
+        "id": 37,
         "name": "Jimin 3in1 Stand",
         "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905255/jimin3in1Stand_faeyov.jpg"],
         "members": [Bias.JIMIN],
         "description": "Celebrate the multifaceted talent of Jimin with this stunning 3-in-1 standee. A beautiful and dynamic piece for your collection."
     },
     {
-        "id": 37,
+        "id": 38,
         "name": "Tae 3in1 Stand",
         "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905264/tae3in1Stand_xyz0i1.jpg"],
         "members": [Bias.V],
         "description": "Capture the captivating presence of V from every angle. This 3-in-1 standee is the perfect centerpiece for any desk or shelf."
     },
     {
-        "id": 38,
+        "id": 39,
         "name": "JK 3in1 Stand",
         "category": Products.STANDEE,
         "price": 420,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905260/jk3in1Stande_pissee.jpg"],
         "members": [Bias.JUNGKOOK],
         "description": "A tribute to the Golden Maknae's incredible talents. This versatile and stunning JK 3-in-1 standee is a must-have for every fan."
     },
     {
-        "id": 39,
+        "id": 40,
         "name": "Tae Daddy Pin",
         "category": Products.STANDEE,
         "price": 280,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905265/taeDaddyPin_duqusx.png"],
         "members": [Bias.V],
         "description": "A playful and charming pin that captures V's charismatic and cool 'daddy' vibe. A fun and unique collectible for every adoring fan."
     },
     {
-        "id": 40,
+        "id": 41,
         "name": "RUN BTS Boat",
         "category": Products.STANDEE,
         "price": 450,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ['https://res.cloudinary.com/dxerpx7nt/image/upload/v1754908749/boatStandee_z4c0pu.png'],
         "members": [Bias.OT7],
         "description": "Relive the chaos and hilarity of the iconic 'RUN BTS' boat episode with this standee. A perfect piece of memorabilia for fans of their legendary variety show."
     },
     {
-        "id": 41,
+        "id": 42,
         "name": "TaeKook Memories Frame",
         "category": Products.OTHER,
         "price": 600,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 15,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905266/taeKookFrame_pnd9zb.png"],
         "members": [Bias.V, Bias.JUNGKOOK],
         "description": "Cherish the unforgettable moments between V and Jungkook with this beautiful 'Memories' frame. A perfect way to display your favorite TaeKook photocards."
     },
     {
-        "id": 42,
+        "id": 43,
         "name": "JiKook AYS Pin",
         "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 8,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905254/jiKookAYSPin_mri7ru.png"],
         "members": [Bias.JIMIN, Bias.JUNGKOOK],
         "description": "The iconic 'Are you sure?' moment, now in a pin! This JiKook AYS Pin is a must-have for fans who love their playful and chaotic energy."
     },
     {
-        "id": 43,
+        "id": 44,
         "name": "Calendar 2025",
         "category": Products.OTHER,
         "price": 320,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754908749/calendar2025_1_mwe1yo.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905242/calendar2025_2_keek26.jpg"
@@ -582,13 +582,13 @@ export const products = [
         "description": "Stay organized and celebrate BTS all year long with the official 2025 Calendar. Featuring stunning photos of all seven members for every month."
     },
     {
-        "id": 44,
+        "id": 45,
         "name": "Magic Potion Holder",
         "category": Products.PC_HOLDER,
         "price": 420,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905247/magicPotion1_y8gnur.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905248/magicPotion2_cyhv7t.jpg",
@@ -602,25 +602,25 @@ export const products = [
         "description": "Brew up some love for BTS with this enchanting Magic Potion Photocard Holder. A whimsical and protective case for your treasured photocards."
     },
     {
-        "id": 45,
+        "id": 46,
         "name": "Magic Shop Keychain",
         "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905250/magicShopKeychain_gz6vn0.jpg"],
         "members": [Bias.OT7],
         "description": "Open the door to your own Magic Shop with this beautiful keychain. A comforting reminder that you're never alone, inspired by the beloved BTS song."
     },
     {
-        "id": 46,
+        "id": 47,
         "name": "Chibi Heads Accessory",
         "category": Products.KEYCHAIN,
         "price": 320,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905241/chibiHeadsAccessory1_indbul.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905242/chibiHeadsAccessory2_lhggqp.jpg",
@@ -630,28 +630,13 @@ export const products = [
         "description": "Add a dose of cuteness to your day with this Chibi Heads Accessory keychain! Featuring adorable chibi versions of all seven members, it's guaranteed to make you smile."
     },
     {
-        "id": 47,
-        "name": "Suga Guitar Keychain",
-        "category": Products.KEYCHAIN,
-        "price": 270,
-        "currency": "INR",
-        "inStock": true,
-        "stock": 20,
-        "images": [
-            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905247/guitarKeychain1_dj04t9.jpg",
-            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905248/guitarKeychain2_zdyvks.jpg"
-        ],
-        "members": [Bias.SUGA],
-        "description": "Carry the soul of a rockstar with this Suga Guitar Keychain. A perfect tribute to his passion for music and his incredible guitar skills."
-    },
-    {
         "id": 48,
         "name": "Suga Guitar Keychain",
         "category": Products.KEYCHAIN,
         "price": 270,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905247/guitarKeychain1_dj04t9.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905248/guitarKeychain2_zdyvks.jpg"
@@ -666,7 +651,7 @@ export const products = [
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 11,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905249/hobiDiorPin1_p1my7u.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905249/hobiDiorPin2_vaml1a.jpg"
@@ -681,7 +666,7 @@ export const products = [
         "price": 350,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 8,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905255/jiKookAYSStandee1_gjxhum.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905254/jiKookAYSStandee2_ddx1zy.jpg"
@@ -696,7 +681,7 @@ export const products = [
         "price": 450,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905266/taeKookHawaiiStandee_b7bpva.jpg"],
         "members": [Bias.V, Bias.JUNGKOOK],
         "description": "Capture the beautiful memories of V and Jungkook in Hawaii with this scenic standee. A dreamy and romantic piece for all TaeKook shippers."
@@ -708,7 +693,7 @@ export const products = [
         "price": 270,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905243/envyKoo_vuntti.jpg"],
         "members": [Bias.JUNGKOOK],
         "description": "A playful pin capturing Jungkook's envious side. This 'Envy Koo' pin is a fun and relatable piece for any devoted fan."
@@ -720,7 +705,7 @@ export const products = [
         "price": 260,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905247/lovelyJinKeychain_kfmghz.jpg"],
         "members": [Bias.JIN],
         "description": "As lovely as Jin himself, this keychain is a charming accessory for any fan. A sweet and simple way to show your love for our Worldwide Handsome."
@@ -732,7 +717,7 @@ export const products = [
         "price": 260,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905266/taeKookHawaiiKeychain_jbdtey.jpg"],
         "members": [Bias.V, Bias.JUNGKOOK],
         "description": "Take a piece of paradise with you with this TaeKook Hawaii Keychain. A beautiful memento of their memorable trip, perfect for your keys or bag."
@@ -744,7 +729,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905242/jkSevenKeychain_nhqqry.jpg"],
         "members": [Bias.JUNGKOOK],
         "description": "Celebrate Jungkook's global hit 'Seven' with this stylish keychain. A sleek and modern accessory for fans of the Golden Maknae's solo work."
@@ -756,7 +741,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 2,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905261/jitbKeychain_i4lsrs.jpg"],
         "members": [Bias.JHOPE],
         "description": "Carry the explosive energy of J-Hope's 'Jack in the Box' album with you. This keychain is a bold statement piece for any fan of his groundbreaking solo music."
@@ -767,8 +752,8 @@ export const products = [
         "category": Products.KEYCHAIN,
         "price": 250,
         "currency": "INR",
-        "inStock": true,
-        "stock": 20,
+        "inStock": false,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905268/taeLayoverKeychain_qotv5c.jpg"],
         "members": [Bias.V],
         "description": "Embrace the chill and soulful vibes of V's 'Layover' album with this keychain. A minimalist and artistic accessory for every fan."
@@ -780,7 +765,7 @@ export const products = [
         "price": 80,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905257/namjoonBrainCharm_rcjj1i.jpg"],
         "members": [Bias.RM],
         "description": "A charming tribute to our genius leader, RM. This 'Namjoon Brain Charm' is a quirky and fun accessory for those who admire his brilliant mind."
@@ -792,7 +777,7 @@ export const products = [
         "price": 350,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 2,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905257/museStandee_ogybrw.png"],
         "members": [Bias.JIMIN],
         "description": "Let Jimin be your muse with this elegant standee inspired by his solo album. A beautiful and artistic piece to adorn your space."
@@ -804,7 +789,7 @@ export const products = [
         "price": 220,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 9,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905264/sugaValentinoPin_u66ha2.png"],
         "members": [Bias.SUGA],
         "description": "Elegance and edge combined. This Suga Valentino Pin celebrates his role as a brand ambassador, perfect for the fashion-forward ARMY."
@@ -816,7 +801,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 11,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905253/jiKookAYSKeychain1_fbbobl.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905253/jiKookAYSKeychain_gck79v.png"
@@ -831,7 +816,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905258/pinHolderStandee_zbf9r2.png"],
         "members": [Bias.OT7],
         "description": "Display your favorite BTS pins in style with this sleek Pin Holder Standee. The perfect way to showcase your collection and love for the members."
@@ -843,7 +828,7 @@ export const products = [
         "price": 420,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 8,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905255/jiKookBlackSwanStandee_fhtehd.jpg"],
         "members": [Bias.JIMIN, Bias.JUNGKOOK],
         "description": "Capture the breathtaking artistry of Jimin and Jungkook's 'Black Swan' performance with this stunning standee. A graceful and elegant tribute to their powerful dance."
@@ -855,7 +840,7 @@ export const products = [
         "price": 420,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905258/namjoonBrainKeychain_vhd22r.jpg"],
         "members": [Bias.RM],
         "description": "A keychain for our brilliant leader. This Namjoon Brain Keychain is a fun and smart accessory, celebrating his incredible intellect and leadership."
@@ -867,7 +852,7 @@ export const products = [
         "price": 220,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905260/rmSaxophonePin_vmwj1n.jpg"],
         "members": [Bias.RM],
         "description": "A fun and quirky pin celebrating RM's... unique saxophone skills. A must-have for ARMYs who love his playful and humorous side."
@@ -879,7 +864,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905264/taeCartierKeychain_lgwe2z.jpg"],
         "members": [Bias.V],
         "description": "A dazzling holographic keychain with a unique 'broken' glass effect. This Tae Broken Holo Keychain is a stylish and eye-catching accessory for any V fan."
@@ -891,7 +876,7 @@ export const products = [
         "price": 420,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905268/taeKookRotatingStandee_livn1y.jpg"],
         "members": [Bias.V, Bias.JUNGKOOK],
         "description": "Double the love with this TaeKook Rotating Standee. Featuring a different image on each side, you can switch up your display to match your mood."
@@ -903,7 +888,7 @@ export const products = [
         "price": 120,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 10,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905272/vMinMiniPin_wwbmk3.png"],
         "members": [Bias.V, Bias.JIMIN],
         "description": "A mini pin to celebrate the soulmate bond of VMin. This cute and subtle accessory is perfect for showcasing your love for this iconic duo."
@@ -915,7 +900,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905260/rapLineKeychain_z4g7ga.png"],
         "members": [Bias.RM, Bias.SUGA, Bias.JHOPE],
         "description": "Celebrate the powerful RAP line with this dynamic keychain. A perfect accessory for fans of RM, SUGA, and J-Hope's incredible talent."
@@ -927,7 +912,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905261/jkBamStandee_xq2djk.jpg"],
         "members": [Bias.JUNGKOOK],
         "description": "A heartwarming standee featuring Jungkook and his beloved dog, Bam. A must-have for any ARMY who adores their sweet bond."
@@ -939,7 +924,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905255/hotsStandee_uhhfcw.png"],
         "members": [Bias.JHOPE],
         "description": "Bring the fire of J-Hope's 'on the street' style to your room with this HOTS Standee. A vibrant and energetic display for our dance leader."
@@ -951,7 +936,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905269/taeFriendsStandee_lcbiae.png"],
         "members": [Bias.V],
         "description": "Celebrate the beautiful bond of friendship with this Tae 'Friends' Standee. A heartwarming tribute to his solo song and his cherished connection with Jimin."
@@ -962,8 +947,8 @@ export const products = [
         "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
-        "inStock": false,
-        "stock": 20,
+        "inStock": true,
+        "stock": 1,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905244/euphoriaPin1_zolfdt.png",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905245/euphoriaPin2_sxfkma.png"
@@ -977,8 +962,8 @@ export const products = [
         "category": Products.ACRYLIC_PIN,
         "price": 250,
         "currency": "INR",
-        "inStock": false,
-        "stock": 20,
+        "inStock": true,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905265/taeCartierPin_bpmzzq.png"],
         "members": [Bias.V],
         "description": "Exude elegance with this Tae Cartier Pin. A sophisticated and stylish tribute to V's role as a global brand ambassador."
@@ -990,7 +975,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905264/taeBazaarPin_mzu737.png"],
         "members": [Bias.V],
         "description": "A pin that captures V's high-fashion moment from his Bazaar cover shoot. A stunning and fashionable collectible for any V bias."
@@ -1002,7 +987,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 9,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905247/ddayStandee_u669kr.png"],
         "members": [Bias.SUGA],
         "description": "Commemorate Suga's powerful 'D-DAY' album and tour with this striking standee. A must-have piece for fans of Agust D."
@@ -1014,7 +999,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905248/faceStandee_trcp8e.png"],
         "members": [Bias.JIMIN],
         "description": "Capture the raw emotion and artistry of Jimin's 'Face' album with this stunning standee. A beautiful and introspective piece for your collection."
@@ -1025,8 +1010,8 @@ export const products = [
         "category": Products.STANDEE,
         "price": 300,
         "currency": "INR",
-        "inStock": false,
-        "stock": 20,
+        "inStock": true,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905253/indigoStandee_ltsvpn.png"],
         "members": [Bias.RM],
         "description": "Bring the calm, artistic vibes of RM's 'Indigo' into your space with this beautiful standee. A tribute to his last archive of his twenties."
@@ -1038,7 +1023,7 @@ export const products = [
         "price": 420,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905255/miniArmyBomb_zdihgc.png"],
         "members": [Bias.OT7],
         "description": "Light up your love for BTS with this adorable Mini Army Bomb Standee. A perfect miniature version of the iconic light stick for your desk or shelf."
@@ -1050,7 +1035,7 @@ export const products = [
         "price": 450,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905266/taeKookDateKeychain_yzdhbt.png"],
         "members": [Bias.V, Bias.JUNGKOOK],
         "description": "Capture the sweetness of a TaeKook date with this adorable keychain. A romantic and charming accessory for all shippers."
@@ -1062,7 +1047,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905263/sugaTattooReveal_k49xbm.png"],
         "members": [Bias.SUGA],
         "description": "A keychain celebrating the iconic moment of Suga revealing his '7' friendship tattoo. A meaningful and personal piece for any ARMY."
@@ -1074,7 +1059,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905259/jitbStandee1_lcwhy8.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905262/jitbStandee2_whksrf.jpg"
@@ -1089,7 +1074,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": [
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905246/goldenStandee1_vvvuw6.jpg",
             "https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905246/goldenStandee2_a0lrhl.jpg"
@@ -1104,7 +1089,7 @@ export const products = [
         "price": 200,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905247/kooInTowel_kn0v4w.png"],
         "members": [Bias.JUNGKOOK],
         "description": "A cheeky and charming pin featuring Jungkook wrapped in a towel. A fun and flirty collectible for the devoted Koo fan."
@@ -1115,8 +1100,8 @@ export const products = [
         "category": Products.ACRYLIC_PIN,
         "price": 200,
         "currency": "INR",
-        "inStock": true,
-        "stock": 20,
+        "inStock": false,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905271/taeWinterBearPin_nlmuz9.png"],
         "members": [Bias.V],
         "description": "Wear the warmth and gentleness of 'Winter Bear' with this beautiful pin. A cozy and artistic accessory inspired by V's heartfelt song."
@@ -1128,7 +1113,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905271/taeKookkeychain_co1vdt.png"],
         "members": [Bias.V, Bias.JUNGKOOK],
         "description": "A dazzling holographic keychain celebrating the bond of TaeKook. Watch the colors shift and shine, just like their dynamic friendship."
@@ -1140,7 +1125,7 @@ export const products = [
         "price": 400,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905271/vCelinePin_x5l9ne.png"],
         "members": [Bias.V],
         "description": "Showcase V's impeccable style with this elegant Celine pin. A chic and fashionable accessory for fans of his iconic brand partnership."
@@ -1152,7 +1137,7 @@ export const products = [
         "price": 300,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905258/jinAstronautStandee_jqncwj.png"],
         "members": [Bias.JIN],
         "description": "Explore the cosmos with Jin and this 'Astronaut' Standee. A beautiful tribute to his heartfelt solo song for ARMY."
@@ -1164,7 +1149,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905242/jkPin_yb2hui.png"],
         "members": [Bias.JUNGKOOK],
         "description": "A cute and classic enamel pin to show your love for Kookie. A must-have for any Jungkook bias's collection."
@@ -1176,7 +1161,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 6,
         "images": ['https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905275/vPin_uhlmcl.png'],
         "members": [Bias.V],
         "description": "An elegant enamel pin that captures the unique charm of V. A simple yet beautiful accessory for any Tae fan."
@@ -1188,7 +1173,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905260/jiminPin_vlozdp.png"],
         "members": [Bias.JIMIN],
         "description": "A lovely enamel pin dedicated to our charming Jimine. A perfect and pretty addition to your pin collection."
@@ -1200,7 +1185,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905255/hobiPin_edi9xr.png"],
         "members": [Bias.JHOPE],
         "description": "Bring a ray of sunshine to your day with this Hobi enamel pin. A bright and cheerful accessory, just like J-Hope himself."
@@ -1212,7 +1197,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905265/sugaPin_mdrivf.png"],
         "members": [Bias.SUGA],
         "description": "A cool and stylish enamel pin for our genius, Yoongi. A subtle yet powerful way to show your love for Suga."
@@ -1224,7 +1209,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905259/jinPin_ttvmz2.png"],
         "members": [Bias.JIN],
         "description": "A handsome enamel pin for our Worldwide Handsome, Jinnie. A perfect piece to celebrate his charm and humor."
@@ -1236,7 +1221,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905260/rmPin_eicvc8.png"],
         "members": [Bias.RM],
         "description": "An intelligent and thoughtful enamel pin for our leader, Joonie. A sophisticated accessory for any fan of RM."
@@ -1247,8 +1232,8 @@ export const products = [
         "category": Products.STANDEE,
         "price": 250,
         "currency": "INR",
-        "inStock": false,
-        "stock": 20,
+        "inStock": true,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905242/jkFofo_szjlmj.png"],
         "members": [Bias.JK],
         "description": "Add a dose of cuteness to your space with the JK Fofo Standee. An adorable and playful display of our Golden Maknae."
@@ -1260,7 +1245,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905272/vFofo_pweoap.png"],
         "members": [Bias.V],
         "description": "Cuteness and charm combined in the V Fofo Standee. A sweet and endearing collectible for every V fan."
@@ -1272,7 +1257,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 10,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905257/jiminFofo_yw4z56.png"],
         "members": [Bias.JIMIN],
         "description": "The Jimin Fofo Standee is here to melt your heart. An irresistibly cute and charming addition to your collection."
@@ -1284,7 +1269,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 4,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905250/hobiFofo_uvldqx.png"],
         "members": [Bias.JHOPE],
         "description": "Brighten up your room with the J-Hope Fofo Standee. A cheerful and adorable piece that captures his sunshine energy."
@@ -1296,7 +1281,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905265/sugaFofo_mpr3nf.png"],
         "members": [Bias.SUGA],
         "description": "Even in 'fofo' form, Suga's coolness shines. This cute standee is a must-have for every Yoongi stan."
@@ -1308,7 +1293,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905259/jinFofo_oyjjhp.png"],
         "members": [Bias.JIN],
         "description": "Worldwide Handsome, now in adorable Fofo form! The Jin Fofo Standee is a charming and cute collectible."
@@ -1320,7 +1305,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905260/rmFofo_eglthw.png"],
         "members": [Bias.RM],
         "description": "Our genius leader in a cute and cuddly Fofo style. The RM Fofo Standee is a unique and charming piece for your desk."
@@ -1332,7 +1317,7 @@ export const products = [
         "price": 1500,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 1,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905250/fofoStandeeSet_npcu7f.png"],
         "members": [Bias.OT7],
         "description": "Get the complete collection of cuteness with the Fofo Standee Set! Featuring all seven members in this adorable style, it's the perfect set for any ARMY."
@@ -1344,7 +1329,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905256/jiminMoonKeychain_eg6t2e.png"],
         "members": [Bias.JIMIN],
         "description": "Inspired by Jimin's beautiful and symbolic moon tattoo, this keychain is a delicate and meaningful accessory for any fan."
@@ -1356,7 +1341,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905263/jiminSetMeFreeKeychain_zvsfps.png"],
         "members": [Bias.JIMIN],
         "description": "Unleash your passion with this 'Set Me Free Pt.2' keychain. A powerful and artistic accessory inspired by Jimin's explosive solo track."
@@ -1368,7 +1353,7 @@ export const products = [
         "price": 250,
         "currency": "INR",
         "inStock": false,
-        "stock": 20,
+        "stock": 0,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905259/jiminFaceKeychain_xm8wuq.png"],
         "members": [Bias.JIMIN],
         "description": "Carry the artistry of Jimin's 'Face' album with you. This keychain is a stylish and meaningful tribute to his solo debut."
@@ -1380,7 +1365,7 @@ export const products = [
         "price": 500,
         "currency": "INR",
         "inStock": true,
-        "stock": 20,
+        "stock": 3,
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905262/jkckPin_ifiys7.png"],
         "members": [Bias.JUNGKOOK],
         "description": "Celebrate Jungkook's iconic Calvin Klein campaign with this stylish enamel pin. A must-have collectible for fans of his stunning visuals."

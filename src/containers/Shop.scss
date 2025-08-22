@@ -72,18 +72,58 @@
         }
 
         .product-info {
-            padding: 0.5rem 1rem;
-
-            h5 {
-                margin: 0.5rem 0;
-                font-size: 1rem;
-            }
-
-            p {
-                color: #555;
-                font-size: 0.9rem;
-            }
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+            flex-grow: 1;
+            /* let it expand */
+            padding: 10px 12px;
+            text-align: left;
+            min-height: 90px;
+            height: 125px;
+            /* adjust based on your design */
         }
+
+        .product-name {
+            font-size: 16px;
+            font-weight: 600;
+            color: #4c1d95;
+            /* theme purple */
+            margin-bottom: 6px;
+        }
+
+        .product-price {
+            font-size: 15px;
+            font-weight: 500;
+            color: #111827;
+            margin-bottom: auto;
+            /* pushes stock-status down */
+        }
+
+        .product-price .usd {
+            font-size: 13px;
+            color: #6b7280;
+            margin-left: 6px;
+        }
+
+        .stock-status {
+            font-size: 13px;
+            font-weight: 600;
+            margin-top: auto;
+            margin-bottom: 0px;
+            /* keeps it at the bottom */
+        }
+
+        .stock-status.in-stock {
+            color: #10b981;
+            /* green */
+        }
+
+        .stock-status.out-of-stock {
+            color: #ef4444;
+            /* red */
+        }
+
 
         .quantity-selector {
             position: absolute;
@@ -198,4 +238,14 @@
     .main-section .product-grid {
         grid-template-columns: repeat(4, 1fr);
     }
+}
+
+.in-stock {
+    color: #2e004f !important;
+    font-weight: 600;
+}
+
+.out-of-stock {
+    color: #7c688b !important;
+    font-weight: 600;
 }

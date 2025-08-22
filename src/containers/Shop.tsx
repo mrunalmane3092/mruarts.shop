@@ -295,19 +295,15 @@ const Shop = () => {
                                         )}
                                     </div>
                                     <div className="product-info">
-                                        <p className="prod-details title">
-                                            <b>{item.name}</b>
+                                        <h3 className="product-name">{item.name}</h3>
+
+                                        <p className="product-price">
+                                            ₹{item.price}
+                                            <span className="usd"> (${(item.price * usdRate).toFixed(2)})</span>
                                         </p>
-                                        <p className="prod-details">
-                                            <span>
-                                                Price: <b>₹{item.price}</b>
-                                                <small style={{ marginLeft: "8px" }}>
-                                                    (${(item.price * usdRate).toFixed(2)})
-                                                </small>
-                                            </span>
-                                        </p>
-                                        <p className="prod-details stock-info">
-                                            ({item.inStock ? "In Stock" : "Out Of Stock"})
+
+                                        <p className={`stock-status ${item.inStock ? "in-stock" : "out-of-stock"}`}>
+                                            {item.inStock ? "✅ In Stock" : "❌ Out of Stock"}
                                         </p>
                                     </div>
                                 </div>

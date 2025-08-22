@@ -1,0 +1,58 @@
+.guideline-home-section {
+    display: flex;
+    justify-content: center;
+    /* center horizontally */
+    align-items: center;
+    /* center vertically */
+    min-height: 100vh;
+    /* full screen height */
+}
+
+.guideline-info-section {
+    background: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 15px;
+    max-width: 400px;
+    text-align: center;
+    box-shadow: 0px 4px 12px rgba(0, 0, 0, 0.15);
+
+    .text-left {
+        text-align: left;
+    }
+}
+
+.marginTop-40 {
+    margin-top: 40px;
+}
+
+/* Override default bootstrap carousel arrows */
+.carousel-control-prev-icon,
+.carousel-control-next-icon {
+    background-image: none !important;
+    /* remove bootstrap's white SVG */
+    width: 2rem;
+    height: 2rem;
+}
+
+/* Add custom black arrows */
+.carousel-control-prev-icon::after {
+    content: '‹';
+    font-size: 2.5rem;
+    color: #000;
+    /* black */
+    font-weight: bold;
+}
+
+.carousel-control-next-icon::after {
+    content: '›';
+    font-size: 2.5rem;
+    color: #000;
+    /* black */
+    font-weight: bold;
+}
+
+/* Indicators (dots) */
+.carousel-indicators [data-bs-target] {
+    background-color: #000 !important;
+    /* black dots */
+}

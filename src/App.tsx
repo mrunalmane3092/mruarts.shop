@@ -7,6 +7,8 @@ import RoutePaths from './routes/Routes';
 import ScrollToTop from './containers/ScrollToTop';
 import { CartProvider } from './context/CartContext';
 
+import "react-toastify/dist/ReactToastify.css";
+
 function App() {
     return (
         <ScrollToTop>

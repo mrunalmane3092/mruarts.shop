@@ -1,7 +1,7 @@
 import "./Home.scss";
 import logo from '../assets/images/LOGO.png';
 import bgImage from '../assets/images/bgImage.jpg';
-import { ShoppingBag, Info, HeartHandshake } from 'lucide-react';
+import { ShoppingBag, Info, HeartHandshake, ListChecks } from 'lucide-react';
 
 
 
@@ -44,7 +44,8 @@ const Home = () => {
 
                             <div className="marginTop-50">
                                 <ul className="nav-links list-unstyled">
-                                    <li className="navigation-links"><Link to="/shop">🛒 Start Browsing</Link></li>
+                                    <li className="navigation-links"><Link to="/shop">🛒 Shop</Link></li>
+                                    <li className="navigation-links"><Link to="/howToOrder"><ListChecks size={16} style={{ marginRight: "6px" }} /> How To Order</Link></li>
                                     <li className="navigation-links"><Link to="/guidelines">📜 Order Info</Link></li>
                                     <li className="navigation-links"><Link to="/about">👩‍🎨 Meet the Artist</Link></li>
 
@@ -53,10 +54,10 @@ const Home = () => {
                             </div>
                         </div>
 
-                        <div className="catalogue-note">
+                        {/* <div className="catalogue-note">
                             💜 Note: This site is currently a <b>catalogue</b> — you can browse prices and check in‑stock items.
                             Soon, Mru will make it a full shop where you can place your orders directly! 🌸
-                        </div>
+                        </div> */}
 
                         <div className="col-lg-6 text-center">
                             <div>

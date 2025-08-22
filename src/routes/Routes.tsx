@@ -7,6 +7,7 @@ import Shop from '../containers/Shop';
 import ShopGuidlines from '../containers/ShopGuidelines';
 import Checkout from '../containers/Checkout';
 import Cart from '../containers/Cart';
+import OrderProcess from '../containers/OrderProcess';
 
 const RoutePaths = () => {
     return (
@@ -15,6 +16,8 @@ const RoutePaths = () => {
             <Route path="/about" element={<About />} />
             <Route path="/shop" element={<Shop />} />
             <Route path="/guidelines" element={<ShopGuidlines />} />
+            <Route path="/howToOrder" element={<OrderProcess />} />
+
             <Route
                 path="/checkout"
                 element={<Checkout />}

@@ -47,9 +47,64 @@
     }
 }
 
+.cartBtn {
+    animation: cartFade 0.8s ease-in-out;
+    font-size: 14px;
+    animation: cartFade 0.8s ease-in-out;
+}
+
+@keyframes cartFade {
+    0% {
+        opacity: 0;
+        transform: scale(0.9);
+    }
+
+    50% {
+        opacity: 1;
+        transform: scale(1.1);
+    }
+
+    100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
 
 .header-icon {
     font-size: 24px;
     color: #4b0082;
     cursor: pointer;
+}
+
+.cartBtn.highlight {
+    animation: cartPulse 0.6s ease;
+}
+
+@keyframes cartPulse {
+    0% {
+        transform: scale(1);
+        opacity: 1;
+    }
+
+    30% {
+        transform: scale(1.2);
+        opacity: 0.8;
+    }
+
+    60% {
+        transform: scale(0.9);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+/* Optional: add glow */
+.cartBtn.highlight svg {
+    stroke: #4b0082;
+    /* theme purple */
+    filter: drop-shadow(0 0 6px rgba(139, 92, 246, 0.6));
 }

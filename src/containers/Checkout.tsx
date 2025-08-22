@@ -4,11 +4,16 @@ import "./Checkout.scss";
 import { ArrowLeft } from "lucide-react";
 import { QRCodeSVG } from "qrcode.react";
 import API from "../apis/api";
+import { Button, Modal } from "react-bootstrap";
+import { CheckCircle } from "lucide-react";
+import { toast } from "react-toastify";
+import { ToastContainer } from "react-toastify";
+import { useCart } from "../context/CartContext";
 
 const Checkout = () => {
     const location = useLocation();
     const navigate = useNavigate();
-
+    const { clearCart } = useCart();
     const { cartItems, subtotal, discount, total, couponApplied } =
         location.state || {
             cartItems: [],
@@ -19,7 +24,7 @@ const Checkout = () => {
         };
 
     // 👇 step state: form → whatsapp → payment
-    const [step, setStep] = useState<"form" | "whatsapp" | "payment">("form");
+    const [step, setStep] = useState<"form" | "orderMail" | "payment">("form");
 
     const [formData, setFormData] = useState({
         name: "",
@@ -38,6 +43,8 @@ const Checkout = () => {
         phone: "",
         alternatePhone: "",
     });
+
+    const [showModal, setShowModal] = useState(false);
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -113,14 +120,6 @@ const Checkout = () => {
     // ✅ UPI link
     const upiLink = `upi://pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${total}&cu=INR`;
 
-    // // ✅ WhatsApp order message
-    // const whatsappMessage = encodeURIComponent(
-    //     `🛍️ New Order!\n\nName: ${formData.name}\nPhone: ${formData.phone}\nAddress: ${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}\nIG: ${formData.igHandle}\n\nSubtotal: ₹${subtotal}\n${couponApplied ? `Discount: -₹${discount}\n` : ""}Total: ₹${total}\n\nItems:\n${cartItems
-    //         .map((i: any) => `${i.name} x${i.quantity} = ₹${i.totalPrice}`)
-    //         .join("\n")}`
-    // );
-
-    // const whatsappLink = `https://wa.me/919594176932?text=${whatsappMessage}`;
 
     const updateStock = async () => {
         try {
@@ -142,20 +141,24 @@ const Checkout = () => {
                 .map((i: any) => `${i.name} x${i.quantity} = ₹${i.totalPrice}`)
                 .join("\n");
 
-            const res = await API.post("/email/send-order-emails", {
-                customerEmail: formData.email,
+            const payload = {
+                customerEmail: formData.email, // 👈 add email field in your form
                 customerName: formData.name,
-                customerPhone: formData.phone,
-                address: `${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}`,
-                orderSummary: `Subtotal: ₹${subtotal}\nDiscount: ₹${discount}\nTotal: ₹${total}\n\nItems:\n${orderSummary}`,
-            });
+                orderSummary: `Subtotal: ₹${subtotal}\n${couponApplied ? `Discount: ₹${discount}\n` : ""}Total: ₹${total}\n\nItems:\n${orderSummary}\n\nShipping Address:\n${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}\n\nPhone: ${formData.phone}\nAlternate Phone: ${formData.alternatePhone}\nIG Handle: ${formData.igHandle}`,
+            };
 
+            const res = await API.post("/email/send-order-emails", payload);
+            toast.success("Order details sent successfully ✅");
             console.log("✅ Emails sent:", res.data);
         } catch (error) {
             console.error("❌ Error sending emails:", error);
+            toast.error("Failed to send order details ❌");
         }
     };
 
+    const clearCartValue = () => {
+        clearCart();
+    };
     return (
         <div className="checkout-container">
             <button className="btn btn-outline" onClick={() => navigate("/shop")}>
@@ -167,16 +170,16 @@ const Checkout = () => {
                 <div
                     className={`step ${step === "form"
                         ? "active"
-                        : step === "whatsapp" || step === "payment"
+                        : step === "orderMail" || step === "payment"
                             ? "done"
                             : ""
                         }`}
                 >
                     <div className="circle">1</div>
-                    <span>Details</span>
+                    <span>Fill Details</span>
                 </div>
                 <div
-                    className={`step ${step === "whatsapp"
+                    className={`step ${step === "orderMail"
                         ? "active"
                         : step === "payment"
                             ? "done"
@@ -184,7 +187,7 @@ const Checkout = () => {
                         }`}
                 >
                     <div className="circle">2</div>
-                    <span>GMail</span>
+                    <span>Send Details</span>
                 </div>
 
                 <div className={`step ${step === "payment" ? "active" : ""}`}>
@@ -258,16 +261,18 @@ const Checkout = () => {
                         value={formData.igHandle} onChange={handleChange} />
 
                     <button className="btn-pay"
-                        onClick={() => setStep("whatsapp")}
+                        onClick={() => {
+                            setStep("orderMail");
+                            setShowModal(true);
+                        }}
                         disabled={!isFormValid}>
                         Continue
                     </button>
                 </div>
             )}
 
-            {/* Step 2: WhatsApp */}
-            {/* Step 2: WhatsApp */}
-            {step === "whatsapp" && (
+            {/* Step 2: orderMail */}
+            {step === "orderMail" && (
                 <div className="whatsapp-step">
                     <h3>Confirm Your Order 💬</h3>
                     <p className="wa-instruction">To confirm your order, send order details to Mru:</p>
@@ -275,14 +280,14 @@ const Checkout = () => {
                         className="btn-whatsapp"
                         rel="noopener noreferrer"
                         onClick={() => {
-                            sendOrderEmails()
+                            sendOrderEmails();
                             // updateStock();
-                            // setStep("payment");
+                            setStep("payment");
                         }}
                     >
                         <img
                             src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
-                            alt="WhatsApp"
+                            alt="orderMail"
                             className="wa-icon"
                         />
                         Send Order Details
@@ -293,13 +298,127 @@ const Checkout = () => {
 
             {/* Step 3: Payment */}
             {step === "payment" && (
-                <div className="upi-payment">
-                    <h3>Scan & Pay with UPI 📲</h3>
-                    <QRCodeSVG value={upiLink} size={200} />
-                    <p>or <a href={upiLink}>Click here</a> to pay in your UPI app</p>
+                <div
+                    className="upi-payment"
+                    style={{
+                        maxWidth: "400px",
+                        margin: "20px auto",
+                        padding: "20px",
+                        borderRadius: "16px",
+                        background: "#fff",
+                        boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                        textAlign: "center",
+                        fontFamily: "'Fugaz One', sans-serif",
+                    }}
+                >
+                    {/* Title */}
+                    <h3
+                        style={{
+                            fontSize: "20px",
+                            marginBottom: "8px",
+                            color: "#333",
+                        }}
+                    >
+                        Scan & Pay with UPI 📲
+                    </h3>
+                    <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>
+                        <strong>Mrunal Mane</strong> (mruarts.shop)
+                    </p>
+
+                    {/* QR Code */}
+                    <QRCodeSVG id="upi-qr" value={upiLink} size={220} />
+                    <p style={{ marginTop: "12px", fontSize: "14px", color: "#444" }}>
+                        or{" "}
+                        <a href={upiLink} style={{ color: "#8b5cf6", fontWeight: "bold" }}>
+                            Click here
+                        </a>{" "}
+                        to pay in your UPI app
+                    </p>
+
+                    {/* Download Button */}
+                    <button
+                        onClick={() => {
+                            const el = document.getElementById("upi-qr");
+                            if (!el || !(el instanceof SVGSVGElement)) return;
+
+                            const serializer = new XMLSerializer();
+                            const source = serializer.serializeToString(el);
+
+                            const svgBlob = new Blob([source], { type: "image/svg+xml;charset=utf-8" });
+                            const url = URL.createObjectURL(svgBlob);
+
+                            const link = document.createElement("a");
+                            link.href = url;
+                            link.download = "mruarts-shop-qr.svg";
+                            document.body.appendChild(link);
+                            link.click();
+                            document.body.removeChild(link);
+
+                            URL.revokeObjectURL(url);
+                        }}
+                        style={{
+                            marginTop: "20px",
+                            padding: "10px 18px",
+                            borderRadius: "12px",
+                            border: "none",
+                            background: "linear-gradient(135deg,#8b5cf6,#ec4899)",
+                            color: "white",
+                            fontSize: "15px",
+                            fontWeight: "bold",
+                            cursor: "pointer",
+                            boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                            transition: "transform 0.2s",
+                        }}
+                        onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                        onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                    >
+                        ⬇️ Download QR
+                    </button>
+
+                    <div className="backToShop">
+                        <button
+                            className="btn btn-light mt-4 d-flex align-items-center justify-content-center gap-2 shadow px-3 py-2 rounded-pill"
+                            onClick={() => {
+                                clearCartValue();
+                                navigate("/shop");
+                            }}
+                        >
+                            <CheckCircle size={20} color="#16a34a" />
+                            Payment Done
+                        </button>
+                    </div>
+
                 </div>
             )}
+
+
+            <Modal show={showModal} onHide={() => setShowModal(false)} centered>
+                <Modal.Header>
+                    <Modal.Title>
+                        <p>💜 To Confirm Your Order</p>
+                        <p className="">Just 3 quick steps to complete your order:</p>
+                    </Modal.Title>
+
+                </Modal.Header>
+
+                <Modal.Body>
+                    <ul className="list-group mt-3">
+                        <li className="list-group-item">👉 <strong>Step 1:</strong> Click on button to send your order details to Mru</li>
+                        <li className="list-group-item">👉 <strong>Step 2:</strong> Pay via UPI (QR/Link).</li>
+                        <li className="list-group-item">👉 <strong>Step 3:</strong> DM payment screenshot to <strong>@mruarts.shop</strong> on Instagram.</li>
+                    </ul>
+                </Modal.Body>
+
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={() => setShowModal(false)}>
+                        Got it!
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+            <ToastContainer position="top-center" autoClose={3000} />
         </div>
+
+
     );
 };
 
