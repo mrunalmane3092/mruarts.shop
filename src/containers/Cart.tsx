@@ -4,6 +4,7 @@ import "./Cart.scss";
 import { X, ShoppingCart } from "lucide-react";
 import { useNavigate } from "react-router-dom";
 import Coupon from "./Coupon";
+import Footer from "./Footer";
 
 const Cart = (props: any) => {
 
@@ -158,6 +159,8 @@ const Cart = (props: any) => {
                     <button className="btn-checkout" onClick={handleCheckout}>Proceed to Checkout</button>
                 </div>
             )}
+
+            <Footer />
         </div>
     );
 };
