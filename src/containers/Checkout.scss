@@ -64,10 +64,14 @@
         border: 1px solid #ddd;
         border-radius: 6px;
         font-size: 14px;
+        box-sizing: border-box;
+        transition: border-color 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
 
         &:focus {
             border-color: #4b0082;
             outline: none;
+            box-shadow: 0 0 5px rgba(75, 0, 130, 0.5);
+            /* optional glow */
         }
     }
 
