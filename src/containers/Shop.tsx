@@ -296,6 +296,11 @@ const Shop = () => {
                                     </div>
                                     <div className="product-info">
                                         <h3 className="product-name">{item.name}</h3>
+                                        {(item.stock == 1 || item.stock == 2) && (
+                                            <p className="product-left">
+                                                Last {item.stock} left!!
+                                            </p>
+                                        )}
 
                                         <p className="product-price">
                                             ₹{item.price}
