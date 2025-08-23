@@ -142,7 +142,7 @@ const Checkout = () => {
     const sendOrderEmails = async () => {
         try {
             const orderSummary = cartItems
-                .map((i: any) => `${i.name} x${i.quantity} = ₹${i.totalPrice}`)
+                .map((i: any, index: number) => `${index + 1}. ${i.name} x${i.quantity} = ₹${i.totalPrice}`)
                 .join("\n");
 
             const payload = {
@@ -234,8 +234,9 @@ const Checkout = () => {
                     ) : (
                         <table className="cart-table-checkout">
                             <tbody>
-                                {cartItems.map((item: any) => (
+                                {cartItems.map((item: any, index: number) => (
                                     <tr key={item.id}>
+                                        <td>{index + 1}. </td>
                                         <td>{item.name} ({item.quantity})</td>
                                         <td>₹{item.totalPrice}</td>
                                     </tr>
