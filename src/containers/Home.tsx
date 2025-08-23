@@ -45,7 +45,7 @@ const Home = () => {
                             <div className="marginTop-50">
                                 <ul className="nav-links list-unstyled">
                                     <li className="navigation-links"><Link to="/shop">🛒 Shop</Link></li>
-                                    <li className="navigation-links"><Link to="/howToOrder"><ListChecks size={16} style={{ marginRight: "6px" }} /> How To Order</Link></li>
+                                    <li className="navigation-links"><Link to="/howToOrder"><ListChecks size={16} style={{ marginRight: "6px" }} /> How To Order (Tutorial)</Link></li>
                                     <li className="navigation-links"><Link to="/guidelines">📜 Order Info</Link></li>
                                     <li className="navigation-links"><Link to="/about">👩‍🎨 Meet the Artist</Link></li>
 

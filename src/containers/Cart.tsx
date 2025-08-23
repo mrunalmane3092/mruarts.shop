@@ -153,7 +153,10 @@ const Cart = (props: any) => {
                     {/* Final Total */}
                     <div className="final-total">
                         <span>Total:</span>
-                        <strong>₹{total.toFixed(0)}</strong>
+                        {total < 300 && <small> (including ₹50 shipping)</small>}
+                        <strong>
+                            ₹{(total < 300 ? total + 50 : total).toFixed(0)}
+                        </strong>
                     </div>
 
                     <button className="btn-checkout" onClick={handleCheckout}>Proceed to Checkout</button>

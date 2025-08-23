@@ -24,6 +24,10 @@ const Checkout = () => {
             couponApplied: false,
         };
 
+    // Add shipping logic
+    const shipping = total < 300 ? 50 : 0;
+    const finalTotal = total + shipping;
+
     // 👇 step state: form → whatsapp → payment
     const [step, setStep] = useState<"form" | "orderMail" | "payment">("form");
 
@@ -119,10 +123,10 @@ const Checkout = () => {
     };
 
     // ✅ UPI link
-    const gpayLink = `tez://upi/pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${total}&cu=INR`;
-    const phonepeLink = `phonepe://pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${total}&cu=INR`;
-    const paytmLink = `paytm://upi/pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${total}&cu=INR`;
-    const upiLink = `upi://pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${total}&cu=INR`;
+    const gpayLink = `tez://upi/pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${finalTotal}&cu=INR`;
+    const phonepeLink = `phonepe://pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${finalTotal}&cu=INR`;
+    const paytmLink = `paytm://upi/pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${finalTotal}&cu=INR`;
+    const upiLink = `upi://pay?pa=mrunal3092@okaxis&pn=MRU%20Arts&am=${finalTotal}&cu=INR`;
 
 
     const updateStock = async () => {
@@ -135,6 +139,7 @@ const Checkout = () => {
             const res = await API.put("/orders", { items });
             console.log("✅ Stock updated:", res.data);
         } catch (error) {
+            toast.success("Error updating stock ❌");
             console.error("❌ Error updating stock:", error);
         }
     };
@@ -145,10 +150,24 @@ const Checkout = () => {
                 .map((i: any, index: number) => `${index + 1}. ${i.name} x${i.quantity} = ₹${i.totalPrice}`)
                 .join("\n");
 
+            const shipping = total < 300 ? 50 : 0;
+            const finalTotal = total + shipping;
+
             const payload = {
-                customerEmail: formData.email, // 👈 add email field in your form
+                customerEmail: formData.email,
                 customerName: formData.name,
-                orderSummary: `Subtotal: ₹${subtotal}\n${couponApplied ? `Discount: ₹${discount}\n` : ""}Total: ₹${total}\n\nItems:\n${orderSummary}\n\nShipping Address:\n${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}\n\nPhone: ${formData.phone}\nAlternate Phone: ${formData.alternatePhone}\nIG Handle: ${formData.igHandle}`,
+                orderSummary: `Subtotal: ₹${subtotal}
+                ${couponApplied ? `Discount: ₹${discount}\n` : ""}${shipping > 0 ? `Shipping: ₹${shipping}\n` : ""}Total: ₹${finalTotal}
+
+                Items:
+                ${orderSummary}
+
+                Shipping Address:
+                ${formData.address}, ${formData.city}, ${formData.state}, ${formData.postalCode}
+
+                Phone: ${formData.phone}
+                Alternate Phone: ${formData.alternatePhone}
+                IG Handle: ${formData.igHandle}`,
             };
 
             const res = await API.post("/email/send-order-emails", payload);
@@ -214,6 +233,13 @@ const Checkout = () => {
                         <span>Subtotal:</span>
                         <span>₹{subtotal}</span>
                     </div>
+                    {total < 300 && (
+                        <div className="summary-item">
+                            <span>Shipping:</span>
+                            <span>₹50</span>
+                        </div>
+                    )}
+
                     {couponApplied && discount > 0 && (
                         <div className="summary-item discount">
                             <span>Discount:</span>
@@ -222,7 +248,7 @@ const Checkout = () => {
                     )}
                     <div className="summary-item total">
                         <strong>Total:</strong>
-                        <strong>₹{total}</strong>
+                        <strong>₹{finalTotal}</strong>
                     </div>
                 </div>
 
@@ -301,7 +327,7 @@ const Checkout = () => {
                             rel="noopener noreferrer"
                             onClick={() => {
                                 sendOrderEmails();
-                                // updateStock();
+                                updateStock();
                                 setStep("payment");
                             }}
                         >
