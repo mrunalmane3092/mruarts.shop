@@ -10,6 +10,11 @@ const Loader = () => {
                     alt="Loading..."
                     style={{ width: "200px", height: "200px", margin: "0 auto" }}
                 />
+
+
+            </div>
+            <div style={{ textAlign: 'center', fontSize: '16px', color: 'white' }}>
+                LOADING....
             </div>
         </>
     );

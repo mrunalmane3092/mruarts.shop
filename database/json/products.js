@@ -241,7 +241,7 @@ const products = [
     {
         "id": 18,
         "name": "TaeKook Phone Holder",
-        "category": Products.KEYCHAIN,
+        "category": Products.OTHER,
         "price": 460,
         "currency": "INR",
         "inStock": true,
