@@ -41,6 +41,7 @@ const Checkout = () => {
         igHandle: "",
         state: "",
         alternatePhone: "",
+        country: ""
     });
 
     const [errors, setErrors] = useState({
@@ -61,7 +62,9 @@ const Checkout = () => {
             [name]: value,
         }));
 
-        validateField(name, value);
+        if (localStorage.getItem('INTERNATIONAL') !== 'true') {
+            validateField(name, value);
+        }
     };
 
     // Auto-fill city/state by postal code
@@ -79,6 +82,7 @@ const Checkout = () => {
                             ...prev,
                             city: postOffice.District,
                             state: postOffice.State,
+                            country: postOffice.Country,
                         }));
                     }
                 } catch (error) {
@@ -94,9 +98,10 @@ const Checkout = () => {
         Object.entries(formData)
             .filter(([key]) => key !== "alternatePhone")
             .every(([_, value]) => value.trim() !== "") &&
-        errors.postalCode === "" &&
-        errors.phone === "" &&
-        errors.alternatePhone === "";
+        !errors.postalCode &&
+        !errors.phone &&
+        !errors.alternatePhone;
+
 
     const validateField = (name: string, value: string) => {
         let error = "";
@@ -138,6 +143,8 @@ const Checkout = () => {
 
             const res = await API.put("/orders", { items });
             console.log("✅ Stock updated:", res.data);
+            sendOrderEmails();
+
         } catch (error) {
             toast.success("Error updating stock ❌");
             console.error("❌ Error updating stock:", error);
@@ -187,6 +194,8 @@ const Checkout = () => {
             navigate("/");
         }, 3010)
     };
+
+
     return (
         <>
 
@@ -229,48 +238,89 @@ const Checkout = () => {
                 {/* ✅ Order Summary */}
                 <div className="order-summary">
                     <h2>Order Summary 🛒</h2>
-                    <div className="summary-item">
-                        <span>Subtotal:</span>
-                        <span>₹{subtotal}</span>
+
+                    <div className="cart-items-checkout">
+                        {cartItems.length === 0 ? (
+                            <p>No items in cart</p>
+                        ) : (
+                            <table className="cart-table-checkout">
+                                <tbody>
+                                    {cartItems.map((item: any, index: number) => (
+                                        <tr key={item.id}>
+                                            <td>{index + 1}. </td>
+                                            <td>{item.name} ({item.quantity})</td>
+                                            <td> {localStorage.getItem('INTERNATIONAL') === 'true'
+                                                ? `$${(
+                                                    item.totalPrice *
+                                                    parseFloat(localStorage.getItem('USD_RATE') ?? "0")
+                                                ).toFixed(2)}`
+                                                : `₹${item.totalPrice}`}</td>
+                                        </tr>
+                                    ))}
+                                </tbody>
+                            </table>
+                        )}
                     </div>
-                    {total < 300 && (
-                        <div className="summary-item">
-                            <span>Shipping:</span>
-                            <span>₹50</span>
-                        </div>
+
+                    {localStorage.getItem('INTERNATIONAL') !== 'true' && (
+
+                        <>
+                            <div className="summary-item">
+                                <span>Subtotal:</span>
+                                <span>₹{subtotal}</span>
+                            </div>
+
+                            {total < 300 && (
+                                <div className="summary-item">
+                                    <span>Shipping:</span>
+                                    <span>₹50</span>
+                                </div>
+                            )}
+
+                            {couponApplied && discount > 0 && (
+                                <div className="summary-item discount">
+                                    <span>Discount:</span>
+                                    <span>- ₹{discount}</span>
+                                </div>
+                            )}
+                        </>
                     )}
 
-                    {couponApplied && discount > 0 && (
-                        <div className="summary-item discount">
-                            <span>Discount:</span>
-                            <span>- ₹{discount}</span>
+
+                    {localStorage.getItem('INTERNATIONAL') === 'true' && (
+                        <div className="summary-item total">
+                            <span>PayPal Fees:</span>
+                            <span>
+                                {(() => {
+                                    const usdRate = parseFloat(localStorage.getItem("USD_RATE") ?? "0");
+                                    const subtotalUSD = finalTotal * usdRate;
+                                    const finalTotalUSD = (subtotalUSD + 0.30) / (1 - 0.044);
+                                    const paypalFee = finalTotalUSD - subtotalUSD;
+                                    return `$${paypalFee.toFixed(2)}`;
+                                })()}
+                            </span>
                         </div>
+
                     )}
+
+
                     <div className="summary-item total">
                         <strong>Total:</strong>
-                        <strong>₹{finalTotal}</strong>
+                        <strong>
+                            {localStorage.getItem("INTERNATIONAL") === "true"
+                                ? (() => {
+                                    const usdRate = parseFloat(localStorage.getItem("USD_RATE") ?? "0");
+                                    const subtotalUSD = finalTotal * usdRate;
+                                    // Gross-up formula for PayPal (4.4% + $0.30)
+                                    const finalTotalUSD = (subtotalUSD + 0.30) / (1 - 0.044);
+                                    return `$${finalTotalUSD.toFixed(2)}`;
+                                })()
+                                : `₹${finalTotal}`}
+                        </strong>
                     </div>
                 </div>
 
-                {/* ✅ Cart Items */}
-                <div className="cart-items-checkout">
-                    <h2 className="font20">Your Cart 🛍️</h2>
-                    {cartItems.length === 0 ? (
-                        <p>No items in cart</p>
-                    ) : (
-                        <table className="cart-table-checkout">
-                            <tbody>
-                                {cartItems.map((item: any, index: number) => (
-                                    <tr key={item.id}>
-                                        <td>{index + 1}. </td>
-                                        <td>{item.name} ({item.quantity})</td>
-                                        <td>₹{item.totalPrice}</td>
-                                    </tr>
-                                ))}
-                            </tbody>
-                        </table>
-                    )}
-                </div>
+
 
                 {/* Step 1: Form */}
                 {step === "form" && (
@@ -282,28 +332,56 @@ const Checkout = () => {
                             value={formData.address} onChange={handleChange} rows={3} />
                         <input type="email" name="email" placeholder="Email"
                             value={formData.email} onChange={handleChange} />
+
                         <input type="text" name="postalCode" placeholder="Postal Code"
                             value={formData.postalCode} onChange={handleChange} />
                         {errors.postalCode && <p className="error-text">{errors.postalCode}</p>}
-                        <input type="text" name="city" placeholder="City"
-                            value={formData.city} readOnly />
-                        <input type="text" name="state" placeholder="State"
-                            value={formData.state} readOnly />
+
+
+                        {localStorage.getItem('INTERNATIONAL') === 'true' ? (
+                            <input type="text" name="city" placeholder="City"
+                                onChange={handleChange} value={formData.city} />
+                        ) : (
+                            <input type="text" name="city" placeholder="City"
+                                value={formData.city} readOnly />
+                        )}
+
+                        {localStorage.getItem('INTERNATIONAL') === 'true' ? (
+                            <input type="text" name="state" placeholder="State"
+                                onChange={handleChange} value={formData.state} />
+                        ) : (
+                            <input type="text" name="state" placeholder="State"
+                                value={formData.state} readOnly />
+                        )}
+
+
+                        {localStorage.getItem('INTERNATIONAL') === 'true' ? (
+                            <input type="text" name="country" placeholder="Country"
+                                onChange={handleChange} value={formData.country} />
+                        ) : (
+                            <input type="text" name="country" placeholder="Country"
+                                value={formData.country} readOnly />
+                        )}
+
                         <input type="text" name="phone" placeholder="Phone Number"
                             value={formData.phone} onChange={handleChange} />
                         {errors.phone && <p className="error-text">{errors.phone}</p>}
+
                         <input type="text" name="alternatePhone" placeholder="Alternate Phone Number (Optional)"
                             value={formData.alternatePhone} onChange={handleChange} />
                         {errors.alternatePhone && <p className="error-text">{errors.alternatePhone}</p>}
+
                         <input type="text" name="igHandle" placeholder="IG Handle (e.g. @yourhandle)"
                             value={formData.igHandle} onChange={handleChange} />
 
-                        <button className="btn-pay"
+                        <button
+                            className="btn-pay"
                             onClick={() => {
                                 setStep("orderMail");
                                 setShowModal(true);
                             }}
-                            disabled={!isFormValid}>
+                            disabled={!isFormValid}
+                        >
                             Continue
                         </button>
                     </div>
@@ -326,8 +404,7 @@ const Checkout = () => {
                             className="btn-whatsapp"
                             rel="noopener noreferrer"
                             onClick={() => {
-                                sendOrderEmails();
-                                updateStock();
+                                // updateStock();
                                 setStep("payment");
                             }}
                         >
@@ -344,119 +421,175 @@ const Checkout = () => {
 
                 {/* Step 3: Payment */}
                 {step === "payment" && (
-                    <div
-                        className="upi-payment"
-                        style={{
-                            maxWidth: "400px",
-                            margin: "20px auto",
-                            padding: "20px",
-                            borderRadius: "16px",
-                            background: "#fff",
-                            boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
-                            textAlign: "center",
-                            fontFamily: "'Fugaz One', sans-serif",
-                        }}
-                    >
-                        {/* Title */}
-                        <h3
-                            style={{
-                                fontSize: "20px",
-                                marginBottom: "8px",
-                                color: "#333",
-                            }}
-                        >
-                            Scan & Pay with UPI 📲
-                        </h3>
-                        <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>
-                            <strong>Mrunal Mane</strong> (mruarts.shop)
-                        </p>
+                    <>
+                        {localStorage.getItem("INTERNATIONAL") === "true" ? (
+                            (() => {
+                                const usdRate = parseFloat(localStorage.getItem("USD_RATE") ?? "0");
+                                const subtotalUSD = finalTotal * usdRate;
+                                const finalTotalUSD = (subtotalUSD + 0.30) / (1 - 0.044);
 
-                        {/* QR Code */}
-                        <QRCodeSVG id="upi-qr" value={upiLink} size={220} />
-                        <div className="payment-section">
-                            <h2 className="payment-title">💳 Choose Payment Method</h2>
-                            <p className="payment-subtext">Pay securely using your preferred UPI app:</p>
+                                // PayPal.Me link with amount
+                                const paypalLink = `https://www.paypal.me/mruarts/${finalTotalUSD.toFixed(2)}`;
 
-                            <div className="upi-buttons">
-
-                                <a href={gpayLink} className="upi-btn" title="Google Pay">
-                                    <img
-                                        src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887422/icons8-google-pay-500_efuikn.png"
-                                        alt="gPay" />
-                                </a>
-
-                                {/* PhonePe */}
-                                <a href={phonepeLink} className="upi-btn" title="PhonePe">
-                                    <img
-                                        src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887453/icons8-phone-pe-480_bpiulq.png"
-                                        alt="phonePe" />
-                                </a>
-
-                                {/* Paytm */}
-                                <a href={paytmLink} className="upi-btn" title="Paytm">
-                                    <img
-                                        src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887415/icons8-paytm-500_thptvm.png"
-                                        alt="phonePe" />
-                                </a>
-                            </div>
+                                return (
+                                    <div className="payment-section mt-4">
+                                        <h2 className="payment-title">🌎 Pay with PayPal</h2>
 
 
-                        </div>
-                        {/* Download Button */}
-                        <button
-                            onClick={() => {
-                                const el = document.getElementById("upi-qr");
-                                if (!el || !(el instanceof SVGSVGElement)) return;
+                                        <div className="upi-buttons">
+                                            <a
+                                                href={paypalLink}
+                                                className="upi-btn paypal-btn"
+                                                title="Pay with PayPal"
+                                                target="_blank"
+                                                rel="noopener noreferrer"
+                                            >
+                                                {/* PayPal logo (inline SVG) */}
+                                                <svg
+                                                    role="img"
+                                                    aria-label="PayPal"
+                                                    viewBox="0 0 24 24"
+                                                    width="28"
+                                                    height="28"
+                                                >
+                                                    <path
+                                                        d="M7.08 21.75l.93-5.9h3.7c3.12 0 5.8-2.27 6.3-5.35.56-3.36-1.97-5.6-5.23-5.6H6.02c-.36 0-.66.26-.72.6L2.25 21.15c-.06.35.2.67.55.67H6.4c.31 0 .58-.23.62-.52z"
+                                                        fill="#003087"
+                                                    />
+                                                    <path
+                                                        d="M18.01 4.9c.73 1 .98 2.34.76 3.75-.5 3.08-3.18 5.35-6.3 5.35H8.47l-.7 4.45c-.04.29-.31.52-.62.52H4.24c-.35 0-.6-.32-.55-.67l3.05-18.9c.06-.34.36-.6.72-.6h6.75c2.12 0 3.76.73 4.8 2.1z"
+                                                        fill="#009cde"
+                                                    />
+                                                </svg>
+                                            </a>
+                                        </div>
 
-                                const serializer = new XMLSerializer();
-                                const source = serializer.serializeToString(el);
 
-                                const svgBlob = new Blob([source], { type: "image/svg+xml;charset=utf-8" });
-                                const url = URL.createObjectURL(svgBlob);
 
-                                const link = document.createElement("a");
-                                link.href = url;
-                                link.download = "mruarts-shop-qr.svg";
-                                document.body.appendChild(link);
-                                link.click();
-                                document.body.removeChild(link);
-
-                                URL.revokeObjectURL(url);
-                            }}
-                            style={{
-                                marginTop: "20px",
-                                padding: "10px 18px",
-                                borderRadius: "12px",
-                                border: "none",
-                                background: "linear-gradient(135deg,#8b5cf6,#ec4899)",
-                                color: "white",
-                                fontSize: "15px",
-                                fontWeight: "bold",
-                                cursor: "pointer",
-                                boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
-                                transition: "transform 0.2s",
-                            }}
-                            onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
-                            onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
-                        >
-                            ⬇️ Download QR
-                        </button>
-
-                        <div className="backToShop">
-                            <button
-                                className="btn btn-light mt-4 d-flex align-items-center justify-content-center gap-2 shadow px-3 py-2 rounded-pill"
-                                onClick={() => {
-                                    clearCartValue();
-
+                                        <div className="backToShop">
+                                            <button
+                                                className="btn btn-light mt-4 d-flex align-items-center justify-content-center gap-2 shadow px-3 py-2 rounded-pill"
+                                                onClick={() => {
+                                                    clearCartValue();
+                                                }}
+                                            >
+                                                <CheckCircle size={20} color="#16a34a" />
+                                                Payment Done
+                                            </button>
+                                        </div>
+                                    </div>
+                                );
+                            })()
+                        ) : (
+                            // ---- UPI Block (Indian Customers) ----
+                            <div
+                                className="upi-payment"
+                                style={{
+                                    maxWidth: "400px",
+                                    margin: "20px auto",
+                                    padding: "20px",
+                                    borderRadius: "16px",
+                                    background: "#fff",
+                                    boxShadow: "0 4px 12px rgba(0,0,0,0.08)",
+                                    textAlign: "center",
+                                    fontFamily: "'Fugaz One', sans-serif",
                                 }}
                             >
-                                <CheckCircle size={20} color="#16a34a" />
-                                Payment Done
-                            </button>
-                        </div>
+                                {/* Title */}
+                                <h3 style={{ fontSize: "20px", marginBottom: "8px", color: "#333" }}>
+                                    Scan & Pay with UPI 📲
+                                </h3>
+                                <p style={{ fontSize: "14px", color: "#666", marginBottom: "20px" }}>
+                                    <strong>Mrunal Mane</strong> (mruarts.shop)
+                                </p>
 
-                    </div>
+                                {/* QR Code */}
+                                <QRCodeSVG id="upi-qr" value={upiLink} size={220} />
+
+                                <div className="payment-section">
+                                    <h2 className="payment-title">💳 Choose Payment Method</h2>
+                                    <p className="payment-subtext">Pay securely using your preferred UPI app:</p>
+
+                                    <div className="upi-buttons">
+                                        <a href={gpayLink} className="upi-btn" title="Google Pay">
+                                            <img
+                                                src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887422/icons8-google-pay-500_efuikn.png"
+                                                alt="gPay"
+                                            />
+                                        </a>
+
+                                        <a href={phonepeLink} className="upi-btn" title="PhonePe">
+                                            <img
+                                                src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887453/icons8-phone-pe-480_bpiulq.png"
+                                                alt="phonePe"
+                                            />
+                                        </a>
+
+                                        <a href={paytmLink} className="upi-btn" title="Paytm">
+                                            <img
+                                                src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887415/icons8-paytm-500_thptvm.png"
+                                                alt="paytm"
+                                            />
+                                        </a>
+                                    </div>
+                                </div>
+
+                                {/* Download Button */}
+                                <button
+                                    onClick={() => {
+                                        const el = document.getElementById("upi-qr");
+                                        if (!el || !(el instanceof SVGSVGElement)) return;
+
+                                        const serializer = new XMLSerializer();
+                                        const source = serializer.serializeToString(el);
+
+                                        const svgBlob = new Blob([source], { type: "image/svg+xml;charset=utf-8" });
+                                        const url = URL.createObjectURL(svgBlob);
+
+                                        const link = document.createElement("a");
+                                        link.href = url;
+                                        link.download = "mruarts-shop-qr.svg";
+                                        document.body.appendChild(link);
+                                        link.click();
+                                        document.body.removeChild(link);
+
+                                        URL.revokeObjectURL(url);
+                                    }}
+                                    style={{
+                                        marginTop: "20px",
+                                        padding: "10px 18px",
+                                        borderRadius: "12px",
+                                        border: "none",
+                                        background: "linear-gradient(135deg,#8b5cf6,#ec4899)",
+                                        color: "white",
+                                        fontSize: "15px",
+                                        fontWeight: "bold",
+                                        cursor: "pointer",
+                                        boxShadow: "0 4px 8px rgba(0,0,0,0.1)",
+                                        transition: "transform 0.2s",
+                                    }}
+                                    onMouseOver={(e) => (e.currentTarget.style.transform = "scale(1.05)")}
+                                    onMouseOut={(e) => (e.currentTarget.style.transform = "scale(1)")}
+                                >
+                                    ⬇️ Download QR
+                                </button>
+
+                                <div className="backToShop">
+                                    <button
+                                        className="btn btn-light mt-4 d-flex align-items-center justify-content-center gap-2 shadow px-3 py-2 rounded-pill"
+                                        onClick={() => {
+                                            clearCartValue();
+                                        }}
+                                    >
+                                        <CheckCircle size={20} color="#16a34a" />
+                                        Payment Done
+                                    </button>
+                                </div>
+                            </div>
+                        )}
+                    </>
                 )}
+
 
 
                 <Modal show={showModal} onHide={() => setShowModal(false)} centered>

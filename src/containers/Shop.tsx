@@ -129,17 +129,34 @@ const Shop = () => {
         const fetchRate = async () => {
             try {
                 const res = await fetch(
-                    "https://api.exchangerate.host/latest?base=INR&symbols=USD"
+                    "https://open.er-api.com/v6/latest/INR"
                 );
+
                 const data = await res.json();
+
                 if (data?.rates?.USD) {
                     setUsdRate(data.rates.USD);
+                    localStorage.setItem('USD_RATE', data.rates.USD);
+
                 }
             } catch (error) {
                 console.error("Error fetching exchange rate:", error);
             }
         };
         fetchRate();
+    }, []);
+
+
+    useEffect(() => {
+        fetch("https://ipapi.co/json/")
+            .then(res => res.json())
+            .then(data => {
+                if (data.country_name !== "India") {
+                    localStorage.setItem('INTERNATIONAL', 'true')
+                } else {
+                    localStorage.setItem('INTERNATIONAL', 'false')
+                }
+            });
     }, []);
 
     const handleImageClick = (product: any) => {
