@@ -101,7 +101,7 @@ const OrderProcess = () => {
                             Why no online payment gateway?
                         </h2>
                         <p>
-                            Online payment gateways charge <strong>extra fees (around 2% + 18% GST ≈ 20%)</strong>.
+                            Online payment gateways charge <strong>extra fees (around 2% + 18% GST)</strong>.
                             That would increase product prices, and I don’t want that for you.
                         </p>
 
