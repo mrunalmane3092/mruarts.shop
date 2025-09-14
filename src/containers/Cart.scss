@@ -242,3 +242,26 @@
         }
     }
 }
+
+.summary {
+    margin-top: 20px;
+}
+
+.summary-item {
+    display: flex;
+    justify-content: space-between;
+    margin: 6px 0;
+}
+
+.summary-item.total {
+    border-top: 2px solid #ddd;
+    padding-top: 8px;
+    font-size: 18px;
+    color: #8b5cf6;
+    /* purple highlight */
+}
+
+.summary-item.fee {
+    color: #ef4444;
+    /* red fee highlight */
+}

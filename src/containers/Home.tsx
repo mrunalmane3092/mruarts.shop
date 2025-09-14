@@ -10,6 +10,8 @@ import { Link } from 'react-router-dom';
 import Footer from "./Footer";
 
 const Home = () => {
+
+
     return (
         <>
             <section className="home-section">
