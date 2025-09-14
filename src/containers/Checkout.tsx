@@ -10,6 +10,7 @@ import { toast } from "react-toastify";
 import { ToastContainer } from "react-toastify";
 import { useCart } from "../context/CartContext";
 import Footer from "./Footer";
+import Loader from "../containers/Loader";
 
 const Checkout = () => {
     const location = useLocation();
@@ -51,6 +52,9 @@ const Checkout = () => {
     });
 
     const [showModal, setShowModal] = useState(false);
+    const [sendFlag, setSendFlag] = useState(false);
+
+    
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -144,6 +148,7 @@ const Checkout = () => {
             const res = await API.put("/orders", { items });
             console.log("✅ Stock updated:", res.data);
             // sendOrderEmails();
+            setSendFlag(false);
             setStep("payment");
         } catch (error) {
             toast.success("Error updating stock ❌");
@@ -153,6 +158,7 @@ const Checkout = () => {
 
     const sendOrderEmails = async () => {
         try {
+            setSendFlag(true);
             const orderSummary = cartItems
                 .map((i: any, index: number) => `${index + 1}. ${i.name} x${i.quantity} = ₹${i.totalPrice}`)
                 .join("\n");
@@ -391,7 +397,16 @@ const Checkout = () => {
                 {/* Step 2: orderMail */}
                 {step === "orderMail" && (
                     <div className="whatsapp-step">
-                        <h3>Confirm Your Order 💬</h3>
+                        {sendFlag ? (
+                            <div>
+                            <h6>
+                                Just a moment, {formData.name} 🌸 <br /> Sending your details...
+                            </h6>
+                            <Loader />
+                        </div>
+                        ) :(
+                            <>
+                             <h3>Confirm Your Order 💬</h3>
                         <p className="wa-instruction">To confirm your order, send order details to Mru:</p>
 
                         <p style={{
@@ -400,7 +415,7 @@ const Checkout = () => {
                             marginBottom: "10px"
                         }}>
                             ⚠️ Click "Send Order Details" only if you are ready to buy now!
-                        </p>
+                        </p> 
                         <button
                             className="btn-whatsapp"
                             rel="noopener noreferrer"
@@ -415,7 +430,9 @@ const Checkout = () => {
                                 className="wa-icon"
                             />
                             Send Order Details
-                        </button>
+                        </button> 
+                            </>
+                        )}
                     </div>
                 )}
 
