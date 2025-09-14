@@ -138,6 +138,8 @@ const Checkout = () => {
 
             const res = await API.put("/orders", { items });
             console.log("✅ Stock updated:", res.data);
+            sendOrderEmails();
+            setStep("payment");
         } catch (error) {
             toast.success("Error updating stock ❌");
             console.error("❌ Error updating stock:", error);
@@ -326,9 +328,8 @@ const Checkout = () => {
                             className="btn-whatsapp"
                             rel="noopener noreferrer"
                             onClick={() => {
-                                sendOrderEmails();
                                 updateStock();
-                                setStep("payment");
+
                             }}
                         >
                             <img
