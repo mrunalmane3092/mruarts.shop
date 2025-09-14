@@ -143,7 +143,9 @@ const Checkout = () => {
 
             const res = await API.put("/orders", { items });
             console.log("✅ Stock updated:", res.data);
-            sendOrderEmails();
+            // sendOrderEmails();
+            setStep("payment");
+
 
         } catch (error) {
             toast.success("Error updating stock ❌");
@@ -180,6 +182,7 @@ const Checkout = () => {
             const res = await API.post("/email/send-order-emails", payload);
             toast.success("Order details sent successfully ✅");
             console.log("✅ Emails sent:", res.data);
+            updateStock();
         } catch (error) {
             console.error("❌ Error sending emails:", error);
             toast.error("Failed to send order details ❌");
@@ -405,7 +408,8 @@ const Checkout = () => {
                             rel="noopener noreferrer"
                             onClick={() => {
                                 // updateStock();
-                                setStep("payment");
+                                sendOrderEmails()
+                                // setStep("payment");
                             }}
                         >
                             <img
