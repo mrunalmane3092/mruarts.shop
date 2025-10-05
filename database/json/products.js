@@ -1370,6 +1370,54 @@ const products = [
         "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1754905262/jkckPin_ifiys7.png"],
         "members": [Bias.JUNGKOOK],
         "description": "Celebrate Jungkook's iconic Calvin Klein campaign with this stylish enamel pin. A must-have collectible for fans of his stunning visuals."
+    },
+
+    {
+        "id": 108,
+        "name": "Rap Line Cypher 3 Standee",
+        "category": Products.ACRYLIC_STANDEE,
+        "price": 250,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 19,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650085/IMG_2393_jdcwey.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650086/IMG_2395_mudie2.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650086/IMG_2410_tlhfli.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650087/IMG_2415_sr0rgs.jpg"
+        ],
+        "members": [Bias.RM, Bias.SUGA, Bias.JHOPE],
+        "description": "Show your love for BTS's powerful rap line with this holographic acrylic standee inspired by Cypher Pt.3. Featuring RM, SUGA, and J-Hope in their fierce era looks, this 2-inch tall standee with 4mm thickness shines beautifully under light — a perfect desk or shelf collectible for true ARMYs."
+    },
+    {
+        "id": 109,
+        "name": "Tae Dodger Moment Standee",
+        "category": Products.ACRYLIC_STANDEE,
+        "price": 260,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 19,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650086/IMG_2400_b9iqlh.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650086/IMG_2409_on6yhd.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650087/IMG_2416_ljtf6l.jpg"
+        ],
+        "members": [Bias.V],
+        "description": "Capture Taehyung’s iconic Dodger moment with this stunning holographic acrylic standee. Standing 2.5 inches tall with 4mm thickness, it perfectly reflects his charm and charisma — a sparkling collectible for every V stan."
+    },
+    {
+        "id": 110,
+        "name": "Taekook Cute Live Moment Standee",
+        "category": Products.ACRYLIC_STANDEE,
+        "price": 280,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 19,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650087/IMG_2411_ly8agl.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650086/IMG_2412_qql0vj.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650089/IMG_2413_gflj7j.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1759650087/IMG_2414_z9qqeo.jpg"
+        ],
+        "members": [Bias.V, Bias.JUNGKOOK],
+        "description": "Relive the adorable Taekook live moment with this holographic acrylic standee. Featuring Taehyung and Jungkook’s cutest expressions, this 3.5-inch tall and 4mm thick collectible sparkles beautifully under light — a must-have for every Taekook lover!"
     }
 ];
 export default products;
