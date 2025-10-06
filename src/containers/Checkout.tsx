@@ -54,7 +54,7 @@ const Checkout = () => {
     const [showModal, setShowModal] = useState(false);
     const [sendFlag, setSendFlag] = useState(false);
 
-    
+
 
     const handleChange = (
         e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
@@ -399,38 +399,39 @@ const Checkout = () => {
                     <div className="whatsapp-step">
                         {sendFlag ? (
                             <div>
-                            <h6>
-                                Just a moment, {formData.name} 🌸 <br /> Sending your details...
-                            </h6>
-                            <Loader />
-                        </div>
-                        ) :(
+                                <h6>
+                                    Just a moment, {formData.name} 🌸 <br /> Sending your details...
+                                </h6>
+                                <Loader />
+                            </div>
+                        ) : (
                             <>
-                             <h3>Confirm Your Order 💬</h3>
-                        <p className="wa-instruction">To confirm your order, send order details to Mru:</p>
+                                <h3>Confirm Your Order 💬</h3>
+                                <p className="wa-instruction">To confirm your order, send order details to Mru:</p>
 
-                        <p style={{
-                            color: "red",
-                            fontWeight: "bold",
-                            marginBottom: "10px"
-                        }}>
-                            ⚠️ Click "Send Order Details" only if you are ready to buy now!
-                        </p> 
-                        <button
-                            className="btn-whatsapp"
-                            rel="noopener noreferrer"
-                            onClick={() => {
-                                // updateStock();
-                                sendOrderEmails()
-                            }}
-                        >
-                            <img
-                                src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
-                                alt="orderMail"
-                                className="wa-icon"
-                            />
-                            Send Order Details
-                        </button> 
+                                <p style={{
+                                    color: "red",
+                                    fontWeight: "bold",
+                                    marginBottom: "10px"
+                                }}>
+                                    ⚠️ Click "Send Order Details" only if you are ready to buy now!
+                                </p>
+                                <button
+                                    className="btn-whatsapp"
+                                    rel="noopener noreferrer"
+                                    onClick={() => {
+                                        // updateStock();
+                                        sendOrderEmails()
+                                    }}
+                                    disabled={sendFlag}
+                                >
+                                    <img
+                                        src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+                                        alt="orderMail"
+                                        className="wa-icon"
+                                    />
+                                    Send Order Details
+                                </button>
                             </>
                         )}
                     </div>
