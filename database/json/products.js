@@ -1418,6 +1418,95 @@ const products = [
         ],
         "members": [Bias.V, Bias.JUNGKOOK],
         "description": "Relive the adorable Taekook live moment with this holographic acrylic standee. Featuring Taehyung and Jungkook’s cutest expressions, this 3.5-inch tall and 4mm thick collectible sparkles beautifully under light — a must-have for every Taekook lover!"
+    }, {
+        "id": 111,
+        "name": "Holographic V FOFO Standee",
+        "category": Products.ACRYLIC_STANDEE,
+        "price": 300,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 2,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408809/IMG_3310_nridmr.jpg"
+        ],
+        "members": [Bias.V],
+        "description": "Brighten up your collection with this adorable V holographic fofo standee! Standing 2.5 inches tall and 2mm thick, this double-sided acrylic collectible features a stunning holographic shine that makes Taehyung’s charm stand out from every angle — a perfect little treasure for every V stan!"
+    }, {
+        "id": 112,
+        "name": "Jungkook Mini standee & Photoholder",
+        "category": Products.ACRYLIC_STANDEE,
+        "price": 120,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 1,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408812/IMG_3327_bhtwv9.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408810/IMG_3316_krljkw.jpg"
+        ],
+        "members": [Bias.JK],
+        "description": "The golden maknae in his cutest BT21 look! This 1.5-inch, 4mm thick holographic mini standee of Jungkook will instantly brighten your space. Use it as a photo holder, bookmark, or simply as a tiny dose of daily motivation — perfect for every Jungkook admirer!"
+    }, {
+        "id": 113,
+        "name": "V Mini standee & Photoholder",
+        "category": Products.ACRYLIC_STANDEE,
+        "price": 120,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 5,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408810/IMG_3326_ivqsv5.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408810/IMG_3318_cgy62b.jpg"
+        ],
+        "members": [Bias.V],
+        "description": "Bring Taehyung’s charm to your desk with this 1.5-inch mini standee in his adorable BT21 costume! With a 4mm thick build and multifunctional design, it doubles as a cute photo holder, bookmark, or decorative piece that radiates V’s warm energy."
+    }, {
+        "id": 114,
+        "name": "Jimin Mini standee & Photoholder",
+        "category": Products.ACRYLIC_STANDEE,
+        "price": 120,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 5,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408812/IMG_3328_i5jcly.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408810/IMG_3320_zejz6p.jpg"
+        ],
+        "members": [Bias.JIMIN],
+        "description": "Soft, sweet, and full of Jimin’s charm — this 1.5-inch, 4mm thick BT21-themed mini standee is here to steal hearts! Use it as a photoholder, bookmark, or just a cute keepsake to remind you of Jimin’s bright smile every day."
+    }, {
+        "id": 115,
+        "name": "Jin Mini standee & Photoholder",
+        "category": Products.ACRYLIC_STANDEE,
+        "price": 120,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 8,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408811/IMG_3329_mdtjkx.jpg",
+            "https://res.cloudinary.com/dxerpx7nt/image/upload/v1762408810/IMG_3322_mzv0ov.jpg"
+        ],
+        "members": [Bias.JIN],
+        "description": "Worldwide Handsome goes mini! This 1.5-inch, 4mm thick BT21-style Jin standee is irresistibly adorable and multifunctional — use it as a bookmark, photo holder, or simply as a pretty little collectible that brings a smile wherever it stands."
+    }, {
+        "id": 116,
+        "name": "Baby Tae Winter Pin",
+        "category": Products.ACRYLIC_PIN,
+        "price": 270,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 4,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1762412771/IMG_3334_wfhvpg.jpg"
+        ],
+        "members": [Bias.V],
+        "description": "Cutie baby V holding a tiny lamp — shining just as bright as our Taehyungie himself 🐻✨ This holo acrylic epoxy pin is pure sparkle and softness in one! Perfect to add a little glow to your bag or jacket 💫💜"
+    }, {
+        "id": 117,
+        "name": "Daddy Tae Winter Pin",
+        "category": Products.ACRYLIC_PIN,
+        "price": 280,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 3,
+        "images": ["https://res.cloudinary.com/dxerpx7nt/image/upload/v1762412770/IMG_3333_pnx7b1.jpg"
+        ],
+        "members": [Bias.V],
+        "description": "Sexy Daddy Tae is here to steal hearts again 😏💜 This holo acrylic epoxy pin captures his irresistible charm with that stunning glow and confident vibe — a perfect mix of elegance and attitude ✨🐻"
     }
+
 ];
 export default products;
