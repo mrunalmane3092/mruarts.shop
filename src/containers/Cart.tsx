@@ -86,7 +86,7 @@ const Cart = (props: any) => {
                 {!cartData.dataFetched ? (
                     <div className="loader-container">
                         <img
-                            src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755161171/NRI0_bexqnq.gif"
+                            src="/products/NRI0_bexqnq.gif"
                             alt="Loading..."
                             className="cart-loader"
                         />

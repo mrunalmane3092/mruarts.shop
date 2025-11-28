@@ -426,7 +426,7 @@ const Checkout = () => {
                                     disabled={sendFlag}
                                 >
                                     <img
-                                        src="https://upload.wikimedia.org/wikipedia/commons/4/4e/Gmail_Icon.png"
+                                        src="/products/Gmail_Icon.png"
                                         alt="orderMail"
                                         className="wa-icon"
                                     />
@@ -532,21 +532,21 @@ const Checkout = () => {
                                     <div className="upi-buttons">
                                         <a href={gpayLink} className="upi-btn" title="Google Pay">
                                             <img
-                                                src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887422/icons8-google-pay-500_efuikn.png"
+                                                src="/products/icons8-google-pay-500_efuikn.png"
                                                 alt="gPay"
                                             />
                                         </a>
 
                                         <a href={phonepeLink} className="upi-btn" title="PhonePe">
                                             <img
-                                                src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887453/icons8-phone-pe-480_bpiulq.png"
+                                                src="/products/icons8-phone-pe-480_bpiulq.png"
                                                 alt="phonePe"
                                             />
                                         </a>
 
                                         <a href={paytmLink} className="upi-btn" title="Paytm">
                                             <img
-                                                src="https://res.cloudinary.com/dxerpx7nt/image/upload/v1755887415/icons8-paytm-500_thptvm.png"
+                                                src="/products/icons8-paytm-500_thptvm.png"
                                                 alt="paytm"
                                             />
                                         </a>

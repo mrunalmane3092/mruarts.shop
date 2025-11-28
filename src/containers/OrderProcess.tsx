@@ -13,15 +13,15 @@ import Loader from "./Loader";
 const OrderProcess = () => {
     const [showStepsModal, setShowStepsModal] = useState(false);
     const steps = [
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868661/9_zdnzc7.jpg",
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868656/1_cdjpkc.jpg",
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868657/2_jethim.jpg",
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868658/3_t0i4gj.jpg",
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868658/4_g5q49x.jpg",
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868659/5_mzrxcl.jpg",
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868659/6_zbial6.jpg",
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868659/7_dqgbs7.jpg",
-        "https://res.cloudinary.com/dxerpx7nt/image/upload/v1755868700/9_gvbjy9.jpg"
+        "/products/9_zdnzc7.jpg",
+        "/products/1_cdjpkc.jpg",
+        "/products/2_jethim.jpg",
+        "/products/3_t0i4gj.jpg",
+        "/products/4_g5q49x.jpg",
+        "/products/5_mzrxcl.jpg",
+        "/products/6_zbial6.jpg",
+        "/products/7_dqgbs7.jpg",
+        "/products/9_gvbjy9.jpg"
     ];
 
 
