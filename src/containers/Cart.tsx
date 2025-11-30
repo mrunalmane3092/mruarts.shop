@@ -8,6 +8,8 @@ import Footer from "./Footer";
 
 const Cart = (props: any) => {
 
+
+
     const navigate = useNavigate();
     const [cartData, setCartData] = useState({
         dataFetched: false,
@@ -15,6 +17,16 @@ const Cart = (props: any) => {
     });
 
     const [couponApplied, setCouponApplied] = useState(false);
+    const [hipperData, setHipperData] = useState({
+        count: 0
+    })
+
+
+    const [subtotal, setSubtotal] = useState(0);
+    const [totalDiscount, setTotalDiscount] = useState(0);
+    const [subtotalWithoutDiscount, subTotalWithoutDiscount] = useState(0);
+
+
 
     useEffect(() => {
         if (props.cartProducts) {
@@ -23,8 +35,6 @@ const Cart = (props: any) => {
                 dataFetched: true,
                 data: cartArray,
             });
-
-            console.log(localStorage)
         }
     }, [props.cartProducts]);
 
@@ -37,15 +47,54 @@ const Cart = (props: any) => {
     const [discount, setDiscount] = useState(0);
 
 
-    // subtotal
-    const subtotal = cartData.data.reduce(
-        (acc: number, item: any) => acc + item.totalPrice,
-        0
-    );
-
-
     // callback for coupon
     const total = subtotal - discount;
+
+
+    useEffect(() => {
+        if (!cartData?.data) return;
+
+        // 1. count photocards with quantity
+        const hipperCount = cartData.data.reduce((count, item) => {
+            return item.productType === "hipper"
+                ? count + item.quantity
+                : count;
+        }, 0);
+
+        // 2. normal subtotal
+        const subtotalWithoutDiscount = cartData.data.reduce(
+            (sum, item) => sum + item.totalPrice,
+            0
+        );
+
+        // 3. discount logic for hippers
+        const totalDiscount =
+            hipperCount >= 2 ? 35 * (hipperCount - 1) : 0;
+
+        // 4. final subtotal
+        const subtotal = subtotalWithoutDiscount - totalDiscount;
+
+        // 5. save state safely
+        setHipperData((prev) => ({
+            ...prev,
+            count: hipperCount,
+            discount: totalDiscount,
+        }));
+
+        setSubtotal(subtotal);
+        setTotalDiscount(totalDiscount);
+
+
+        let cnt = 0;
+        cartData.data.map(item => {
+            if (item.productType !== 'hipper') {
+                cnt = cnt + item.totalPrice
+            }
+        })
+
+        subTotalWithoutDiscount(cnt)
+    }, [cartData]); // <-- RUN ONLY WHEN cartData CHANGES
+
 
 
     // callback for coupon
@@ -153,74 +202,76 @@ const Cart = (props: any) => {
 
             {/* Cart Footer */}
             {cartData.data.length > 0 && (
-                <div className="cart-footer">
-                    {localStorage.getItem('INTERNATIONAL') !== 'true' ? (
-                        <>
-                            <div className="subtotal">
-                                <span>Subtotal:</span>
-                                <strong>₹{subtotal}</strong>
-                            </div>
-                            {/* Coupon Section */}
-                            <Coupon subtotal={subtotal} onApply={handleCoupon} />
+                <>
+                    {hipperData.count > 1 ? <p className="hippersDiscount-text">Yippee! You just unlocked the Hippers discount of ₹{totalDiscount}! 🎉💜✨</p> : <></>}
 
-
-                            {/* Discount */}
-                            {discount > 0 && (
-                                <div className="discount">
-                                    <span>Discount:</span>
-                                    <strong>-₹{discount.toFixed(2)}</strong>
+                    <div className="cart-footer">
+                        {localStorage.getItem('INTERNATIONAL') !== 'true' ? (
+                            <>
+                                <div className="subtotal">
+                                    <span>Subtotal:</span>
+                                    <strong>₹{subtotal}</strong>
                                 </div>
-                            )}
+                                {/* Coupon Section */}
+                                <Coupon subtotal={subtotal} onApply={handleCoupon} cartData={cartData.data} subtotalWithoutDiscount={subtotalWithoutDiscount} />
 
-                            {/* Final Total */}
-                            <div className="final-total">
-                                <span>Total:</span>
-                                {total < 300 && <small> (including ₹50 shipping)</small>}
-                                <strong>
-                                    ₹{(total < 300 ? total + 50 : total).toFixed(2)}
-                                </strong>
-                            </div>
-                        </>
-                    ) : (
-                        <>
-                            <div className="subtotal">
-                                <span>Subtotal:</span>
-                                <span>{(total * parseFloat(localStorage.getItem("USD_RATE") ?? "0")).toFixed(2)} </span>
-                            </div>
 
-                            {/* PayPal Fee */}
-                            {localStorage.getItem("INTERNATIONAL") === "true" && (
-                                <div className="summary-item fee">
-                                    <strong>PayPal Fee (4.4% + $0.30):</strong>
+                                {/* Discount */}
+                                {discount > 0 && (
+                                    <div className="discount">
+                                        <span>Discount:</span>
+                                        <strong>-₹{discount.toFixed(2)}</strong>
+                                    </div>
+                                )}
+
+                                {/* Final Total */}
+                                <div className="final-total">
+                                    <span>Total:</span>
+                                    {total < 300 && <small> (including ₹50 shipping)</small>}
+                                    <strong>
+                                        ₹{(total < 300 ? total + 50 : total).toFixed(2)}
+                                    </strong>
+                                </div>
+                            </>
+                        ) : (
+                            <>
+                                <div className="subtotal">
+                                    <span>Subtotal:</span>
+                                    <span>{(total * parseFloat(localStorage.getItem("USD_RATE") ?? "0")).toFixed(2)} </span>
+                                </div>
+
+                                {/* PayPal Fee */}
+                                {localStorage.getItem("INTERNATIONAL") === "true" && (
+                                    <div className="summary-item fee">
+                                        <strong>PayPal Fee (4.4% + $0.30):</strong>
+                                        <span>
+                                            {(() => {
+                                                const usdRate = parseFloat(localStorage.getItem("USD_RATE") ?? "0");
+                                                const subtotalUSD = total * usdRate;
+                                                const finalTotalUSD = (subtotalUSD + 0.30) / (1 - 0.044);
+                                                const paypalFee = finalTotalUSD - subtotalUSD;
+                                                return `$${paypalFee.toFixed(2)}`;
+                                            })()}
+                                        </span>
+                                    </div>
+                                )}
+
+                                <div className="final-total">
+                                    <strong>Final Total:</strong>
                                     <span>
                                         {(() => {
                                             const usdRate = parseFloat(localStorage.getItem("USD_RATE") ?? "0");
                                             const subtotalUSD = total * usdRate;
                                             const finalTotalUSD = (subtotalUSD + 0.30) / (1 - 0.044);
-                                            const paypalFee = finalTotalUSD - subtotalUSD;
-                                            return `$${paypalFee.toFixed(2)}`;
+                                            return `$${finalTotalUSD.toFixed(2)}`;
                                         })()}
                                     </span>
                                 </div>
-                            )}
-
-                            <div className="final-total">
-                                <strong>Final Total:</strong>
-                                <span>
-                                    {(() => {
-                                        const usdRate = parseFloat(localStorage.getItem("USD_RATE") ?? "0");
-                                        const subtotalUSD = total * usdRate;
-                                        const finalTotalUSD = (subtotalUSD + 0.30) / (1 - 0.044);
-                                        return `$${finalTotalUSD.toFixed(2)}`;
-                                    })()}
-                                </span>
-                            </div>
-
-                        </>
-
-                    )}
-                    <button className="btn-checkout" onClick={handleCheckout}>Proceed to Checkout</button>
-                </div>
+                            </>
+                        )}
+                        <button className="btn-checkout" onClick={handleCheckout}>Proceed to Checkout</button>
+                    </div>
+                </>
             )}
 
             <Footer />

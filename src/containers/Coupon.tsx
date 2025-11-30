@@ -3,21 +3,23 @@ import "./Coupon.scss";
 
 interface CouponProps {
     subtotal: number;
-    onApply: (discount: number, applied: boolean) => void;
+    onApply: (discount: number, applied: boolean,) => void;
+    cartData: any;
+    subtotalWithoutDiscount: number
 }
 
-const Coupon = ({ subtotal, onApply }: CouponProps) => {
+const Coupon = ({ subtotal, onApply, cartData, subtotalWithoutDiscount }: CouponProps) => {
     const [couponApplied, setCouponApplied] = useState(false);
 
     const handleToggleCoupon = () => {
         const newApplied = !couponApplied;
         setCouponApplied(newApplied);
 
-        const discount = subtotal >= 1000 && newApplied ? subtotal * 0.05 : 0;
+        const discount = subtotalWithoutDiscount >= 1000 && newApplied ? subtotalWithoutDiscount * 0.05 : 0;
         onApply(discount, newApplied);
     };
 
-    if (subtotal < 1000) return null; // Show only if eligible
+    if (subtotalWithoutDiscount < 1000) return null; // Show only if eligible
 
     return (
         <div className="coupon-section">

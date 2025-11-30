@@ -1506,6 +1506,115 @@ const products = [
         ],
         "members": [Bias.V],
         "description": "Sexy Daddy Tae is here to steal hearts again 😏💜 This holo acrylic epoxy pin captures his irresistible charm with that stunning glow and confident vibe — a perfect mix of elegance and attitude ✨🐻"
+    }, {
+        "id": 118,
+        "name": "Hippers Set (OT7)",
+        "category": "hipper",
+        "price": 1170,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/ot7_hipper_1.jpg", "/products/ot7_hipper_2.jpg", "/products/ot7_hipper_3.jpg"
+        ],
+        "members": ["ot7"],
+        "description": "OT7 is here to upgrade your device with pure Bangtan charm 💜✨ These clear acrylic hippers keep the look clean, classy and super aesthetic — showcasing each member’s unique vibe without any extra shine. Bring the whole BTS family to your device with these OT7 clear acrylic hippers 💜✨ Each piece is 1.5 inches tall and crafted with 6mm thick premium acrylic, giving a sturdy, high-quality feel while keeping the design clean and minimal. Perfect for laptops, tablets, and phones, these hippers stick firmly and add instant Bangtan charm without any extra shine. Durable, aesthetic, and guaranteed to make your device 10x cuter 💜🔥Perfect for laptops, tablets, and phones, they stick smoothly and instantly turn your device into a BTS zone. Lightweight, durable, and cute enough to make you smile every time you see them 💜🔥"
+    }, {
+        "id": 119,
+        "name": "RM Hipper",
+        "category": "hipper",
+        "price": 200,
+        "currency": "INR",
+        "inStock": 0,
+        "stock": false,
+        "images": ["/products/rm_hipper.jpg"
+        ],
+        "members": ["rm"],
+        "description": "Soft, smart, and aesthetically perfect 🤍📚 This 1.5-inch, 6mm thick Namjoon hipper highlights his calm charisma in a clean, modern acrylic look."
+    }, {
+        "id": 120,
+        "name": "JIN Hipper",
+        "category": "hipper",
+        "price": 200,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/jin_hipper.jpg"
+        ],
+        "members": ["jin"],
+        "description": "Worldwide Handsome in crystal-clear cuteness 😎💖 This sturdy 1.5-inch, 6mm thick Jin hipper captures his sweet, flirty charm in the most adorable minimal style."
+    }, {
+        "id": 121,
+        "name": "SUGA Hipper",
+        "category": "hipper",
+        "price": 200,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/suga_hipper.jpg"
+        ],
+        "members": ["suga"],
+        "description": "Quiet confidence and iconic swag, pure and simple 🖤 Made in 1.5-inch size with 6mm premium acrylic, this Yoongi hipper shows off that calm, cool Min Yoongi aura beautifully."
+    }, {
+        "id": 122,
+        "name": "JHOPE Hipper",
+        "category": "hipper",
+        "price": 200,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/jhope_hipper.jpg"
+        ],
+        "members": ["jhope"],
+        "description": "Sunshine with a sleek twist ☀️💛 At 1.5 inches and 6mm thickness, Hobi’s clear acrylic hipper radiates warmth, positivity, and his signature confidence."
+    }, {
+        "id": 123,
+        "name": "JIMIN Hipper",
+        "category": "hipper",
+        "price": 200,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/jimin_hipper.jpg"
+        ],
+        "members": ["jimin"],
+        "description": "Sweet smile, soft charm, and that effortless Jimin magic 😌💕 This 1.5-inch, 6mm thick clear acrylic hipper brings out his angelic-but-spicy energy with a clean, fresh finish."
+    }, {
+        "id": 124,
+        "name": "V Hipper",
+        "category": "hipper",
+        "price": 200,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/v_hipper.jpg"
+        ],
+        "members": ["v"],
+        "description": "Tae in clear acrylic perfection — clean, classy, and dangerously charming 😏💜 At 1.5 inches and 6mm thick, this hipper captures his elegant aura and confident vibe in the most minimal, aesthetic way."
+    }, {
+        "id": 125,
+        "name": "JUNGKOOK Hipper",
+        "category": "hipper",
+        "price": 200,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/jungkook_hipper.jpg"
+        ],
+        "members": ["jungkook"],
+        "description": "Innocent eyes with a grown-up edge — Golden Maknae in his cleanest form 💜🔥 This sturdy 1.5-inch, 6mm thick JK hipper keeps things minimal while still delivering that Jungkook impact."
+    }, {
+        "id": 126,
+        "name": "Black Swan Holo Standdee",
+        "category": "standee",
+        "price": 420,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/black_swan1.jpg",
+            "/products/black_swan2.jpg"
+        ],
+        "members": ["ot7"],
+        "description": "A stunning and elegant holographic acrylic standee inspired by Black Swan. Made with 4mm thick premium acrylic, measuring 7.5 inches in height and 4 inches in width. Beautiful light reflections, clean finish, and a perfect display piece for every ARMY 🖤✨"
     }
 
 ];

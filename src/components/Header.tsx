@@ -11,6 +11,7 @@ type CartItem = {
     name: string;
     price: number;
     quantity: number;
+    productType: string;
 };
 
 type HeaderProps = {

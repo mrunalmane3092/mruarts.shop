@@ -11,24 +11,20 @@ router.get('/', async (req, res) => {
 
         // Category filter
         if (category) {
-            const categoryArray = category.split(',');
-            filter.category = { $in: categoryArray };
+            filter.category = { $in: category.split(',') };
         }
 
         // Bias filter
         if (bias) {
-            const biasArray = bias.split(',');
-            filter.members = { $in: biasArray };
+            filter.members = { $in: bias.split(',') };
         }
 
-        // Stock filter (uses your inStock boolean field)
-        if (stock === 'inStock') {
-            filter.inStock = true;
-        } else if (stock === 'outStock') {
-            filter.inStock = false;
-        }
+        // Stock filter
+        if (stock === 'inStock') filter.inStock = true;
+        if (stock === 'outStock') filter.inStock = false;
 
-        const product = await Product.find(filter);
+        const product = await Product.find(filter).sort({ _id: -1 });
+
         res.json(product);
     } catch (error) {
         res.status(500).json({ message: 'Error fetching products', error });

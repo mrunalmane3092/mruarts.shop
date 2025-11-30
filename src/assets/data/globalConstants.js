@@ -16,6 +16,7 @@ export class Products {
     static ENAMEL_PIN = 'enamel_pin';
     static PHOTOCARD = 'photocard';
     static PC_HOLDER = 'pc_holder';
+    static HIPPER = 'hipper';
     static OTHER = 'other';
 }
 

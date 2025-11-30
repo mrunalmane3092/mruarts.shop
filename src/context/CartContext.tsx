@@ -7,6 +7,7 @@ type CartItem = {
     quantity: number;
     totalPrice: number;
     images?: string[];
+    productType: string
 };
 
 interface CartContextType {

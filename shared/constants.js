@@ -16,6 +16,7 @@ module.exports = {
         ENAMEL_PIN: 'enamel_pin',
         PHOTOCARD: 'photocard',
         PC_HOLDER: 'pc_holder',
+        HIPPER: 'hipper',
         OTHER: 'other'
     }
 };
