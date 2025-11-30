@@ -47,7 +47,7 @@ const Shop = () => {
         { key: Products.ENAMEL_PIN, value: "Enamel Pin" },
         { key: Products.PHOTOCARD, value: "Photocards" },
         { key: Products.PC_HOLDER, value: "PC Holder" },
-        { key: Products.HIPPER, value: "hipper" },
+        { key: Products.HIPPER, value: "Hipper" },
         { key: Products.OTHER, value: "Other" },
     ];
 

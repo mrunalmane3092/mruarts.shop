@@ -1526,7 +1526,7 @@ const products = [
         "currency": "INR",
         "inStock": 0,
         "stock": false,
-        "images": ["/products/rm_hipper.jpg"
+        "images": ["/products/rm_hipper.jpeg"
         ],
         "members": ["rm"],
         "description": "Soft, smart, and aesthetically perfect 🤍📚 This 1.5-inch, 6mm thick Namjoon hipper highlights his calm charisma in a clean, modern acrylic look."
@@ -1538,7 +1538,7 @@ const products = [
         "currency": "INR",
         "inStock": false,
         "stock": 0,
-        "images": ["/products/jin_hipper.jpg"
+        "images": ["/products/jin_hipper.jpeg"
         ],
         "members": ["jin"],
         "description": "Worldwide Handsome in crystal-clear cuteness 😎💖 This sturdy 1.5-inch, 6mm thick Jin hipper captures his sweet, flirty charm in the most adorable minimal style."
@@ -1550,7 +1550,7 @@ const products = [
         "currency": "INR",
         "inStock": false,
         "stock": 0,
-        "images": ["/products/suga_hipper.jpg"
+        "images": ["/products/suga_hipper.jpeg"
         ],
         "members": ["suga"],
         "description": "Quiet confidence and iconic swag, pure and simple 🖤 Made in 1.5-inch size with 6mm premium acrylic, this Yoongi hipper shows off that calm, cool Min Yoongi aura beautifully."
@@ -1562,7 +1562,7 @@ const products = [
         "currency": "INR",
         "inStock": false,
         "stock": 0,
-        "images": ["/products/jhope_hipper.jpg"
+        "images": ["/products/jhope_hipper.jpeg"
         ],
         "members": ["jhope"],
         "description": "Sunshine with a sleek twist ☀️💛 At 1.5 inches and 6mm thickness, Hobi’s clear acrylic hipper radiates warmth, positivity, and his signature confidence."
@@ -1574,7 +1574,7 @@ const products = [
         "currency": "INR",
         "inStock": false,
         "stock": 0,
-        "images": ["/products/jimin_hipper.jpg"
+        "images": ["/products/jimin_hipper.jpeg"
         ],
         "members": ["jimin"],
         "description": "Sweet smile, soft charm, and that effortless Jimin magic 😌💕 This 1.5-inch, 6mm thick clear acrylic hipper brings out his angelic-but-spicy energy with a clean, fresh finish."
@@ -1586,7 +1586,7 @@ const products = [
         "currency": "INR",
         "inStock": false,
         "stock": 0,
-        "images": ["/products/v_hipper.jpg"
+        "images": ["/products/v_hipper.jpeg"
         ],
         "members": ["v"],
         "description": "Tae in clear acrylic perfection — clean, classy, and dangerously charming 😏💜 At 1.5 inches and 6mm thick, this hipper captures his elegant aura and confident vibe in the most minimal, aesthetic way."
@@ -1598,7 +1598,7 @@ const products = [
         "currency": "INR",
         "inStock": false,
         "stock": 0,
-        "images": ["/products/jungkook_hipper.jpg"
+        "images": ["/products/jungkook_hipper.jpeg"
         ],
         "members": ["jungkook"],
         "description": "Innocent eyes with a grown-up edge — Golden Maknae in his cleanest form 💜🔥 This sturdy 1.5-inch, 6mm thick JK hipper keeps things minimal while still delivering that Jungkook impact."
@@ -1610,7 +1610,7 @@ const products = [
         "currency": "INR",
         "inStock": false,
         "stock": 0,
-        "images": ["/products/black_swan1.jpg",
+        "images": ["/products/black_swan1.jpeg",
             "/products/black_swan2.jpg"
         ],
         "members": ["ot7"],
