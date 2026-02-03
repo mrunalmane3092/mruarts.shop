@@ -1602,7 +1602,7 @@ const products = [
         ],
         "members": ["jungkook"],
         "description": "Innocent eyes with a grown-up edge — Golden Maknae in his cleanest form 💜🔥 This sturdy 1.5-inch, 6mm thick JK hipper keeps things minimal while still delivering that Jungkook impact."
-    }, {
+    },{
         "id": 126,
         "name": "Black Swan Holo Standdee",
         "category": "standee",
@@ -1615,6 +1615,80 @@ const products = [
         ],
         "members": ["ot7"],
         "description": "A stunning and elegant holographic acrylic standee inspired by Black Swan. Made with 4mm thick premium acrylic, measuring 7.5 inches in height and 4 inches in width. Beautiful light reflections, clean finish, and a perfect display piece for every ARMY 🖤✨"
+    },
+    {
+        "id": 127,
+        "name": "Hotty Tae Lamindated pics (18)",
+        "category": "photocard",
+        "price": 144,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 100,
+        "images": ["/products/tae-badboy-1.jpeg",
+            "/products/tae-badboy-2.jpeg",
+            "/products/tae-badboy-3.jpeg",
+            "/products/tae-badboy-4.jpeg"
+        ],
+        "members": ["v"],
+        "description": "Taehyung Hot Edition Pics 🔥 A set of 18 laminated photos with a stunning glossy finish, made to elevate your collection. Fully customizable — you can also create the same set for your bias 💜 For orders & customization, DM on Instagram: @mruarts.shop ✨"
+    },
+    {
+        "id": 128,
+        "name": "Calender 2026",
+        "category": "standee",
+        "price": 460,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/calendar-2026-1.jpeg",
+            "/products/calendar-2026-2.jpeg",
+            "/products/calendar-2026-3.jpeg",
+            "/products/calendar-2026-4.jpeg"
+        ],
+        "members": ["ot7"],
+        "description": "A cute and functional BT21-themed multilayer acrylic calendar for 2026, crafted from 3mm thick premium acrylic. Designed as both a calendar and mini note holder, it lets you clip reminders and notes while BT21 keeps you motivated to stay focused. With a clean finish, vibrant details, and layered depth, it’s a perfect desk display for every ARMY 💫💜"
+    },
+    {
+        "id": 129,
+        "name": "JKxCK Biker Keychain",
+        "category": "keychain",
+        "price": 320,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/jk-ck-multi1.jpeg"
+        ],
+        "members": ["jungkook"],
+        "description": "JKxCK Keychain – Biker Edition 🔥 A bold 3-part acrylic keychain featuring Biker JK, JK’s tattooed hand, and a sleek JKxCK text charm. Designed with edgy details and a premium finish, this keychain is perfect for fans who love the powerful JKxCK aesthetic. A must-have accessory to elevate your keys or bags 🖤✨"
+    },
+    {
+        "id": 130,
+        "name": "Kiilin It Hobi Keychain",
+        "category": "keychain",
+        "price": 320,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/hots-killing1.jpeg",
+            "/products/calendar-2026-2.jpg",
+            "/products/calendar-2026-3.jpg",
+            "/products/calendar-2026-4.jpg"
+        ],
+        "members": ["jhope"],
+        "description": " J-Hope “Killing It Girl” Theme Keychain 💥 A stylish multi-part acrylic keychain inspired by J-Hope’s bold Killing It Girl energy. Designed with fierce details and a premium finish, this keychain captures his confident, trend-setting vibe perfectly. A must-have accessory for fans who love strong visuals and iconic J-Hope aesthetics 🖤"
+    },
+    {
+        "id": 131,
+        "name": "Run Seok Jin Keychain",
+        "category": "keychain",
+        "price": 320,
+        "currency": "INR",
+        "inStock": false,
+        "stock": 0,
+        "images": ["/products/jin-echo1.jpeg"
+        ],
+        "members": ["jin"],
+        "description": "Jin “Run Seokjin – Echo” Theme Keychain ✨ A sleek acrylic keychain inspired by Run Seokjin’s Echo era, capturing Jin’s calm strength and timeless charm. Designed with elegant details and a premium finish, it’s a perfect accessory for keys or bags and a must-have collectible for every Jin bias 🖤✨"
     }
 
 ];
