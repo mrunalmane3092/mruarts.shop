@@ -1689,6 +1689,18 @@ const products = [
         ],
         "members": ["jin"],
         "description": "Jin “Run Seokjin – Echo” Theme Keychain ✨ A sleek acrylic keychain inspired by Run Seokjin’s Echo era, capturing Jin’s calm strength and timeless charm. Designed with elegant details and a premium finish, it’s a perfect accessory for keys or bags and a must-have collectible for every Jin bias 🖤✨"
+    },
+    {
+        "id": 132,
+        "name": "GQ x ARIRANG Message Photocards",
+        "category": "photocard",
+        "price": 96,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 200,
+        "images": ["/products/GQxARIRANG1.jpeg", "/products/GQxARIRANG2.jpeg"],
+        "members": ["ot7"],
+        "description": "✨ GQ × ARIRANG BTS Message Photocards ✨ Not just photocards but tiny pieces of comfort 💌 each card carries an emotional message from every member, inspired by elegant GQ visuals and soulful ARIRANG vibes. Double-sided printed with double-sided glossy lamination, these premium photocards are made to last and to touch your heart 🥹💜 Read them once and you’ll want to keep them forever — perfect for every ARMY and a lovely gift too. Limited stock, don’t miss out ✨💜"
     }
 
 ];
