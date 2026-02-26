@@ -48,7 +48,7 @@ app.use(async (req, res, next) => {
 // Allow Vercel frontend
 // -----------------------------
 app.use(cors({
-    origin: ["http://localhost:3001", "https://mruarts-shop.vercel.app"],
+    origin: ["http://localhost:3000", "http://localhost:3001", "https://mruarts-shop.vercel.app"],
     methods: ["GET", "POST", "PUT", "DELETE"],
     allowedHeaders: ["Content-Type", "Authorization"]
 }));

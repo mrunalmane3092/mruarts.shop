@@ -29,6 +29,8 @@ const Shop = () => {
 
     const [productData, setProductData] = useState({ data: [] });
 
+    const [isPhotocard, setIsPhotocard] = useState(false)
+
     const bias = [
         { key: Bias.OT7, value: "OT 7" },
         { key: Bias.RM, value: "RM" },
@@ -184,6 +186,10 @@ const Shop = () => {
             stock: stock,
         };
 
+        console.log(prodTypes.data)
+
+        setIsPhotocard(params['category'].includes('photocard'))
+
         API.get("/product", { params })
             .then((res) => {
                 setProductData({ data: res.data });
@@ -269,7 +275,15 @@ const Shop = () => {
                 {loader ? (
                     <Loader />
                 ) : (
+                    <>
+                     {isPhotocard && (
+                            <div className="customOrder-msg">
+                                For custom photo orders, please DM on Instagram @mruarts.shop 💌✨
+                            </div>
+                        )}
                     <div className="product-grid">
+                       
+
                         {productData.data.map((item: any, index: number) => {
                             return (
                                 <div
@@ -334,6 +348,8 @@ const Shop = () => {
                             );
                         })}
                     </div>
+                    </>
+                    
                 )}
 
                 {/* Filters Modal */}
