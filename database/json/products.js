@@ -1701,6 +1701,18 @@ const products = [
         "images": ["/products/GQxARIRANG1.jpeg", "/products/GQxARIRANG2.jpeg"],
         "members": ["ot7"],
         "description": "✨ GQ × ARIRANG BTS Message Photocards ✨ Not just photocards but tiny pieces of comfort 💌 each card carries an emotional message from every member, inspired by elegant GQ visuals and soulful ARIRANG vibes. Double-sided printed with double-sided glossy lamination, these premium photocards are made to last and to touch your heart 🥹💜 Read them once and you’ll want to keep them forever — perfect for every ARMY and a lovely gift too. Limited stock, don’t miss out ✨💜"
+    },
+    {
+        "id": 133,
+        "name": "JungKook Live (26/2/26) ",
+        "category": "photocard",
+        "price": 72,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 200,
+        "images": ["/products/JK-LIVE4-26:2:26.jpeg", "/products/JK-LIVE1-26:2:26.jpeg", "/products/JK-LIVE2-26:2:26.jpeg", "/products/JK-LIVE3-26:2:26.jpeg"],
+        "members": ["jungkook"],
+        "description": "Even Jungkook’s live — though it’s deleted — the comfort and memories from that moment will always stay in our hearts 🥹💜 Single-sided print with premium glossy lamination, made to last and cherish forever. Perfect for every ARMY 💜 Limited stock — don’t miss out ✨"
     }
 
 ];
