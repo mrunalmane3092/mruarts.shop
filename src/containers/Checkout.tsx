@@ -166,11 +166,24 @@ const Checkout = () => {
             const shipping = total < 300 ? 50 : 0;
             const finalTotal = total + shipping;
 
+            const isInternational = localStorage.getItem("INTERNATIONAL") === "true";
+            const usdRate = parseFloat(localStorage.getItem("USD_RATE") ?? "0");
+
+            const formatAmount = (finalTotal: any) => {
+                if (isInternational) {
+                    return (finalTotal * usdRate).toFixed(2); // convert to USD
+                }
+                return finalTotal.toFixed(2); // keep INR
+            };
+
+            const currency = isInternational ? "$" : "₹";
+
             const payload = {
                 customerEmail: formData.email,
                 customerName: formData.name,
-                orderSummary: `Subtotal: ₹${subtotal}
-                ${couponApplied ? `Discount: ₹${discount}\n` : ""}${shipping > 0 ? `Shipping: ₹${shipping}\n` : ""}Total: ₹${finalTotal}
+                orderSummary: `Subtotal: ${currency}${formatAmount(subtotal)}
+                ${couponApplied ? `Discount: ${currency}${formatAmount(discount)}\n` : ""}${shipping > 0 ? `Shipping: ${currency}${formatAmount(shipping)}\n` : ""
+                                    }Total: ${currency}${formatAmount(finalTotal)}
 
                 Items:
                 ${orderSummary}
