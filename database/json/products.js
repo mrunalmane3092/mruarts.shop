@@ -1713,6 +1713,30 @@ const products = [
         "images": ["/products/JK-LIVE4-26:2:26.jpeg", "/products/JK-LIVE1-26:2:26.jpeg", "/products/JK-LIVE2-26:2:26.jpeg", "/products/JK-LIVE3-26:2:26.jpeg"],
         "members": ["jungkook"],
         "description": "Even Jungkook’s live — though it’s deleted — the comfort and memories from that moment will always stay in our hearts 🥹💜 Single-sided print with premium glossy lamination, made to last and cherish forever. Perfect for every ARMY 💜 Limited stock — don’t miss out ✨"
+    },
+    {
+        "id": 134,
+        "name": "JK CK 2026 (Single Side Print)",
+        "category": "photocard",
+        "price": 72,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 200,
+        "images": ["/products/JKCKNew1.jpg"],
+        "members": ["jungkook"],
+        "description": "JK CK 2026 pics that capture the iconic vibe of Jungkook x Calvin Klein — bold, unforgettable, and full of that main-character energy 🔥💜 Printed single-sided with premium glossy lamination for a sleek, long-lasting finish. A must-have collectible to treasure forever."
+    },
+    {
+        "id": 135,
+        "name": "JK CK 2026 (Both Side Print)",
+        "category": "photocard",
+        "price": 108,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 200,
+        "images": ["/products/JKCKNew1.jpg", "/products/JKCKNew2.jpg"],
+        "members": ["jungkook"],
+        "description": "JK CK 2026 pics that capture the iconic vibe of Jungkook x Calvin Klein — bold, unforgettable, and full of that main-character energy 🔥💜 Printed both-sided with premium glossy lamination for a sleek, long-lasting finish. A must-have collectible to treasure forever."
     }
 
 ];
