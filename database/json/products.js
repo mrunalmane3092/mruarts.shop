@@ -1737,6 +1737,24 @@ const products = [
         "images": ["/products/JKCKNew1.jpg", "/products/JKCKNew2.jpg"],
         "members": ["jungkook"],
         "description": "JK CK 2026 pics that capture the iconic vibe of Jungkook x Calvin Klein — bold, unforgettable, and full of that main-character energy 🔥💜 Printed both-sided with premium glossy lamination for a sleek, long-lasting finish. A must-have collectible to treasure forever."
+    },
+    {
+        "id": 136,
+        "name": "ARIRANG TSHIRT",
+        "category": "other",
+        "price": 660,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 200,
+        "images": ["/products/arirang1.jpeg", 
+            "/products/arirang2.jpeg",
+            "/products/arirang3.png",
+            "/products/arirang4.png",
+            "/products/arirang5.png",
+            "/products/arirang6.jpeg"
+        ],
+        "members": ["ot7"],
+        "description": "✨ Arirang Theme T-Shirt for Special Screening Day ✨ A special Arirang-inspired T-shirt made for the upcoming screening day 💜 The front features an Arirang-inspired logo, the question “What is your love song?” and a song list from Arirang, while the back has the Arirang logo with members’ names. The design reflects the meaning of Arirang — sorrow, separation, and reunion — with ARMY and BTS logos on the sleeves. 👕 Color: Red | 📏 Sizes: S, M, L, XL, XXL (Unisex, Relaxed Fit) | 💰 Price: ₹660. Limited pieces available."
     }
 
 ];
