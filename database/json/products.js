@@ -1740,21 +1740,62 @@ const products = [
     },
     {
         "id": 136,
-        "name": "ARIRANG TSHIRT",
-        "category": "other",
-        "price": 660,
+        "name": "JK-CK STAND",
+        "category": "standee",
+        "price": 290,
         "currency": "INR",
         "inStock": true,
-        "stock": 200,
-        "images": ["/products/arirang1.jpeg", 
-            "/products/arirang2.jpeg",
-            "/products/arirang3.png",
-            "/products/arirang4.png",
-            "/products/arirang5.png",
-            "/products/arirang6.jpeg"
+        "stock": 28,
+        "images": ["/products/jkcks1.jpg", 
+            "/products/jkcks2.jpg",
+            "/products/jkcks3.jpg"
         ],
-        "members": ["ot7"],
-        "description": "✨ Arirang Theme T-Shirt for Special Screening Day ✨ A special Arirang-inspired T-shirt made for the upcoming screening day 💜 The front features an Arirang-inspired logo, the question “What is your love song?” and a song list from Arirang, while the back has the Arirang logo with members’ names. The design reflects the meaning of Arirang — sorrow, separation, and reunion — with ARMY and BTS logos on the sleeves. 👕 Color: Red | 📏 Sizes: S, M, L, XL, XXL (Unisex, Relaxed Fit) | 💰 Price: ₹660. Limited pieces available."
+        "members": ["jungkook"],
+        "description": "Meet the JK CK Cute Standee 💖 — a super adorable, pocket-sized companion you can carry anywhere! With a sturdy 8mm thickness and 2 inches tall and no base, it’s lightweight, durable, and easy to slip into your pocket, wallet, or bag. Perfect as a cute collectible or a tiny decor piece, this standee brings charm and cuteness wherever you go ✨"
+    },
+    {
+        "id": 137,
+        "name": "Taekook Holding Hands",
+        "category": "standee",
+        "price": 290,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 28,
+        "images": ["/products/taekookh1.jpg", 
+            "/products/taekookh2.jpg",
+            "/products/taekookh3.jpg"
+        ],
+        "members": ["jungkook", "v"],
+        "description": "The Taekook Holding Hands Standee 💜 is a must-have for every Taekook shipper, capturing the adorable moment of them holding hands that fans cherish so much. Standing at 2.5 inches tall with a 4mm thickness, it’s cute, compact, and perfect to keep as a meaningful little collectible that reminds you of their special bond every day ✨"
+    },
+    {
+        "id": 138,
+        "name": "Suga-Tang On Swing",
+        "category": "standee",
+        "price": 290,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 29,
+        "images": ["/products/sugaw1.jpg", 
+            "/products/sugaw2.jpg",
+            "/products/sugaw3.jpg"
+        ],
+        "members": ["suga"],
+        "description": "The Suga & Tang Swing Standee 💜 is an adorable must-have for fans, featuring tiny 1.5-inch characters that gently swing like a boat for an extra playful touch. Cute, fun, and full of charm, this unique standee adds a delightful vibe to your collection and is perfect to keep anywhere ✨"
+    },
+    {
+        "id": 139,
+        "name": "Suga-Tang Travel Companion",
+        "category": "standee",
+        "price": 290,
+        "currency": "INR",
+        "inStock": true,
+        "stock": 29,
+        "images": ["/products/sugas1.jpg", 
+            "/products/sugas2.jpg"
+        ],
+        "members": ["suga"],
+        "description": "The Suga & Tang Travel Companion Standee 💜 is the perfect little buddy for your car, designed as a cute sprint standee so Suga and Tang can go wherever you go! With a compact 1.5-inch size and 4mm thickness, it’s lightweight, durable, and ideal for adding a fun, adorable touch to your journeys ✨"
     }
 
 ];
