@@ -16,13 +16,14 @@ const Checkout = () => {
     const location = useLocation();
     const navigate = useNavigate();
     const { clearCart } = useCart();
-    const { cartItems, subtotal, discount, total, couponApplied } =
+    const { cartItems, subtotal, discount, total, couponApplied, otherThanPhotocardPrice } =
         location.state || {
             cartItems: [],
             subtotal: 0,
             discount: 0,
             total: 0,
             couponApplied: false,
+            otherThanPhotocardPrice: 0
         };
 
     // Add shipping logic
@@ -290,7 +291,7 @@ const Checkout = () => {
                                 <span>₹{subtotal}</span>
                             </div>
 
-                            {total < 300 && (
+                            {otherThanPhotocardPrice < 300 && (
                                 <div className="summary-item">
                                     <span>Shipping:</span>
                                     <span>₹50</span>
@@ -300,7 +301,7 @@ const Checkout = () => {
                             {couponApplied && discount > 0 && (
                                 <div className="summary-item discount">
                                     <span>Discount:</span>
-                                    <span>- ₹{discount}</span>
+                                    <span>- ₹{(discount).toFixed(2)}</span>
                                 </div>
                             )}
                         </>

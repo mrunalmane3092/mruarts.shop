@@ -25,6 +25,8 @@ const Cart = (props: any) => {
     const [subtotal, setSubtotal] = useState(0);
     const [totalDiscount, setTotalDiscount] = useState(0);
     const [subtotalWithoutDiscount, subTotalWithoutDiscount] = useState(0);
+    const [otherThanPhotocardPrice, setOtherThanPhotocardPrice] = useState(0);
+
 
 
 
@@ -48,7 +50,7 @@ const Cart = (props: any) => {
 
 
     // callback for coupon
-    const total = subtotal - discount;
+    const total = subtotal - discount + (otherThanPhotocardPrice < 300 ? 50 : 0);
 
 
     useEffect(() => {
@@ -93,9 +95,17 @@ const Cart = (props: any) => {
         })
 
         subTotalWithoutDiscount(cnt)
+
+        let t_price = 0
+        cartData.data.map((item: any) => {
+            if (item.productType !== 'photocard') {
+                t_price = t_price + item.totalPrice
+            }
+        })
+
+        setOtherThanPhotocardPrice(t_price)
+
     }, [cartData]); // <-- RUN ONLY WHEN cartData CHANGES
-
-
 
     // callback for coupon
     const handleCoupon = (discountValue: number, applied: boolean) => {
@@ -110,7 +120,8 @@ const Cart = (props: any) => {
                 subtotal,
                 discount,
                 total,
-                couponApplied // ✅ pass to checkout
+                couponApplied,
+                otherThanPhotocardPrice
             }
         });
     };
@@ -227,7 +238,8 @@ const Cart = (props: any) => {
                                 {/* Final Total */}
                                 <div className="final-total">
                                     <span>Total:</span>
-                                    {total < 300 && <small> (including ₹50 shipping)</small>}
+
+                                    {otherThanPhotocardPrice < 300 && <small> (including ₹50 shipping)</small>}
                                     <strong>
                                         ₹{(total < 300 ? total + 50 : total).toFixed(2)}
                                     </strong>
