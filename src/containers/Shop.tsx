@@ -318,9 +318,10 @@ const Shop = () => {
                                                 <button
                                                     onClick={(e) => handleAddToCart(e, item)}
                                                     className="quantity-btns"
-                                                    disabled={
-                                                        item.stock <= (cartProducts[item.id]?.quantity || 0)
-                                                    }
+                                                    // disabled={
+                                                    //     item.stock <= (cartProducts[item.id]?.quantity || 0)
+                                                    // }
+                                                    disabled={true}
                                                 >
                                                     <Plus
                                                         size={20}
@@ -331,10 +332,11 @@ const Shop = () => {
                                                 <span>{cartProducts[item.id]?.quantity || 0}</span>
                                                 <button
                                                     onClick={(e) => handleDecrement(e, item.id)}
-                                                    disabled={
-                                                        !cartProducts[item.id] ||
-                                                        cartProducts[item.id].quantity < 1
-                                                    }
+                                                    // disabled={
+                                                    //     !cartProducts[item.id] ||
+                                                    //     cartProducts[item.id].quantity < 1
+                                                    // }
+                                                    disabled={true}
                                                     className="quantity-btns"
                                                 >
                                                     <Minus
