@@ -159,7 +159,8 @@ const Shop = () => {
                 } else {
                     localStorage.setItem('INTERNATIONAL', 'false')
                 }
-            });
+            })
+            .catch(() => {});
     }, []);
 
     const handleImageClick = (product: any) => {
@@ -222,7 +223,25 @@ const Shop = () => {
 
     return (
         <>
-            <section className="main-section">
+            <section className="main-section" style={{ position: 'relative' }}>
+                <div style={{
+                    position: 'fixed',
+                    top: 70,
+                    left: 0,
+                    width: '100%',
+                    height: '100%',
+                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
+                    display: 'flex',
+                    alignItems: 'center',
+                    justifyContent: 'center',
+                    zIndex: 9999,
+                    color: '#fff',
+                    fontSize: '1.5rem',
+                    textAlign: 'center',
+                    padding: '2rem',
+                }}>
+                    <p>🚧 Shop is closed till July. Stay tuned! 💜</p>
+                </div>
                 <Header cartProducts={cartProducts} />
                 <div className="filter-section">
                     <div className="button-group">
