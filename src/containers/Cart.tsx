@@ -241,7 +241,7 @@ const Cart = (props: any) => {
 
                                     {otherThanPhotocardPrice < 300 && <small> (including ₹50 shipping)</small>}
                                     <strong>
-                                        ₹{(total < 300 ? total + 50 : total).toFixed(2)}
+                                        ₹{total.toFixed(2)}
                                     </strong>
                                 </div>
                             </>
