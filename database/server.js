@@ -104,10 +104,7 @@ cron.schedule("59 23 * * *", async () => {
 // -----------------------------
 // MongoDB connect
 // -----------------------------
-mongoose.connect(process.env.MONGODB_URI, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+mongoose.connect(process.env.MONGODB_URI)
     .then(() => {
         console.log('✅ MongoDB Connected');
         const PORT = process.env.PORT || 5000;

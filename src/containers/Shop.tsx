@@ -151,14 +151,11 @@ const Shop = () => {
 
 
     useEffect(() => {
+        if (localStorage.getItem('INTERNATIONAL') !== null) return;
         fetch("https://ipapi.co/json/")
             .then(res => res.json())
             .then(data => {
-                if (data.country_name !== "India") {
-                    localStorage.setItem('INTERNATIONAL', 'true')
-                } else {
-                    localStorage.setItem('INTERNATIONAL', 'false')
-                }
+                localStorage.setItem('INTERNATIONAL', data.country_name !== "India" ? 'true' : 'false');
             })
             .catch(() => {});
     }, []);
@@ -224,24 +221,6 @@ const Shop = () => {
     return (
         <>
             <section className="main-section" style={{ position: 'relative' }}>
-                <div style={{
-                    position: 'fixed',
-                    top: 70,
-                    left: 0,
-                    width: '100%',
-                    height: '100%',
-                    backgroundColor: 'rgba(0, 0, 0, 0.5)',
-                    display: 'flex',
-                    alignItems: 'center',
-                    justifyContent: 'center',
-                    zIndex: 9999,
-                    color: '#fff',
-                    fontSize: '1.5rem',
-                    textAlign: 'center',
-                    padding: '2rem',
-                }}>
-                    <p>🚧 Shop is closed till July. Stay tuned! 💜</p>
-                </div>
                 <Header cartProducts={cartProducts} />
                 <div className="filter-section">
                     <div className="button-group">
@@ -318,10 +297,10 @@ const Shop = () => {
                                                 <button
                                                     onClick={(e) => handleAddToCart(e, item)}
                                                     className="quantity-btns"
-                                                    // disabled={
-                                                    //     item.stock <= (cartProducts[item.id]?.quantity || 0)
-                                                    // }
-                                                    disabled={true}
+                                                    disabled={
+                                                        item.stock <= (cartProducts[item.id]?.quantity || 0)
+                                                    }
+                                                    // disabled={true}
                                                 >
                                                     <Plus
                                                         size={20}
@@ -332,11 +311,11 @@ const Shop = () => {
                                                 <span>{cartProducts[item.id]?.quantity || 0}</span>
                                                 <button
                                                     onClick={(e) => handleDecrement(e, item.id)}
-                                                    // disabled={
-                                                    //     !cartProducts[item.id] ||
-                                                    //     cartProducts[item.id].quantity < 1
-                                                    // }
-                                                    disabled={true}
+                                                    disabled={
+                                                        !cartProducts[item.id] ||
+                                                        cartProducts[item.id].quantity < 1
+                                                    }
+                                                    // disabled={true}
                                                     className="quantity-btns"
                                                 >
                                                     <Minus
