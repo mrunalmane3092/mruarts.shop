@@ -1893,7 +1893,104 @@ const products = [
     "images": ["/products/ARIRANG_JUNGKOOK.jpg"],
     "members": ["jungkook"],
     "description": "The Jung Kook Arirang Acrylic Keychain ⭐ celebrates Jung Kook's adventurous spirit with a charming Arirang-inspired design. Made with durable 3mm acrylic, it's lightweight, sturdy, and perfect for decorating your keys, bags, or backpack while carrying a little piece of BTS wherever you go ✨"
+  },
+  {
+    "id": 148,
+    "name": "VINYL OT7",
+    "category": "keychain",
+    "price": 360,
+    "currency": "INR",
+    "inStock": true,
+    "stock": 10,
+    "images": ["/products/VINYL_OT7.jpg"],
+    "members": ["ot7"],
+    "description": "The OT7 Vinyl Mini Model Keychain 💜 brings all seven members together in one adorable collectible. Crafted from premium 6mm thick acrylic in an original vinyl mini model design, it features built-in NFC, allowing you to set your own favorite music, playlist, or special link with a simple tap. Lightweight, durable, and perfect for your keys, bags, or backpack, it's a must-have keepsake for every ARMY. ✨"
+  },
+  {
+    "id": 149,
+    "name": "VINYL RM",
+    "category": "keychain",
+    "price": 360,
+    "currency": "INR",
+    "inStock": true,
+    "stock": 10,
+    "images": ["/products/VINYL_RM.jpg"],
+    "members": ["rm"],
+    "description": "The RM Vinyl Mini Model Keychain 🐨 is crafted from premium 6mm thick acrylic in an original vinyl mini model design. Featuring built-in NFC, you can set your own favorite music, playlist, or special link with a simple tap. Lightweight, durable, and perfect for carrying a little piece of RM wherever you go. ✨"
+  },
+  {
+    "id": 150,
+    "name": "VINYL JIN",
+    "category": "keychain",
+    "price": 360,
+    "currency": "INR",
+    "inStock": true,
+    "stock": 7,
+    "images": ["/products/VINYL_JIN.jpg"],
+    "members": ["jin"],
+    "description": "The Jin Vinyl Mini Model Keychain 🦙 is crafted from premium 6mm thick acrylic in an original vinyl mini model design. With built-in NFC, you can personalize it by setting your own favorite music, playlist, or special link. Lightweight, durable, and perfect for your keys, bags, or backpack. ✨"
+  },
+  {
+    "id": 151,
+    "name": "VINYL SUGA",
+    "category": "keychain",
+    "price": 360,
+    "currency": "INR",
+    "inStock": true,
+    "stock": 5,
+    "images": ["/products/VINYL_SUGA.jpg"],
+    "members": ["suga"],
+    "description": "The SUGA Vinyl Mini Model Keychain 🐱 is crafted from premium 6mm thick acrylic in an original vinyl mini model design. Built-in NFC lets you set your own favorite music, playlist, or special link with a simple tap. Lightweight, sturdy, and perfect for everyday carry. ✨"
+  },
+  {
+    "id": 152,
+    "name": "VINYL J-HOPE",
+    "category": "keychain",
+    "price": 360,
+    "currency": "INR",
+    "inStock": true,
+    "stock": 6,
+    "images": ["/products/VINYL_JHOPE.jpg"],
+    "members": ["jhope"],
+    "description": "The J-Hope Vinyl Mini Model Keychain 🌞 is crafted from premium 6mm thick acrylic in an original vinyl mini model design. It includes built-in NFC, allowing you to set your own favorite music, playlist, or special link with a simple tap. Lightweight, durable, and perfect for adding a little sunshine wherever you go. ✨"
+  },
+  {
+    "id": 153,
+    "name": "VINYL JIMIN",
+    "category": "keychain",
+    "price": 360,
+    "currency": "INR",
+    "inStock": true,
+    "stock": 7,
+    "images": ["/products/VINYL_JIMIN.jpg"],
+    "members": ["jimin"],
+    "description": "The Jimin Vinyl Mini Model Keychain 🐥 is crafted from premium 6mm thick acrylic in an original vinyl mini model design. Featuring built-in NFC, you can set your own favorite music, playlist, or special link with a simple tap. Lightweight, durable, and perfect for your keys, bags, or backpack. ✨"
+  },
+  {
+    "id": 154,
+    "name": "VINYL V",
+    "category": "keychain",
+    "price": 360,
+    "currency": "INR",
+    "inStock": true,
+    "stock": 5,
+    "images": ["/products/VINYL_V.jpg"],
+    "members": ["v"],
+    "description": "The V Vinyl Mini Model Keychain 🐻 is crafted from premium 6mm thick acrylic in an original vinyl mini model design. It comes with built-in NFC, allowing you to set your own favorite music, playlist, or special link with a simple tap. Lightweight, durable, and a stylish accessory for every ARMY. ✨"
+  },
+  {
+    "id": 155,
+    "name": "VINYL JUNG KOOK",
+    "category": "keychain",
+    "price": 360,
+    "currency": "INR",
+    "inStock": true,
+    "stock": 4,
+    "images": ["/products/VINYL_JUNGKOOK.jpg"],
+    "members": ["jungkook"],
+    "description": "The Jung Kook Vinyl Mini Model Keychain ⭐ is crafted from premium 6mm thick acrylic in an original vinyl mini model design. Featuring built-in NFC, you can set your own favorite music, playlist, or special link with a simple tap. Lightweight, durable, and perfect for carrying a little piece of Jung Kook wherever you go. ✨"
   }
+
 
 ];
 export default products;
