@@ -269,7 +269,6 @@ const Shop = () => {
                     )}
 
                 </div>
-
                 {loader ? (
                     <Loader />
                 ) : (
